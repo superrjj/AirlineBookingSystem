@@ -33,6 +33,8 @@
             this.closeIcon = new System.Windows.Forms.PictureBox();
             this.lblFullname = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.btnHistory = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnMyFlight = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -40,15 +42,13 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.Button();
             this.mainPanel = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.btnHistory = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeIcon)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -93,8 +93,33 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 72);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(156, 494);
+            this.panel2.Size = new System.Drawing.Size(169, 494);
             this.panel2.TabIndex = 1;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.btnHistory);
+            this.panel6.Location = new System.Drawing.Point(0, 146);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(156, 43);
+            this.panel6.TabIndex = 3;
+            // 
+            // btnHistory
+            // 
+            this.btnHistory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnHistory.FlatAppearance.BorderSize = 0;
+            this.btnHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistory.ForeColor = System.Drawing.Color.White;
+            this.btnHistory.Image = ((System.Drawing.Image)(resources.GetObject("btnHistory.Image")));
+            this.btnHistory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHistory.Location = new System.Drawing.Point(0, 0);
+            this.btnHistory.Name = "btnHistory";
+            this.btnHistory.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnHistory.Size = new System.Drawing.Size(156, 43);
+            this.btnHistory.TabIndex = 0;
+            this.btnHistory.Text = "  History";
+            this.btnHistory.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
@@ -178,36 +203,11 @@
             // 
             this.mainPanel.BackColor = System.Drawing.SystemColors.Control;
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainPanel.Location = new System.Drawing.Point(156, 72);
+            this.mainPanel.Location = new System.Drawing.Point(169, 72);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.mainPanel.Size = new System.Drawing.Size(908, 494);
+            this.mainPanel.Size = new System.Drawing.Size(895, 494);
             this.mainPanel.TabIndex = 2;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.btnHistory);
-            this.panel6.Location = new System.Drawing.Point(0, 146);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(156, 43);
-            this.panel6.TabIndex = 3;
-            // 
-            // btnHistory
-            // 
-            this.btnHistory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnHistory.FlatAppearance.BorderSize = 0;
-            this.btnHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHistory.ForeColor = System.Drawing.Color.White;
-            this.btnHistory.Image = ((System.Drawing.Image)(resources.GetObject("btnHistory.Image")));
-            this.btnHistory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHistory.Location = new System.Drawing.Point(0, 0);
-            this.btnHistory.Name = "btnHistory";
-            this.btnHistory.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnHistory.Size = new System.Drawing.Size(156, 43);
-            this.btnHistory.TabIndex = 0;
-            this.btnHistory.Text = "  History";
-            this.btnHistory.UseVisualStyleBackColor = true;
             // 
             // UserDashboard
             // 
@@ -226,10 +226,10 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeIcon)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
