@@ -14,10 +14,12 @@ namespace AirlineBookingSystem
 
     public partial class Login : Form
     {
+        
         SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\INIMAF\Downloads\Group-3 System\AirlineBookingSystem\AirlineBookingSystem\AirlineBookingDB.mdf"";Integrated Security=True");
         public Login()
         {
             InitializeComponent();
+           
         }
 
         private void pictureClose_Click(object sender, EventArgs e)
@@ -90,6 +92,12 @@ namespace AirlineBookingSystem
                     connect.Close();
                 }
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            
+           
         }
     }
 }
