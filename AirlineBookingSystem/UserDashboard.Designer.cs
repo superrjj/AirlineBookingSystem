@@ -172,7 +172,7 @@
             // 
             // mainPanel
             // 
-            this.mainPanel.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.mainPanel.BackColor = System.Drawing.SystemColors.Control;
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(156, 72);
             this.mainPanel.Name = "mainPanel";

@@ -56,6 +56,7 @@ namespace AirlineBookingSystem
 
         private void btnMyFlight_Click(object sender, EventArgs e)
         {
+            openChildForm(new Booked_History());
             PersonalInformation myFlightDashboard = new PersonalInformation();
             myFlightDashboard.ShowDialog();
 
