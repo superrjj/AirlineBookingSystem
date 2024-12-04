@@ -73,6 +73,12 @@
     <Compile Include="CreateAccount.Designer.cs">
       <DependentUpon>CreateAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="HomeModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeModule.Designer.cs">
+      <DependentUpon>HomeModule.cs</DependentUpon>
+    </Compile>
     <Compile Include="PersonalInformation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,11 +92,11 @@
       <DependentUpon>UserDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="DBConnect.cs" />
-    <Compile Include="HomeModule.cs">
+    <Compile Include="PromoModule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HomeModule.Designer.cs">
-      <DependentUpon>HomeModule.cs</DependentUpon>
+    <Compile Include="PromoModule.Designer.cs">
+      <DependentUpon>PromoModule.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -106,14 +112,17 @@
     <EmbeddedResource Include="CreateAccount.resx">
       <DependentUpon>CreateAccount.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HomeModule.resx">
+      <DependentUpon>HomeModule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PersonalInformation.resx">
       <DependentUpon>PersonalInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserDashboard.resx">
       <DependentUpon>UserDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HomeModule.resx">
-      <DependentUpon>HomeModule.cs</DependentUpon>
+    <EmbeddedResource Include="PromoModule.resx">
+      <DependentUpon>PromoModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

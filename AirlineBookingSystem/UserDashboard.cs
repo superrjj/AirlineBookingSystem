@@ -54,10 +54,16 @@ namespace AirlineBookingSystem
             openChildForm(new HomeModule());
         }
 
-        private void btnMyFlight_Click(object sender, EventArgs e)
+       
+
+        private void btnMyFlight_Click_1(object sender, EventArgs e)
         {
             openChildForm(new PersonalInformation());
         }
 
+        private void btnDiscount_Click(object sender, EventArgs e)
+        {
+            openChildForm(new PromoModule());
+        }
     }
 }

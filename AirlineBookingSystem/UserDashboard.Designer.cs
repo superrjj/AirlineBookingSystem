@@ -34,18 +34,21 @@
             this.lblFullname = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.btnMyFlight = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnDiscount = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.Button();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.btnHistory = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeIcon)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -83,6 +86,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
@@ -94,36 +98,11 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.button3);
+            this.panel5.Controls.Add(this.btnMyFlight);
             this.panel5.Location = new System.Drawing.Point(0, 104);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(156, 48);
+            this.panel5.Size = new System.Drawing.Size(156, 38);
             this.panel5.TabIndex = 2;
-            // 
-            // button3
-            // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(0, 0);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(156, 48);
-            this.button3.TabIndex = 3;
-            this.button3.Text = " History";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.btnMyFlight);
-            this.panel4.Location = new System.Drawing.Point(0, 55);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(156, 44);
-            this.panel4.TabIndex = 1;
             // 
             // btnMyFlight
             // 
@@ -137,11 +116,36 @@
             this.btnMyFlight.Location = new System.Drawing.Point(0, 0);
             this.btnMyFlight.Name = "btnMyFlight";
             this.btnMyFlight.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnMyFlight.Size = new System.Drawing.Size(156, 44);
-            this.btnMyFlight.TabIndex = 0;
+            this.btnMyFlight.Size = new System.Drawing.Size(156, 38);
+            this.btnMyFlight.TabIndex = 3;
             this.btnMyFlight.Text = "    My Flight";
             this.btnMyFlight.UseVisualStyleBackColor = true;
-            this.btnMyFlight.Click += new System.EventHandler(this.btnMyFlight_Click);
+            this.btnMyFlight.Click += new System.EventHandler(this.btnMyFlight_Click_1);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.btnDiscount);
+            this.panel4.Location = new System.Drawing.Point(0, 55);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(156, 44);
+            this.panel4.TabIndex = 1;
+            // 
+            // btnDiscount
+            // 
+            this.btnDiscount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDiscount.FlatAppearance.BorderSize = 0;
+            this.btnDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDiscount.ForeColor = System.Drawing.Color.White;
+            this.btnDiscount.Image = ((System.Drawing.Image)(resources.GetObject("btnDiscount.Image")));
+            this.btnDiscount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDiscount.Location = new System.Drawing.Point(0, 0);
+            this.btnDiscount.Name = "btnDiscount";
+            this.btnDiscount.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnDiscount.Size = new System.Drawing.Size(156, 44);
+            this.btnDiscount.TabIndex = 0;
+            this.btnDiscount.Text = "    Discount";
+            this.btnDiscount.Click += new System.EventHandler(this.btnDiscount_Click);
             // 
             // panel3
             // 
@@ -176,8 +180,34 @@
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(156, 72);
             this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.mainPanel.Size = new System.Drawing.Size(908, 494);
             this.mainPanel.TabIndex = 2;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.btnHistory);
+            this.panel6.Location = new System.Drawing.Point(0, 146);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(156, 43);
+            this.panel6.TabIndex = 3;
+            // 
+            // btnHistory
+            // 
+            this.btnHistory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnHistory.FlatAppearance.BorderSize = 0;
+            this.btnHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistory.ForeColor = System.Drawing.Color.White;
+            this.btnHistory.Image = ((System.Drawing.Image)(resources.GetObject("btnHistory.Image")));
+            this.btnHistory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHistory.Location = new System.Drawing.Point(0, 0);
+            this.btnHistory.Name = "btnHistory";
+            this.btnHistory.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnHistory.Size = new System.Drawing.Size(156, 43);
+            this.btnHistory.TabIndex = 0;
+            this.btnHistory.Text = "  History";
+            this.btnHistory.UseVisualStyleBackColor = true;
             // 
             // UserDashboard
             // 
@@ -199,6 +229,7 @@
             this.panel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -212,9 +243,11 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btnDiscount;
         private System.Windows.Forms.Button btnMyFlight;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel mainPanel;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Button btnHistory;
     }
 }
