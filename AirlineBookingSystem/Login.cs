@@ -32,7 +32,7 @@ namespace AirlineBookingSystem
         {
             txtPassword.UseSystemPasswordChar = !chkShowPass.Checked;
         }
-
+        //Create account
         private void lblCreateOne_Click(object sender, EventArgs e)
         {
             CreateAccount create = new CreateAccount();
