@@ -56,13 +56,13 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1117, 72);
+            this.panel1.Size = new System.Drawing.Size(1064, 72);
             this.panel1.TabIndex = 0;
             // 
             // closeIcon
             // 
             this.closeIcon.Image = ((System.Drawing.Image)(resources.GetObject("closeIcon.Image")));
-            this.closeIcon.Location = new System.Drawing.Point(1076, 2);
+            this.closeIcon.Location = new System.Drawing.Point(1025, 3);
             this.closeIcon.Name = "closeIcon";
             this.closeIcon.Size = new System.Drawing.Size(39, 29);
             this.closeIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -176,14 +176,14 @@
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(156, 72);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(961, 494);
+            this.mainPanel.Size = new System.Drawing.Size(908, 494);
             this.mainPanel.TabIndex = 2;
             // 
             // UserDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1117, 566);
+            this.ClientSize = new System.Drawing.Size(1064, 566);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

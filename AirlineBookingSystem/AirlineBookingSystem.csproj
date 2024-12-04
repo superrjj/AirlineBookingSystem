@@ -61,11 +61,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Booked_History.cs">
+    <Compile Include="History.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Booked_History.Designer.cs">
-      <DependentUpon>Booked_History.cs</DependentUpon>
+    <Compile Include="History.Designer.cs">
+      <DependentUpon>History.cs</DependentUpon>
     </Compile>
     <Compile Include="CreateAccount.cs">
       <SubType>Form</SubType>
@@ -100,8 +100,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Booked_History.resx">
-      <DependentUpon>Booked_History.cs</DependentUpon>
+    <EmbeddedResource Include="History.resx">
+      <DependentUpon>History.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateAccount.resx">
       <DependentUpon>CreateAccount.cs</DependentUpon>

@@ -167,10 +167,9 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(613, 50);
+            this.panel1.Size = new System.Drawing.Size(927, 50);
             this.panel1.TabIndex = 12;
             // 
             // btnCancel
@@ -178,7 +177,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.btnCancel.Location = new System.Drawing.Point(17, 349);
+            this.btnCancel.Location = new System.Drawing.Point(17, 423);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(105, 33);
             this.btnCancel.TabIndex = 13;
@@ -324,7 +323,7 @@
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.ForeColor = System.Drawing.Color.White;
-            this.btnNext.Location = new System.Drawing.Point(484, 349);
+            this.btnNext.Location = new System.Drawing.Point(484, 411);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(105, 33);
             this.btnNext.TabIndex = 25;
@@ -335,7 +334,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(613, 402);
+            this.ClientSize = new System.Drawing.Size(927, 502);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.dtBirthday);
             this.Controls.Add(this.label12);
