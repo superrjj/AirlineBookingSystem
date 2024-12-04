@@ -27,7 +27,7 @@ namespace AirlineBookingSystem
                 Application.Exit();
             }
         }
-
+        //showpass
         private void chkShowPass_CheckedChanged(object sender, EventArgs e)
         {
             txtPassword.UseSystemPasswordChar = !chkShowPass.Checked;
@@ -39,7 +39,7 @@ namespace AirlineBookingSystem
             create.Show();
             this.Hide();
         }
-//Login button
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
 
