@@ -18,6 +18,7 @@ namespace AirlineBookingSystem
         {
             InitializeComponent();
             userFullName = fullName;
+            LoadHome();
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
@@ -51,7 +52,7 @@ namespace AirlineBookingSystem
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            openChildForm(new HomeModule());
+            openChildForm(new PromoModule());
         }
 
        
@@ -67,5 +68,14 @@ namespace AirlineBookingSystem
         {
             openChildForm(new PromoModule());
         }
+
+        public void LoadHome()
+        {
+
+            openChildForm(new PromoModule());
+        
+        }
+
+
     }
 }

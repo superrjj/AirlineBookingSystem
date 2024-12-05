@@ -15,7 +15,7 @@ namespace AirlineBookingSystem
     public partial class Login : Form
     {
         
-        SqlConnection connect = new SqlConnection(@"Data Source=PC02\SQLEXPRESS;Initial Catalog=AirlineBookingDB;Integrated Security=True;TrustServerCertificate=True");
+        SqlConnection connect = new SqlConnection(@"Data Source=MSI\SQLEXPRESS;Initial Catalog=AirlineBookingDB;Integrated Security=True;TrustServerCertificate=True");
         public Login()
         {
             InitializeComponent();
@@ -58,7 +58,7 @@ namespace AirlineBookingSystem
                     connect.Open();
 
                     // Query to validate the username and password
-                    string selectData = "SELECT fullName FROM Account WHERE username = @username AND password = @password";
+                    string selectData = "SELECT fullName FROM UserAccount WHERE username = @username AND password = @password";
                     using (SqlCommand cmd = new SqlCommand(selectData, connect))
                     {
                         cmd.Parameters.AddWithValue("@username", txtUsername.Text);

@@ -13,7 +13,7 @@ namespace AirlineBookingSystem
 {
     public partial class CreateAccount : Form
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=PC02\SQLEXPRESS;Initial Catalog=AirlineBookingDB;Integrated Security=True;TrustServerCertificate=True");
+        SqlConnection connect = new SqlConnection(@"Data Source=MSI\SQLEXPRESS;Initial Catalog=AirlineBookingDB;Integrated Security=True;TrustServerCertificate=True");
         public CreateAccount()
         {
             InitializeComponent();
@@ -59,7 +59,7 @@ namespace AirlineBookingSystem
                 connect.Open();
 
                 // Check if the username already exists
-                string checkQuery = "SELECT COUNT(*) FROM Account WHERE username = @username";
+                string checkQuery = "SELECT COUNT(*) FROM UserAccount WHERE username = @username";
                 SqlCommand checkCmd = new SqlCommand(checkQuery, connect);
                 checkCmd.Parameters.AddWithValue("@username", username);
                 int userCount = (int)checkCmd.ExecuteScalar();
@@ -71,7 +71,7 @@ namespace AirlineBookingSystem
                 else
                 {
                     // Insert the new user into the database
-                    string insertQuery = "INSERT INTO Account (fullName, username, password) VALUES (@fullname, @username, @password)";
+                    string insertQuery = "INSERT INTO UserAccount (fullName, username, password) VALUES (@fullname, @username, @password)";
                     SqlCommand insertCmd = new SqlCommand(insertQuery, connect);
                     insertCmd.Parameters.AddWithValue("@fullname", fullName);
                     insertCmd.Parameters.AddWithValue("@username", username);
@@ -100,6 +100,11 @@ namespace AirlineBookingSystem
             {
                 connect.Close();
             }
+        }
+
+        private void CreateAccount_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
