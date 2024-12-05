@@ -41,7 +41,7 @@
             this.btnDiscount = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.Button();
-            this.mainPanel = new System.Windows.Forms.Panel();
+            this.userPanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeIcon)).BeginInit();
             this.panel2.SuspendLayout();
@@ -59,13 +59,13 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1064, 72);
+            this.panel1.Size = new System.Drawing.Size(1125, 72);
             this.panel1.TabIndex = 0;
             // 
             // closeIcon
             // 
             this.closeIcon.Image = ((System.Drawing.Image)(resources.GetObject("closeIcon.Image")));
-            this.closeIcon.Location = new System.Drawing.Point(1025, 3);
+            this.closeIcon.Location = new System.Drawing.Point(1083, 3);
             this.closeIcon.Name = "closeIcon";
             this.closeIcon.Size = new System.Drawing.Size(39, 29);
             this.closeIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -199,22 +199,20 @@
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // mainPanel
+            // userPanel
             // 
-            this.mainPanel.BackColor = System.Drawing.SystemColors.Control;
-            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainPanel.Location = new System.Drawing.Point(169, 72);
-            this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.mainPanel.Size = new System.Drawing.Size(895, 494);
-            this.mainPanel.TabIndex = 2;
+            this.userPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userPanel.Location = new System.Drawing.Point(169, 72);
+            this.userPanel.Name = "userPanel";
+            this.userPanel.Size = new System.Drawing.Size(956, 494);
+            this.userPanel.TabIndex = 2;
             // 
             // UserDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 566);
-            this.Controls.Add(this.mainPanel);
+            this.ClientSize = new System.Drawing.Size(1125, 566);
+            this.Controls.Add(this.userPanel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -246,8 +244,8 @@
         private System.Windows.Forms.Button btnDiscount;
         private System.Windows.Forms.Button btnMyFlight;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnHistory;
+        private System.Windows.Forms.Panel userPanel;
     }
 }

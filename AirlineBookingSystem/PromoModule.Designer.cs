@@ -133,7 +133,7 @@
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(542, 0);
+            this.panel1.Location = new System.Drawing.Point(721, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(13, 675);
             this.panel1.TabIndex = 0;
@@ -156,7 +156,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(542, 675);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(721, 675);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // Home1
@@ -383,7 +383,7 @@
             this.panel5.Controls.Add(this.label16);
             this.panel5.Controls.Add(this.label14);
             this.panel5.Controls.Add(this.label15);
-            this.panel5.Location = new System.Drawing.Point(3, 236);
+            this.panel5.Location = new System.Drawing.Point(522, 3);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(167, 227);
             this.panel5.TabIndex = 3;
@@ -455,7 +455,7 @@
             this.panel6.Controls.Add(this.label18);
             this.panel6.Controls.Add(this.label20);
             this.panel6.Controls.Add(this.label19);
-            this.panel6.Location = new System.Drawing.Point(176, 236);
+            this.panel6.Location = new System.Drawing.Point(3, 236);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(167, 227);
             this.panel6.TabIndex = 4;
@@ -527,7 +527,7 @@
             this.panel7.Controls.Add(this.label24);
             this.panel7.Controls.Add(this.label22);
             this.panel7.Controls.Add(this.label23);
-            this.panel7.Location = new System.Drawing.Point(349, 236);
+            this.panel7.Location = new System.Drawing.Point(176, 236);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(167, 227);
             this.panel7.TabIndex = 5;
@@ -599,7 +599,7 @@
             this.panel8.Controls.Add(this.label28);
             this.panel8.Controls.Add(this.label26);
             this.panel8.Controls.Add(this.label27);
-            this.panel8.Location = new System.Drawing.Point(3, 469);
+            this.panel8.Location = new System.Drawing.Point(349, 236);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(167, 227);
             this.panel8.TabIndex = 6;
@@ -671,7 +671,7 @@
             this.panel9.Controls.Add(this.label30);
             this.panel9.Controls.Add(this.label32);
             this.panel9.Controls.Add(this.label31);
-            this.panel9.Location = new System.Drawing.Point(176, 469);
+            this.panel9.Location = new System.Drawing.Point(522, 236);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(167, 227);
             this.panel9.TabIndex = 7;
@@ -743,7 +743,7 @@
             this.panel10.Controls.Add(this.label36);
             this.panel10.Controls.Add(this.label34);
             this.panel10.Controls.Add(this.label35);
-            this.panel10.Location = new System.Drawing.Point(349, 469);
+            this.panel10.Location = new System.Drawing.Point(3, 469);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(167, 227);
             this.panel10.TabIndex = 8;
@@ -815,7 +815,7 @@
             this.panel11.Controls.Add(this.label40);
             this.panel11.Controls.Add(this.label38);
             this.panel11.Controls.Add(this.label39);
-            this.panel11.Location = new System.Drawing.Point(3, 702);
+            this.panel11.Location = new System.Drawing.Point(176, 469);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(167, 227);
             this.panel11.TabIndex = 9;
@@ -887,7 +887,7 @@
             this.panel12.Controls.Add(this.label42);
             this.panel12.Controls.Add(this.label43);
             this.panel12.Controls.Add(this.label44);
-            this.panel12.Location = new System.Drawing.Point(176, 702);
+            this.panel12.Location = new System.Drawing.Point(349, 469);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(167, 227);
             this.panel12.TabIndex = 10;
@@ -959,7 +959,7 @@
             this.panel13.Controls.Add(this.label46);
             this.panel13.Controls.Add(this.label47);
             this.panel13.Controls.Add(this.label48);
-            this.panel13.Location = new System.Drawing.Point(349, 702);
+            this.panel13.Location = new System.Drawing.Point(522, 469);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(167, 227);
             this.panel13.TabIndex = 11;
@@ -1027,7 +1027,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(555, 675);
+            this.ClientSize = new System.Drawing.Size(734, 675);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel1);
             this.Name = "PromoModule";

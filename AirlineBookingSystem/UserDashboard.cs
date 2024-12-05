@@ -42,11 +42,11 @@ namespace AirlineBookingSystem
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-            mainPanel.Controls.Add(childForm);
-            mainPanel.Tag = childForm;
+            userPanel.Controls.Add(childForm);
+            userPanel.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userPanel.Dock = System.Windows.Forms.DockStyle.Fill;
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -58,7 +58,9 @@ namespace AirlineBookingSystem
 
         private void btnMyFlight_Click_1(object sender, EventArgs e)
         {
-            openChildForm(new PersonalInformation());
+            PersonalInformation pi = new PersonalInformation();
+            pi.Show();
+            
         }
 
         private void btnDiscount_Click(object sender, EventArgs e)
