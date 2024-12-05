@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace AirlineBookingSystem
 {
-    public partial class PersonalInformation : Form
+    public partial class Ticket : Form
     {
 
 
@@ -21,7 +21,7 @@ namespace AirlineBookingSystem
        
 
 
-        public PersonalInformation()
+        public Ticket()
         {
             InitializeComponent();
            

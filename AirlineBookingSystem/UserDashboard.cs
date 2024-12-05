@@ -59,14 +59,15 @@ namespace AirlineBookingSystem
 
         private void btnMyFlight_Click_1(object sender, EventArgs e)
         {
-            PersonalInformation pi = new PersonalInformation();
-            pi.Show();
+            
             
         }
 
         private void btnDiscount_Click(object sender, EventArgs e)
         {
-            openChildForm(new PromoModule());
+           Ticket Tck = new Ticket();
+           Tck.ShowDialog();
+
         }
 
         public void LoadHome()

@@ -36,9 +36,9 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnHistory = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.btnMyFlight = new System.Windows.Forms.Button();
+            this.btnViewHistory = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnDiscount = new System.Windows.Forms.Button();
+            this.btnTicket = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.Button();
             this.userPanel = new System.Windows.Forms.Panel();
@@ -88,7 +88,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.panel2.Controls.Add(this.btnDiscount);
+            this.panel2.Controls.Add(this.btnTicket);
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel4);
@@ -129,31 +129,31 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.btnMyFlight);
+            this.panel5.Controls.Add(this.btnViewHistory);
             this.panel5.Location = new System.Drawing.Point(0, 161);
             this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(225, 47);
             this.panel5.TabIndex = 2;
             // 
-            // btnMyFlight
+            // btnViewHistory
             // 
-            this.btnMyFlight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnMyFlight.FlatAppearance.BorderSize = 0;
-            this.btnMyFlight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMyFlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMyFlight.ForeColor = System.Drawing.Color.White;
-            this.btnMyFlight.Image = ((System.Drawing.Image)(resources.GetObject("btnMyFlight.Image")));
-            this.btnMyFlight.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMyFlight.Location = new System.Drawing.Point(0, 0);
-            this.btnMyFlight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnMyFlight.Name = "btnMyFlight";
-            this.btnMyFlight.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnMyFlight.Size = new System.Drawing.Size(225, 47);
-            this.btnMyFlight.TabIndex = 3;
-            this.btnMyFlight.Text = "    My Flight";
-            this.btnMyFlight.UseVisualStyleBackColor = true;
-            this.btnMyFlight.Click += new System.EventHandler(this.btnMyFlight_Click_1);
+            this.btnViewHistory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnViewHistory.FlatAppearance.BorderSize = 0;
+            this.btnViewHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewHistory.ForeColor = System.Drawing.Color.White;
+            this.btnViewHistory.Image = ((System.Drawing.Image)(resources.GetObject("btnViewHistory.Image")));
+            this.btnViewHistory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnViewHistory.Location = new System.Drawing.Point(0, 0);
+            this.btnViewHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnViewHistory.Name = "btnViewHistory";
+            this.btnViewHistory.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnViewHistory.Size = new System.Drawing.Size(225, 47);
+            this.btnViewHistory.TabIndex = 3;
+            this.btnViewHistory.Text = "    View History";
+            this.btnViewHistory.UseVisualStyleBackColor = true;
+            this.btnViewHistory.Click += new System.EventHandler(this.btnMyFlight_Click_1);
             // 
             // panel4
             // 
@@ -163,22 +163,22 @@
             this.panel4.Size = new System.Drawing.Size(225, 54);
             this.panel4.TabIndex = 1;
             // 
-            // btnDiscount
+            // btnTicket
             // 
-            this.btnDiscount.FlatAppearance.BorderSize = 0;
-            this.btnDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDiscount.ForeColor = System.Drawing.Color.White;
-            this.btnDiscount.Image = ((System.Drawing.Image)(resources.GetObject("btnDiscount.Image")));
-            this.btnDiscount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDiscount.Location = new System.Drawing.Point(0, 100);
-            this.btnDiscount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnDiscount.Name = "btnDiscount";
-            this.btnDiscount.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnDiscount.Size = new System.Drawing.Size(225, 54);
-            this.btnDiscount.TabIndex = 0;
-            this.btnDiscount.Text = "   Ticket";
-            this.btnDiscount.Click += new System.EventHandler(this.btnDiscount_Click);
+            this.btnTicket.FlatAppearance.BorderSize = 0;
+            this.btnTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTicket.ForeColor = System.Drawing.Color.White;
+            this.btnTicket.Image = ((System.Drawing.Image)(resources.GetObject("btnTicket.Image")));
+            this.btnTicket.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTicket.Location = new System.Drawing.Point(0, 100);
+            this.btnTicket.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTicket.Name = "btnTicket";
+            this.btnTicket.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnTicket.Size = new System.Drawing.Size(225, 54);
+            this.btnTicket.TabIndex = 0;
+            this.btnTicket.Text = " Ticket";
+            this.btnTicket.Click += new System.EventHandler(this.btnDiscount_Click);
             // 
             // panel3
             // 
@@ -251,8 +251,8 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button btnDiscount;
-        private System.Windows.Forms.Button btnMyFlight;
+        private System.Windows.Forms.Button btnTicket;
+        private System.Windows.Forms.Button btnViewHistory;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnHistory;

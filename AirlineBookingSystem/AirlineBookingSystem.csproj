@@ -85,11 +85,11 @@
     <Compile Include="LoadingScreen.Designer.cs">
       <DependentUpon>LoadingScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="PersonalInformation.cs">
+    <Compile Include="Ticket.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PersonalInformation.Designer.cs">
-      <DependentUpon>PersonalInformation.cs</DependentUpon>
+    <Compile Include="Ticket.Designer.cs">
+      <DependentUpon>Ticket.cs</DependentUpon>
     </Compile>
     <Compile Include="UserDashboard.cs">
       <SubType>Form</SubType>
@@ -124,8 +124,8 @@
     <EmbeddedResource Include="LoadingScreen.resx">
       <DependentUpon>LoadingScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PersonalInformation.resx">
-      <DependentUpon>PersonalInformation.cs</DependentUpon>
+    <EmbeddedResource Include="Ticket.resx">
+      <DependentUpon>Ticket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserDashboard.resx">
       <DependentUpon>UserDashboard.cs</DependentUpon>

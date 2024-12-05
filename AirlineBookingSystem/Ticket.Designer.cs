@@ -1,6 +1,6 @@
 ﻿namespace AirlineBookingSystem
 {
-    partial class PersonalInformation
+    partial class Ticket
     {
         /// <summary>
         /// Required designer variable.
