@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookTicket.Designer.cs">
+      <DependentUpon>BookTicket.cs</DependentUpon>
+    </Compile>
     <Compile Include="History.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,11 +91,17 @@
     <Compile Include="LoadingScreen.Designer.cs">
       <DependentUpon>LoadingScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ticket.cs">
+    <Compile Include="SearchFlightView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ticket.Designer.cs">
-      <DependentUpon>Ticket.cs</DependentUpon>
+    <Compile Include="SearchFlightView.Designer.cs">
+      <DependentUpon>SearchFlightView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TicketModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TicketModule.Designer.cs">
+      <DependentUpon>TicketModule.cs</DependentUpon>
     </Compile>
     <Compile Include="UserDashboard.cs">
       <SubType>Form</SubType>
@@ -112,6 +124,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BookTicket.resx">
+      <DependentUpon>BookTicket.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="History.resx">
       <DependentUpon>History.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,8 +139,11 @@
     <EmbeddedResource Include="LoadingScreen.resx">
       <DependentUpon>LoadingScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ticket.resx">
-      <DependentUpon>Ticket.cs</DependentUpon>
+    <EmbeddedResource Include="SearchFlightView.resx">
+      <DependentUpon>SearchFlightView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TicketModule.resx">
+      <DependentUpon>TicketModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserDashboard.resx">
       <DependentUpon>UserDashboard.cs</DependentUpon>

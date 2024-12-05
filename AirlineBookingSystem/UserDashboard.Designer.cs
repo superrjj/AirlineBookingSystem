@@ -30,24 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserDashboard));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.closeIcon = new System.Windows.Forms.PictureBox();
             this.lblFullname = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.btnHistory = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.btnViewHistory = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnTicket = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnHome = new System.Windows.Forms.Button();
             this.userPanel = new System.Windows.Forms.Panel();
+            this.btnTicket = new System.Windows.Forms.Button();
+            this.btnSearchFlight = new System.Windows.Forms.Button();
+            this.btnViewHistory = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
+            this.closeIcon = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.closeIcon)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.closeIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -61,18 +61,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1500, 89);
             this.panel1.TabIndex = 0;
-            // 
-            // closeIcon
-            // 
-            this.closeIcon.Image = ((System.Drawing.Image)(resources.GetObject("closeIcon.Image")));
-            this.closeIcon.Location = new System.Drawing.Point(1444, 4);
-            this.closeIcon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.closeIcon.Name = "closeIcon";
-            this.closeIcon.Size = new System.Drawing.Size(52, 36);
-            this.closeIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.closeIcon.TabIndex = 2;
-            this.closeIcon.TabStop = false;
-            this.closeIcon.Click += new System.EventHandler(this.closeIcon_Click);
             // 
             // lblFullname
             // 
@@ -102,30 +90,12 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.btnHistory);
+            this.panel6.Controls.Add(this.btnSearchFlight);
             this.panel6.Location = new System.Drawing.Point(0, 216);
             this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(225, 53);
             this.panel6.TabIndex = 3;
-            // 
-            // btnHistory
-            // 
-            this.btnHistory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnHistory.FlatAppearance.BorderSize = 0;
-            this.btnHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHistory.ForeColor = System.Drawing.Color.White;
-            this.btnHistory.Image = ((System.Drawing.Image)(resources.GetObject("btnHistory.Image")));
-            this.btnHistory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHistory.Location = new System.Drawing.Point(0, 0);
-            this.btnHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnHistory.Name = "btnHistory";
-            this.btnHistory.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnHistory.Size = new System.Drawing.Size(225, 53);
-            this.btnHistory.TabIndex = 0;
-            this.btnHistory.Text = " History";
-            this.btnHistory.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
@@ -135,6 +105,68 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(225, 47);
             this.panel5.TabIndex = 2;
+            // 
+            // panel4
+            // 
+            this.panel4.Location = new System.Drawing.Point(0, 103);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(225, 54);
+            this.panel4.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnHome);
+            this.panel3.Location = new System.Drawing.Point(0, 47);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(225, 49);
+            this.panel3.TabIndex = 0;
+            // 
+            // userPanel
+            // 
+            this.userPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userPanel.Location = new System.Drawing.Point(225, 89);
+            this.userPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.userPanel.Name = "userPanel";
+            this.userPanel.Size = new System.Drawing.Size(1275, 608);
+            this.userPanel.TabIndex = 2;
+            // 
+            // btnTicket
+            // 
+            this.btnTicket.FlatAppearance.BorderSize = 0;
+            this.btnTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTicket.ForeColor = System.Drawing.Color.White;
+            this.btnTicket.Image = ((System.Drawing.Image)(resources.GetObject("btnTicket.Image")));
+            this.btnTicket.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTicket.Location = new System.Drawing.Point(0, 100);
+            this.btnTicket.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTicket.Name = "btnTicket";
+            this.btnTicket.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnTicket.Size = new System.Drawing.Size(225, 54);
+            this.btnTicket.TabIndex = 0;
+            this.btnTicket.Text = " Ticket";
+            this.btnTicket.Click += new System.EventHandler(this.btnDiscount_Click);
+            // 
+            // btnSearchFlight
+            // 
+            this.btnSearchFlight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSearchFlight.FlatAppearance.BorderSize = 0;
+            this.btnSearchFlight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchFlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchFlight.ForeColor = System.Drawing.Color.White;
+            this.btnSearchFlight.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchFlight.Image")));
+            this.btnSearchFlight.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearchFlight.Location = new System.Drawing.Point(0, 0);
+            this.btnSearchFlight.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearchFlight.Name = "btnSearchFlight";
+            this.btnSearchFlight.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnSearchFlight.Size = new System.Drawing.Size(225, 53);
+            this.btnSearchFlight.TabIndex = 0;
+            this.btnSearchFlight.Text = "     Search Flight";
+            this.btnSearchFlight.UseVisualStyleBackColor = true;
+            this.btnSearchFlight.Click += new System.EventHandler(this.btnSearchFlight_Click);
             // 
             // btnViewHistory
             // 
@@ -146,7 +178,7 @@
             this.btnViewHistory.Image = ((System.Drawing.Image)(resources.GetObject("btnViewHistory.Image")));
             this.btnViewHistory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnViewHistory.Location = new System.Drawing.Point(0, 0);
-            this.btnViewHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnViewHistory.Margin = new System.Windows.Forms.Padding(4);
             this.btnViewHistory.Name = "btnViewHistory";
             this.btnViewHistory.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.btnViewHistory.Size = new System.Drawing.Size(225, 47);
@@ -154,40 +186,6 @@
             this.btnViewHistory.Text = "    View History";
             this.btnViewHistory.UseVisualStyleBackColor = true;
             this.btnViewHistory.Click += new System.EventHandler(this.btnMyFlight_Click_1);
-            // 
-            // panel4
-            // 
-            this.panel4.Location = new System.Drawing.Point(0, 103);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(225, 54);
-            this.panel4.TabIndex = 1;
-            // 
-            // btnTicket
-            // 
-            this.btnTicket.FlatAppearance.BorderSize = 0;
-            this.btnTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTicket.ForeColor = System.Drawing.Color.White;
-            this.btnTicket.Image = ((System.Drawing.Image)(resources.GetObject("btnTicket.Image")));
-            this.btnTicket.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTicket.Location = new System.Drawing.Point(0, 100);
-            this.btnTicket.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnTicket.Name = "btnTicket";
-            this.btnTicket.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnTicket.Size = new System.Drawing.Size(225, 54);
-            this.btnTicket.TabIndex = 0;
-            this.btnTicket.Text = " Ticket";
-            this.btnTicket.Click += new System.EventHandler(this.btnDiscount_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btnHome);
-            this.panel3.Location = new System.Drawing.Point(0, 47);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(225, 49);
-            this.panel3.TabIndex = 0;
             // 
             // btnHome
             // 
@@ -198,7 +196,7 @@
             this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHome.Location = new System.Drawing.Point(0, 4);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(4);
             this.btnHome.Name = "btnHome";
             this.btnHome.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.btnHome.Size = new System.Drawing.Size(225, 49);
@@ -208,14 +206,17 @@
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // userPanel
+            // closeIcon
             // 
-            this.userPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userPanel.Location = new System.Drawing.Point(225, 89);
-            this.userPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.userPanel.Name = "userPanel";
-            this.userPanel.Size = new System.Drawing.Size(1275, 608);
-            this.userPanel.TabIndex = 2;
+            this.closeIcon.Image = ((System.Drawing.Image)(resources.GetObject("closeIcon.Image")));
+            this.closeIcon.Location = new System.Drawing.Point(1444, 4);
+            this.closeIcon.Margin = new System.Windows.Forms.Padding(4);
+            this.closeIcon.Name = "closeIcon";
+            this.closeIcon.Size = new System.Drawing.Size(52, 36);
+            this.closeIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.closeIcon.TabIndex = 2;
+            this.closeIcon.TabStop = false;
+            this.closeIcon.Click += new System.EventHandler(this.closeIcon_Click);
             // 
             // UserDashboard
             // 
@@ -233,11 +234,11 @@
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.closeIcon)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.closeIcon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -255,7 +256,7 @@
         private System.Windows.Forms.Button btnViewHistory;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button btnHistory;
+        private System.Windows.Forms.Button btnSearchFlight;
         private System.Windows.Forms.Panel userPanel;
     }
 }

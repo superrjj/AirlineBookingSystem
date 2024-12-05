@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace AirlineBookingSystem
 {
-    public partial class Ticket : Form
+    public partial class TicketModule : Form
     {
 
 
@@ -21,7 +21,7 @@ namespace AirlineBookingSystem
        
 
 
-        public Ticket()
+        public TicketModule()
         {
             InitializeComponent();
            
@@ -41,12 +41,8 @@ namespace AirlineBookingSystem
                 // Validate all required fields
                 if (string.IsNullOrWhiteSpace(txtFirstname.Text) ||
                     string.IsNullOrWhiteSpace(txtLastname.Text) ||
-                    string.IsNullOrWhiteSpace(txtAge.Text) ||
-                    cbStatus.SelectedItem == null ||
                     cbGender.SelectedItem == null ||
-                    string.IsNullOrWhiteSpace(txtContact.Text) ||
-                    string.IsNullOrWhiteSpace(txtAddress.Text) ||
-                    string.IsNullOrWhiteSpace(txtPostalCode.Text))
+                    string.IsNullOrWhiteSpace(txtContact.Text))
                 {
                     MessageBox.Show("Please fill in all required fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -65,14 +61,10 @@ namespace AirlineBookingSystem
                             cmd.Parameters.AddWithValue("@firstname", txtFirstname.Text);
                             cmd.Parameters.AddWithValue("@middlename", txtMiddlename.Text);
                             cmd.Parameters.AddWithValue("@lastname", txtLastname.Text);
-                            cmd.Parameters.AddWithValue("@age", txtAge.Text); // Make sure age is entered correctly
-                            cmd.Parameters.AddWithValue("@status", cbStatus.SelectedValue.ToString());
                             cmd.Parameters.AddWithValue("@nationality", cbNationality.SelectedValue.ToString());
                             cmd.Parameters.AddWithValue("@contact_no", txtContact.Text);
                             cmd.Parameters.AddWithValue("@gender", cbGender.SelectedValue.ToString());
                             cmd.Parameters.AddWithValue("@birthday", dtBirthday.Value);
-                            cmd.Parameters.AddWithValue("@address", txtAddress.Text);
-                            cmd.Parameters.AddWithValue("@postal_code", txtPostalCode.Text);
 
                             cmd.ExecuteNonQuery();
                         }

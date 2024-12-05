@@ -52,31 +52,31 @@ namespace AirlineBookingSystem
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            openChildForm(new PromoModule());
+            openChildForm(new PromoModule()); // Suggested airport
         }
 
        
 
         private void btnMyFlight_Click_1(object sender, EventArgs e)
         {
-            
-            
+            //View History
         }
 
         private void btnDiscount_Click(object sender, EventArgs e)
         {
-           Ticket Tck = new Ticket();
-           Tck.ShowDialog();
-
+            openChildForm(new BookTicket()); //Kapag magbobook na siya
         }
 
         public void LoadHome()
         {
 
-            openChildForm(new PromoModule());
+            openChildForm(new PromoModule()); //Loload nya yung promo module sa home
         
         }
 
-
+        private void btnSearchFlight_Click(object sender, EventArgs e)
+        {
+            openChildForm(new SearchFlightView()); //Searh for flight
+        }
     }
 }
