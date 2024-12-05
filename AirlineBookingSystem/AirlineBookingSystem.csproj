@@ -167,6 +167,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>AirlineBookingDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\Black and Blue Airplane Travel Logo1.gif" />
     <None Include="Resources\Black and Blue Airplane Travel Logo.gif" />
   </ItemGroup>
   <ItemGroup>

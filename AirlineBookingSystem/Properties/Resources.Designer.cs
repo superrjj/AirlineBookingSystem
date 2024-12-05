@@ -69,5 +69,15 @@ namespace AirlineBookingSystem.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Black_and_Blue_Airplane_Travel_Logo1 {
+            get {
+                object obj = ResourceManager.GetObject("Black and Blue Airplane Travel Logo1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

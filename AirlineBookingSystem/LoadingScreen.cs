@@ -25,7 +25,7 @@ namespace AirlineBookingSystem
             delayTimer.Tick += DelayTimer_Tick;
 
         }
-
+        //Update new loading screen gif
         private void LoadingScreen_Load(object sender, EventArgs e)
         {
             delayTimer.Start();
