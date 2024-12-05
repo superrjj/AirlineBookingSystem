@@ -160,13 +160,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AirlineBookingDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="AirlineBookingDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>AirlineBookingDB.mdf</DependentUpon>
-    </Content>
     <None Include="Resources\Black and Blue Airplane Travel Logo1.gif" />
     <None Include="Resources\Black and Blue Airplane Travel Logo.gif" />
   </ItemGroup>
