@@ -57,9 +57,23 @@ namespace AirlineBookingSystem
                         conn.Open();
                         cmd.ExecuteNonQuery();
 
+                        txtFirstname.Text = "";
+                        txtMiddlename.Text = "";
+                        txtLastname.Text = "";
+                        txtContact.Text = "";
+                        txtNumberSeats.Text = "";
+                        cbArrival.SelectedIndex = -1;
+                        cbGender.SelectedIndex = -1;
+                        cbDeparture.SelectedIndex = -1;
+                        cbNationality.SelectedIndex = -1;
+                        
                        
                         MessageBox.Show("Booking successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        BookTicket bookTicket = new BookTicket();
+                        bookTicket.Show();
+                        this.Hide();
                     }
+
                 }
             }
             catch (FormatException ex)

@@ -125,9 +125,9 @@
             this.label5.Location = new System.Drawing.Point(16, 15);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(255, 31);
+            this.label5.Size = new System.Drawing.Size(287, 31);
             this.label5.TabIndex = 8;
-            this.label5.Text = "Booking Information";
+            this.label5.Text = "Passenger Information";
             // 
             // panel1
             // 
