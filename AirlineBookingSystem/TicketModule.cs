@@ -28,7 +28,7 @@ namespace AirlineBookingSystem
           
 
         }
-
+        //To close the  module
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
