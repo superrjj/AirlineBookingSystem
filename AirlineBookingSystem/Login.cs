@@ -15,7 +15,7 @@ namespace AirlineBookingSystem
     public partial class Login : Form
     {
         
-        SqlConnection connect = new SqlConnection(@"Data Source=MSI\SQLEXPRESS;Initial Catalog=AirlineBookingDB;Integrated Security=True;TrustServerCertificate=True");
+        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\INIMAF\Source\Repos\AirlineBookingSystem\AirlineBookingSystem\AirlineBookingDB.mdf;Integrated Security=True");
         public Login()
         {
             InitializeComponent();

@@ -16,7 +16,7 @@ namespace AirlineBookingSystem
         private string con;
         public string myConnection()
         {
-            con = @"Data Source=MSI\SQLEXPRESS;Initial Catalog=AirlineBookingDB;Integrated Security=True;TrustServerCertificate=True";
+            con = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\INIMAF\Source\Repos\AirlineBookingSystem\AirlineBookingSystem\AirlineBookingDB.mdf;Integrated Security=True";
             return con;
         }
 
