@@ -40,7 +40,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.dtBirthday = new System.Windows.Forms.DateTimePicker();
-            this.btnRegister = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
             this.cbGender = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -52,6 +52,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -151,7 +153,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(187, 368);
+            this.label12.Location = new System.Drawing.Point(23, 322);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(124, 20);
             this.label12.TabIndex = 23;
@@ -160,24 +162,24 @@
             // dtBirthday
             // 
             this.dtBirthday.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtBirthday.Location = new System.Drawing.Point(191, 391);
+            this.dtBirthday.Location = new System.Drawing.Point(27, 345);
             this.dtBirthday.Name = "dtBirthday";
             this.dtBirthday.Size = new System.Drawing.Size(275, 26);
             this.dtBirthday.TabIndex = 24;
             // 
-            // btnRegister
+            // btnNext
             // 
-            this.btnRegister.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(567, 443);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(105, 33);
-            this.btnRegister.TabIndex = 25;
-            this.btnRegister.Text = "Register";
-            this.btnRegister.UseVisualStyleBackColor = false;
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            this.btnNext.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext.ForeColor = System.Drawing.Color.White;
+            this.btnNext.Location = new System.Drawing.Point(567, 427);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(105, 33);
+            this.btnNext.TabIndex = 25;
+            this.btnNext.Text = "Next";
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // cbGender
             // 
@@ -206,7 +208,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.btnCancel.Location = new System.Drawing.Point(25, 443);
+            this.btnCancel.Location = new System.Drawing.Point(447, 427);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(105, 33);
             this.btnCancel.TabIndex = 13;
@@ -377,11 +379,31 @@
             this.label9.TabIndex = 32;
             this.label9.Text = "Arrival To:";
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(329, 345);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(136, 26);
+            this.textBox1.TabIndex = 35;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(325, 321);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(130, 20);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "Number of seats:";
+            // 
             // TicketModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(710, 502);
+            this.ClientSize = new System.Drawing.Size(710, 476);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.comboBox1);
@@ -390,7 +412,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cbGender);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.btnRegister);
+            this.Controls.Add(this.btnNext);
             this.Controls.Add(this.dtBirthday);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtContact);
@@ -430,7 +452,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DateTimePicker dtBirthday;
-        private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.ComboBox cbGender;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btnCancel;
@@ -442,5 +464,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label10;
     }
 }
