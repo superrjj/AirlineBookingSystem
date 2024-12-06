@@ -13,7 +13,7 @@ namespace AirlineBookingSystem
 {
     public partial class CreateAccount : Form
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\INIMAF\Source\Repos\AirlineBookingSystem\AirlineBookingSystem\AirlineBookingDB.mdf;Integrated Security=True");
+        SqlConnection connect = new SqlConnection(@"Data Source=MSI\SQLEXPRESS;Initial Catalog=AirlineBookingDB;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
         public CreateAccount()
         {
             InitializeComponent();

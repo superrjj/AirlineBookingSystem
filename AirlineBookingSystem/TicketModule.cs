@@ -1,82 +1,78 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AirlineBookingSystem
 {
     public partial class TicketModule : Form
     {
-
-       
-        SqlConnection connect = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
-        DBConnect dbcon = new DBConnect();
-       
-
-
         public TicketModule()
         {
             InitializeComponent();
-           
-          
-
         }
-        
-        //GTA
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close(); // Close the form when cancel button is clicked
         }
-        
+
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            // Validate required fields
+            if (string.IsNullOrWhiteSpace(txtFirstname.Text) ||
+                string.IsNullOrWhiteSpace(txtLastname.Text) ||
+                cbGender.SelectedItem == null ||
+                string.IsNullOrWhiteSpace(txtContact.Text) ||
+                string.IsNullOrWhiteSpace(txtNumberSeats.Text) ||
+                cbDeparture.SelectedItem == null ||
+                cbArrival.SelectedItem == null)
+            {
+                MessageBox.Show("Please fill in all required fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+          
+            string query = @"INSERT INTO PassengerInformation 
+                            (Firstname, Middlename, Lastname, Nationality, Contact_No, Gender, Departure_From, Arrival_To, Departure_Date, Number_Seats) 
+                            VALUES (@firstname, @middlename, @lastname, @nationality, @contact_no, @gender, @departure_from, @arrival_to, @departure_date, @number_seats)";
+
             try
             {
-                // Validate all required fields
-                if (string.IsNullOrWhiteSpace(txtFirstname.Text) ||
-                    string.IsNullOrWhiteSpace(txtLastname.Text) ||
-                    cbGender.SelectedItem == null ||
-                    string.IsNullOrWhiteSpace(txtContact.Text))
+                using (SqlConnection conn = new SqlConnection(@"Data Source=MSI\SQLEXPRESS;Initial Catalog=AirlineBookingDB;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"))
                 {
-                    MessageBox.Show("Please fill in all required fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                // If everything is valid, proceed with the registration process
-                if (MessageBox.Show("Are you sure you want to save this address?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    using (SqlConnection connect = new SqlConnection(dbcon.myConnection()))
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        connect.Open();
-                        using (SqlCommand cmd = new SqlCommand("INSERT INTO User_Information(firstname, middlename, lastname, age, status, nationality, contact_no, gender, birthday, address, postal_code) " +
-                                                              "VALUES (@firstname, @middlename, @lastname, @age, @status, @nationality, @contact_no, @gender, @birthday, @address, @postal_code)", connect))
-                        {
-                            // Add parameters for all fields
-                            cmd.Parameters.AddWithValue("@firstname", txtFirstname.Text);
-                            cmd.Parameters.AddWithValue("@middlename", txtMiddlename.Text);
-                            cmd.Parameters.AddWithValue("@lastname", txtLastname.Text);
-                            cmd.Parameters.AddWithValue("@nationality", cbNationality.SelectedValue.ToString());
-                            cmd.Parameters.AddWithValue("@contact_no", txtContact.Text);
-                            cmd.Parameters.AddWithValue("@gender", cbGender.SelectedValue.ToString());
-                            cmd.Parameters.AddWithValue("@birthday", dtBirthday.Value);
+                       
+                        cmd.Parameters.AddWithValue("@firstname", txtFirstname.Text.Trim());
+                        cmd.Parameters.AddWithValue("@middlename", string.IsNullOrWhiteSpace(txtMiddlename.Text) ? "N/A" : txtMiddlename.Text.Trim());
+                        cmd.Parameters.AddWithValue("@lastname", txtLastname.Text.Trim());
+                        cmd.Parameters.AddWithValue("@nationality", cbNationality.SelectedItem?.ToString() ?? "N/A");
+                        cmd.Parameters.AddWithValue("@contact_no", Convert.ToInt64(txtContact.Text.Trim()));
+                        cmd.Parameters.AddWithValue("@gender", cbGender.SelectedItem?.ToString() ?? "N/A");
+                        cmd.Parameters.AddWithValue("@departure_from", cbDeparture.SelectedItem?.ToString() ?? "N/A");
+                        cmd.Parameters.AddWithValue("@arrival_to", cbArrival.SelectedItem?.ToString() ?? "N/A");
+                        cmd.Parameters.AddWithValue("@departure_date", dtDeparture.Value);
+                        cmd.Parameters.AddWithValue("@number_seats", Convert.ToInt32(txtNumberSeats.Text.Trim()));
 
-                            cmd.ExecuteNonQuery();
-                        }
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+
+                       
+                        MessageBox.Show("Booking successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-
-                    MessageBox.Show("Address has been successfully saved.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show($"Invalid data format: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Database error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error: {ex.Message}");
+                MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
