@@ -14,7 +14,7 @@ namespace AirlineBookingSystem
     public partial class TicketModule : Form
     {
 
-        //Push
+       
         SqlConnection connect = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
         DBConnect dbcon = new DBConnect();
@@ -28,12 +28,12 @@ namespace AirlineBookingSystem
           
 
         }
-        //To close the  module
+        
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        //Hello po
+        
         private void btnRegister_Click(object sender, EventArgs e)
         {
             try
