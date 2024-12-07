@@ -1,18 +1,27 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace AirlineBookingSystem
 {
     public partial class BookListView : UserControl
     {
+        
         public BookListView()
         {
             InitializeComponent();
+           
         }
 
+      
+
+
+
         // Method to update all the labels with booking information
-        public void UpdateBookingInfo(string fullName, string contact, string gender, string nationality,
-                                       string departureFrom, string arrivalTo, string departureDate, string numberSeats)
+        public void UpdateBookingInfo(string book_ref, string book_date, string fullName, string contact, string gender, string nationality,
+                                       string departureFrom, string arrivalTo, string departureDate, string numberSeats, string travelClass)
         {
+            lblRef.Text = book_ref;
+            lblDate.Text = book_date;
             lblFullName.Text = fullName;
             lblContact.Text = contact;
             lblGender.Text = gender;
@@ -21,6 +30,9 @@ namespace AirlineBookingSystem
             lblArrivalTo.Text = arrivalTo;
             lblDepartureDate.Text = departureDate;
             lblNumberSeats.Text = numberSeats;
+            lblTravel.Text = travelClass;
         }
+
+        private void lblGender_Click(object sender, EventArgs e) { }
     }
 }
