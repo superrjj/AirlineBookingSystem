@@ -130,7 +130,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.SlateBlue;
+            this.panel3.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
@@ -456,7 +456,7 @@
             // 
             this.lblRefNo.AutoSize = true;
             this.lblRefNo.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRefNo.Location = new System.Drawing.Point(221, 16);
+            this.lblRefNo.Location = new System.Drawing.Point(226, 16);
             this.lblRefNo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRefNo.Name = "lblRefNo";
             this.lblRefNo.Size = new System.Drawing.Size(142, 27);

@@ -59,7 +59,7 @@ namespace AirlineBookingSystem
 
         private void btnMyFlight_Click_1(object sender, EventArgs e)
         {
-            //View History
+            
         }
 
         private void btnDiscount_Click(object sender, EventArgs e)
