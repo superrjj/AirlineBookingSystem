@@ -10,15 +10,12 @@ namespace AirlineBookingSystem
         public BookView()
         {
             InitializeComponent();
-            bookListView = new BookListView(this); // Initialize bookListView
+           
 
-            // Add bookListView to FlowLayoutPanel
-            flpBookingList.Controls.Add(bookListView); // Assuming flpBookingList is the FlowLayoutPanel
+            // Add bookListView to the FlowLayoutPanel instead of the form's Controls
+            //flpBookingList.Controls.Add(bookListView); // Assuming flpBookingList is the name of your FlowLayoutPanel
 
-            // Initially, hide the bookListView
-            bookListView.Visible = false;
-
-            UpdateBookingList(); // Initialize the booking list (with default empty values)
+          
         }
 
         private void addIcon_Click(object sender, EventArgs e)
@@ -27,27 +24,18 @@ namespace AirlineBookingSystem
             tm.ShowDialog();
         }
 
-        // This method updates the booking list. If no data is passed, it hides the ListView.
-        public void UpdateBookingList(string firstname = "", string middlename = "", string lastname = "", string gender = "",
-                                      string nationality = "", long contact = 0, string departureFrom = "", string arrivalTo = "",
-                                      DateTime departureDate = default, int numberSeats = 0)
+        // This method will be used to add new bookings to the list
+        public void AddNewBooking(string fullName, string contact, string gender, string nationality,
+                                   string departureFrom, string arrivalTo, string departureDate, string numberSeats)
         {
-            // If booking data exists, unhide the bookListView and add a new entry
-            if (!string.IsNullOrEmpty(firstname) && !string.IsNullOrEmpty(lastname))
-            {
-                // Unhide the bookListView when booking occurs
-                bookListView.Visible = true;
+            // Create a new instance of BookListView user control
+            BookListView newBookingControl = new BookListView();
 
-                // Add new booking to the ListView using the DisplayBookingInfo method
-                bookListView.DisplayBookingInfo(firstname, middlename, lastname, gender, nationality, contact,
-                                                departureFrom, arrivalTo, departureDate, numberSeats);
-            }
-        }
+            // Update the labels with the booking details
+            newBookingControl.UpdateBookingInfo(fullName, contact, gender, nationality, departureFrom, arrivalTo, departureDate, numberSeats);
 
-        // Hide bookListView when passenger has not attempted to book
-        public void HideBookingListView()
-        {
-            bookListView.Visible = false;
+            // Add the new control to the FlowLayoutPanel (Assume the FlowLayoutPanel is named flpBookingList)
+            flpBookingList.Controls.Add(newBookingControl);
         }
     }
 }

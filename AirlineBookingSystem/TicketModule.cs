@@ -1,6 +1,6 @@
-﻿using System;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System.Windows.Forms;
+using System;
 
 namespace AirlineBookingSystem
 {
@@ -59,12 +59,13 @@ namespace AirlineBookingSystem
                         conn.Open();
                         cmd.ExecuteNonQuery();
 
-                        // Update the booking list on the parent form
-                        _parentForm.UpdateBookingList(
-                            txtFirstname.Text.Trim(), txtMiddlename.Text.Trim(), txtLastname.Text.Trim(),
-                            cbGender.SelectedItem.ToString(), cbNationality.SelectedItem.ToString(),
-                            Convert.ToInt64(txtContact.Text.Trim()), cbDeparture.SelectedItem.ToString(),
-                            cbArrival.SelectedItem.ToString(), dtDeparture.Value, Convert.ToInt32(txtNumberSeats.Text.Trim()));
+                        // Add the new booking to the BookView's booking list
+                        _parentForm.AddNewBooking(
+                            txtFirstname.Text.Trim() + " " + txtMiddlename.Text.Trim() + " " + txtLastname.Text.Trim(),
+                            txtContact.Text.Trim(), cbGender.SelectedItem.ToString(),
+                            cbNationality.SelectedItem.ToString(), cbDeparture.SelectedItem.ToString(),
+                            cbArrival.SelectedItem.ToString(), dtDeparture.Value.ToString("yyyy-MM-dd"),
+                            txtNumberSeats.Text.Trim());
 
                         // Clear fields after booking
                         txtFirstname.Text = "";
@@ -94,6 +95,33 @@ namespace AirlineBookingSystem
             {
                 MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label28_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
