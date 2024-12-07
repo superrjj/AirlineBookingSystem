@@ -64,7 +64,7 @@ namespace AirlineBookingSystem
 
         private void btnDiscount_Click(object sender, EventArgs e)
         {
-            openChildForm(new BookTicket()); //Kapag magbobook na siya
+            openChildForm(new BookView()); //Kapag magbobook na siya
         }
 
         public void LoadHome()

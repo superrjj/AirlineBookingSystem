@@ -6,9 +6,9 @@ namespace AirlineBookingSystem
 {
     public partial class TicketModule : Form
     {
+        private readonly BookView _parentForm;
 
-        private readonly BookTicket _parentForm;
-        public TicketModule(BookTicket parentForm)
+        public TicketModule(BookView parentForm)
         {
             InitializeComponent();
             _parentForm = parentForm;
@@ -34,7 +34,6 @@ namespace AirlineBookingSystem
                 return;
             }
 
-          
             string query = @"INSERT INTO PassengerInformation 
                             (Firstname, Middlename, Lastname, Nationality, Contact_No, Gender, Departure_From, Arrival_To, Departure_Date, Number_Seats) 
                             VALUES (@firstname, @middlename, @lastname, @nationality, @contact_no, @gender, @departure_from, @arrival_to, @departure_date, @number_seats)";
@@ -45,7 +44,7 @@ namespace AirlineBookingSystem
                 {
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                       
+                        // Prepare parameters
                         cmd.Parameters.AddWithValue("@firstname", txtFirstname.Text.Trim());
                         cmd.Parameters.AddWithValue("@middlename", string.IsNullOrWhiteSpace(txtMiddlename.Text) ? "N/A" : txtMiddlename.Text.Trim());
                         cmd.Parameters.AddWithValue("@lastname", txtLastname.Text.Trim());
@@ -60,6 +59,14 @@ namespace AirlineBookingSystem
                         conn.Open();
                         cmd.ExecuteNonQuery();
 
+                        // Update the booking list on the parent form
+                        _parentForm.bookListView.DisplayBookingInfo(
+                            txtFirstname.Text.Trim(), txtMiddlename.Text.Trim(), txtLastname.Text.Trim(),
+                            cbGender.SelectedItem.ToString(), cbNationality.SelectedItem.ToString(),
+                            Convert.ToInt64(txtContact.Text.Trim()), cbDeparture.SelectedItem.ToString(),
+                            cbArrival.SelectedItem.ToString(), dtDeparture.Value, Convert.ToInt32(txtNumberSeats.Text.Trim()));
+
+                        // Clear fields after booking
                         txtFirstname.Text = "";
                         txtMiddlename.Text = "";
                         txtLastname.Text = "";
@@ -70,13 +77,10 @@ namespace AirlineBookingSystem
                         cbDeparture.SelectedIndex = -1;
                         cbNationality.SelectedIndex = -1;
 
-                        _parentForm.LoadBooked();
+                        MessageBox.Show("Booking successfully completed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
-                        MessageBox.Show("Booking successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
-
                 }
             }
             catch (FormatException ex)

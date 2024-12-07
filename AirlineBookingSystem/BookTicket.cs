@@ -26,36 +26,34 @@ namespace AirlineBookingSystem
             dbcon = new DBConnect();
             connect = new SqlConnection(dbcon.myConnection());
             cmd = new SqlCommand();
-            LoadBooked();
+            //LoadBooked();
         }
 
-        public void LoadBooked()
-        {
+        /* public void LoadBooked()
+         {
 
 
-            int i = 0;
-            dgvBooked.Rows.Clear();
-            // Select required columns from the database tables
-            cmd = new SqlCommand("SELECT firstname , middlename, lastname, contact_no, nationality, gender, departure_from, arrival_to,departure_date, number_seats FROM PassengerInformation", connect);
-            connect.Open();
-            sdr = cmd.ExecuteReader();
+             int i = 0;
+             dgvBooked.Rows.Clear();
+             // Select required columns from the database tables
+             cmd = new SqlCommand("SELECT firstname , middlename, lastname, contact_no, nationality, gender, departure_from, arrival_to,departure_date, number_seats FROM PassengerInformation", connect);
+             connect.Open();
+             sdr = cmd.ExecuteReader();
 
-            // Read data from the SqlDataReader and populate the DataGridView
-            while (sdr.Read())
-            {
-                i++;
-                // Add data to DataGridView, ensure that the index is within bounds of SqlDataReader
-                dgvBooked.Rows.Add(i, sdr[0].ToString(), sdr[1].ToString(), sdr[2].ToString(), sdr[3].ToString(), sdr[4].ToString(), sdr[5].ToString(), sdr[6].ToString(), sdr[7].ToString(), sdr[8].ToString(), sdr[9].ToString());
-            }
-            sdr.Close();
-            connect.Close();
+             // Read data from the SqlDataReader and populate the DataGridView
+             while (sdr.Read())
+             {
+                 i++;
+                 // Add data to DataGridView, ensure that the index is within bounds of SqlDataReader
+                 dgvBooked.Rows.Add(i, sdr[0].ToString(), sdr[1].ToString(), sdr[2].ToString(), sdr[3].ToString(), sdr[4].ToString(), sdr[5].ToString(), sdr[6].ToString(), sdr[7].ToString(), sdr[8].ToString(), sdr[9].ToString());
+             }
+             sdr.Close();
+             connect.Close();
 
-        }
+         }
+        */
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            TicketModule tm = new TicketModule(this);
-            tm.Show();
-        }
+
+
     }
 }
