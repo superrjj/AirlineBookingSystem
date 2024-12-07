@@ -42,6 +42,7 @@
             // 
             this.lblFullName.AutoSize = true;
             this.lblFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFullName.ForeColor = System.Drawing.Color.White;
             this.lblFullName.Location = new System.Drawing.Point(50, 24);
             this.lblFullName.Name = "lblFullName";
             this.lblFullName.Size = new System.Drawing.Size(73, 25);
@@ -52,6 +53,7 @@
             // 
             this.lblContact.AutoSize = true;
             this.lblContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContact.ForeColor = System.Drawing.Color.White;
             this.lblContact.Location = new System.Drawing.Point(50, 66);
             this.lblContact.Name = "lblContact";
             this.lblContact.Size = new System.Drawing.Size(80, 25);
@@ -62,7 +64,8 @@
             // 
             this.lblGender.AutoSize = true;
             this.lblGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGender.Location = new System.Drawing.Point(627, 24);
+            this.lblGender.ForeColor = System.Drawing.Color.White;
+            this.lblGender.Location = new System.Drawing.Point(508, 24);
             this.lblGender.Name = "lblGender";
             this.lblGender.Size = new System.Drawing.Size(49, 25);
             this.lblGender.TabIndex = 2;
@@ -72,6 +75,7 @@
             // 
             this.lblNationality.AutoSize = true;
             this.lblNationality.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNationality.ForeColor = System.Drawing.Color.White;
             this.lblNationality.Location = new System.Drawing.Point(50, 109);
             this.lblNationality.Name = "lblNationality";
             this.lblNationality.Size = new System.Drawing.Size(102, 25);
@@ -82,7 +86,8 @@
             // 
             this.lblDepartureFrom.AutoSize = true;
             this.lblDepartureFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartureFrom.Location = new System.Drawing.Point(627, 80);
+            this.lblDepartureFrom.ForeColor = System.Drawing.Color.White;
+            this.lblDepartureFrom.Location = new System.Drawing.Point(508, 60);
             this.lblDepartureFrom.Name = "lblDepartureFrom";
             this.lblDepartureFrom.Size = new System.Drawing.Size(38, 25);
             this.lblDepartureFrom.TabIndex = 4;
@@ -92,7 +97,8 @@
             // 
             this.lblArrivalTo.AutoSize = true;
             this.lblArrivalTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArrivalTo.Location = new System.Drawing.Point(627, 124);
+            this.lblArrivalTo.ForeColor = System.Drawing.Color.White;
+            this.lblArrivalTo.Location = new System.Drawing.Point(508, 103);
             this.lblArrivalTo.Name = "lblArrivalTo";
             this.lblArrivalTo.Size = new System.Drawing.Size(39, 25);
             this.lblArrivalTo.TabIndex = 5;
@@ -102,7 +108,8 @@
             // 
             this.lblDepartureDate.AutoSize = true;
             this.lblDepartureDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartureDate.Location = new System.Drawing.Point(1137, 24);
+            this.lblDepartureDate.ForeColor = System.Drawing.Color.White;
+            this.lblDepartureDate.Location = new System.Drawing.Point(1051, 25);
             this.lblDepartureDate.Name = "lblDepartureDate";
             this.lblDepartureDate.Size = new System.Drawing.Size(40, 25);
             this.lblDepartureDate.TabIndex = 6;
@@ -112,7 +119,8 @@
             // 
             this.lblNumberSeats.AutoSize = true;
             this.lblNumberSeats.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumberSeats.Location = new System.Drawing.Point(1137, 66);
+            this.lblNumberSeats.ForeColor = System.Drawing.Color.White;
+            this.lblNumberSeats.Location = new System.Drawing.Point(1051, 67);
             this.lblNumberSeats.Name = "lblNumberSeats";
             this.lblNumberSeats.Size = new System.Drawing.Size(40, 25);
             this.lblNumberSeats.TabIndex = 7;
@@ -122,7 +130,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.Controls.Add(this.lblNumberSeats);
             this.Controls.Add(this.lblDepartureDate);
             this.Controls.Add(this.lblArrivalTo);
@@ -132,7 +140,7 @@
             this.Controls.Add(this.lblContact);
             this.Controls.Add(this.lblFullName);
             this.Name = "BookListView";
-            this.Size = new System.Drawing.Size(1349, 182);
+            this.Size = new System.Drawing.Size(1233, 169);
             this.ResumeLayout(false);
             this.PerformLayout();
 

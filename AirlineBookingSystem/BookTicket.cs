@@ -17,7 +17,7 @@ namespace AirlineBookingSystem
         SqlConnection connect = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
         DBConnect dbcon = new DBConnect();
-        SqlDataReader sdr;
+        //SqlDataReader sdr;
 
 
         public BookTicket()

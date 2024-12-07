@@ -60,7 +60,7 @@ namespace AirlineBookingSystem
                         cmd.ExecuteNonQuery();
 
                         // Update the booking list on the parent form
-                        _parentForm.bookListView.DisplayBookingInfo(
+                        _parentForm.UpdateBookingList(
                             txtFirstname.Text.Trim(), txtMiddlename.Text.Trim(), txtLastname.Text.Trim(),
                             cbGender.SelectedItem.ToString(), cbNationality.SelectedItem.ToString(),
                             Convert.ToInt64(txtContact.Text.Trim()), cbDeparture.SelectedItem.ToString(),
@@ -78,7 +78,6 @@ namespace AirlineBookingSystem
                         cbNationality.SelectedIndex = -1;
 
                         MessageBox.Show("Booking successfully completed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                         this.Close();
                     }
                 }
