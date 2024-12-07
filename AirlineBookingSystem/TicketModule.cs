@@ -6,9 +6,12 @@ namespace AirlineBookingSystem
 {
     public partial class TicketModule : Form
     {
-        public TicketModule()
+
+        private readonly BookTicket _parentForm;
+        public TicketModule(BookTicket parentForm)
         {
             InitializeComponent();
+            _parentForm = parentForm;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -66,12 +69,12 @@ namespace AirlineBookingSystem
                         cbGender.SelectedIndex = -1;
                         cbDeparture.SelectedIndex = -1;
                         cbNationality.SelectedIndex = -1;
-                        
-                       
+
+                        _parentForm.LoadBooked();
+
+
                         MessageBox.Show("Booking successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        BookTicket bookTicket = new BookTicket();
-                        bookTicket.Show();
-                        this.Hide();
+                        this.Close();
                     }
 
                 }

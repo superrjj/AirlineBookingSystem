@@ -16,7 +16,7 @@ namespace AirlineBookingSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TicketModule());
+            Application.Run(new LoadingScreen());
         }
     }
 }

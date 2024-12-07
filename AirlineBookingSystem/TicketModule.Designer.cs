@@ -190,7 +190,7 @@
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(140, 41);
             this.btnNext.TabIndex = 25;
-            this.btnNext.Text = "Next";
+            this.btnNext.Text = "Register";
             this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnRegister_Click);
             // 
