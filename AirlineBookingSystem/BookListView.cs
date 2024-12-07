@@ -34,5 +34,55 @@ namespace AirlineBookingSystem
         }
 
         private void lblGender_Click(object sender, EventArgs e) { }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTravel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNumberSeats_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDepartureDate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblArrivalTo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDepartureFrom_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

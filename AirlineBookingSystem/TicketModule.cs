@@ -66,6 +66,13 @@ namespace AirlineBookingSystem
                 return;
             }
 
+            // Validate and parse account number (assuming it's also numeric and fits in BIGINT)
+            if (!long.TryParse(txtAccountNumber.Text.Trim(), out long accountNumber))
+            {
+                MessageBox.Show("Invalid account number format. Please enter numeric values only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             // Database query to insert the booking information
             string query = @"
             INSERT INTO PassengerInformation 
