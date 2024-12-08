@@ -28,11 +28,10 @@ namespace AirlineBookingSystem
             cmd = new SqlCommand();
             //LoadBooked();
         }
-            // Pogi si harvee
+            // Gagawin kona to bukas
         /* public void LoadBooked()
+         
          {
-
-             
              int i = 0;
              dgvBooked.Rows.Clear();
              // Select required columns from the database tables
@@ -52,8 +51,5 @@ namespace AirlineBookingSystem
 
          }
         */
-
-
-
     }
 }
