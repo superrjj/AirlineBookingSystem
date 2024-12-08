@@ -85,11 +85,11 @@
     <Compile Include="BookTicket.Designer.cs">
       <DependentUpon>BookTicket.cs</DependentUpon>
     </Compile>
-    <Compile Include="History.cs">
+    <Compile Include="HistoryView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="History.Designer.cs">
-      <DependentUpon>History.cs</DependentUpon>
+    <Compile Include="HistoryView.Designer.cs">
+      <DependentUpon>HistoryView.cs</DependentUpon>
     </Compile>
     <Compile Include="CreateAccount.cs">
       <SubType>Form</SubType>
@@ -178,8 +178,8 @@
     <EmbeddedResource Include="BookTicket.resx">
       <DependentUpon>BookTicket.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="History.resx">
-      <DependentUpon>History.cs</DependentUpon>
+    <EmbeddedResource Include="HistoryView.resx">
+      <DependentUpon>HistoryView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateAccount.resx">
       <DependentUpon>CreateAccount.cs</DependentUpon>

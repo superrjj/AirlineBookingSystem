@@ -59,7 +59,7 @@ namespace AirlineBookingSystem
 
         private void btnMyFlight_Click_1(object sender, EventArgs e)
         {
-            
+            openChildForm(new HistoryView());
         }
 
         private void btnDiscount_Click(object sender, EventArgs e)
