@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookView));
             this.panel1 = new System.Windows.Forms.Panel();
             this.addIcon = new System.Windows.Forms.PictureBox();
-            this.flpBookingList = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.flpBookingList = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addIcon)).BeginInit();
@@ -61,42 +61,43 @@
             this.addIcon.TabStop = false;
             this.addIcon.Click += new System.EventHandler(this.addIcon_Click);
             // 
-            // flpBookingList
-            // 
-            this.flpBookingList.AutoScroll = true;
-            this.flpBookingList.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.flpBookingList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpBookingList.Location = new System.Drawing.Point(0, 0);
-            this.flpBookingList.Name = "flpBookingList";
-            this.flpBookingList.Size = new System.Drawing.Size(1263, 642);
-            this.flpBookingList.TabIndex = 1;
-            // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(1244, 0);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(1249, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(19, 642);
+            this.panel2.Size = new System.Drawing.Size(14, 65);
             this.panel2.TabIndex = 2;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.panel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1263, 56);
+            this.panel3.Size = new System.Drawing.Size(1263, 65);
             this.panel3.TabIndex = 3;
+            // 
+            // flpBookingList
+            // 
+            this.flpBookingList.AutoScroll = true;
+            this.flpBookingList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpBookingList.Location = new System.Drawing.Point(0, 65);
+            this.flpBookingList.Name = "flpBookingList";
+            this.flpBookingList.Size = new System.Drawing.Size(1263, 577);
+            this.flpBookingList.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(24, 12);
+            this.label1.Location = new System.Drawing.Point(24, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(146, 32);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 3;
             this.label1.Text = "Your Book";
             // 
             // BookView
@@ -105,9 +106,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1263, 716);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.flpBookingList);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BookView";
@@ -123,10 +123,10 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.FlowLayoutPanel flpBookingList;
         private System.Windows.Forms.PictureBox addIcon;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.FlowLayoutPanel flpBookingList;
         private System.Windows.Forms.Label label1;
     }
 }

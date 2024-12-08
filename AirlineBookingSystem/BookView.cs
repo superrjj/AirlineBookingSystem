@@ -34,6 +34,9 @@ namespace AirlineBookingSystem
             flpBookingList.Controls.Add(newBookingControl);
         }
 
-     
+        private void flpBookingList_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

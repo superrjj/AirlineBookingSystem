@@ -89,7 +89,7 @@
             this.lblTravel.AutoSize = true;
             this.lblTravel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTravel.ForeColor = System.Drawing.Color.Black;
-            this.lblTravel.Location = new System.Drawing.Point(694, 153);
+            this.lblTravel.Location = new System.Drawing.Point(700, 153);
             this.lblTravel.Name = "lblTravel";
             this.lblTravel.Size = new System.Drawing.Size(59, 25);
             this.lblTravel.TabIndex = 31;
