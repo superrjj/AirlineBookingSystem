@@ -29,17 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pnl1 = new System.Windows.Forms.Panel();
-            this.pnl2 = new System.Windows.Forms.Panel();
+            this.loadingProgressBar1 = new AirlineBookingSystem.loadingProgressBar();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.pnl1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // pictureBox1
             // 
@@ -52,25 +46,21 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // pnl1
+            // loadingProgressBar1
             // 
-            this.pnl1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnl1.Controls.Add(this.pnl2);
-            this.pnl1.Location = new System.Drawing.Point(148, 466);
-            this.pnl1.Margin = new System.Windows.Forms.Padding(0);
-            this.pnl1.Name = "pnl1";
-            this.pnl1.Padding = new System.Windows.Forms.Padding(1);
-            this.pnl1.Size = new System.Drawing.Size(394, 30);
-            this.pnl1.TabIndex = 1;
+            this.loadingProgressBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.loadingProgressBar1.BarColor = System.Drawing.Color.RoyalBlue;
+            this.loadingProgressBar1.Location = new System.Drawing.Point(176, 486);
+            this.loadingProgressBar1.Max = 100;
+            this.loadingProgressBar1.Min = 0;
+            this.loadingProgressBar1.Name = "loadingProgressBar1";
+            this.loadingProgressBar1.Size = new System.Drawing.Size(350, 25);
+            this.loadingProgressBar1.TabIndex = 1;
+            this.loadingProgressBar1.Value = 10;
             // 
-            // pnl2
+            // timer1
             // 
-            this.pnl2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(116)))), ((int)(((byte)(252)))));
-            this.pnl2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnl2.Location = new System.Drawing.Point(1, 1);
-            this.pnl2.Name = "pnl2";
-            this.pnl2.Size = new System.Drawing.Size(65, 24);
-            this.pnl2.TabIndex = 0;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // LoadingScreen
             // 
@@ -78,7 +68,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(689, 591);
-            this.Controls.Add(this.pnl1);
+            this.Controls.Add(this.loadingProgressBar1);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoadingScreen";
@@ -86,7 +76,6 @@
             this.Text = "LoadingScreen";
             this.Load += new System.EventHandler(this.LoadingScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.pnl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -94,8 +83,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
+        private loadingProgressBar loadingProgressBar1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Panel pnl1;
-        private System.Windows.Forms.Panel pnl2;
     }
 }

@@ -13,50 +13,41 @@ namespace AirlineBookingSystem
 {
     public partial class LoadingScreen : Form
     {
-        private Timer delayTimer;
+        
      
         public LoadingScreen()
         {
             InitializeComponent();
-
+            timer1.Interval = 100;
+            timer1.Start();
             
-            delayTimer = new Timer();
-            delayTimer.Interval = 6000; 
-            delayTimer.Tick += DelayTimer_Tick;
+           
 
         }
-        //Update new loading screen gif
+        
         private void LoadingScreen_Load(object sender, EventArgs e)
         {
-            delayTimer.Start();
-        }
-
-        private void DelayTimer_Tick(object sender, EventArgs e)
-        {
-          
-            delayTimer.Stop();
-
-            
-            pictureBox1.Visible = false;
-
-          
-            PerformLogin();
-        }
-
-        private void PerformLogin()
-        {
-            
-            Login login = new Login();
-            login.Show();
-
-            
-            this.Hide();
+         
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //The animation method.
+            //Updating progress bar in loading screen
+            if(loadingProgressBar1.Value<loadingProgressBar1.Max)
+            {
+                loadingProgressBar1.Value++;
+                loadingProgressBar1.Refresh();
+            }
+            if(loadingProgressBar1.Value==loadingProgressBar1.Max)
+            {
+                timer1.Stop();
+                Login login = new Login();
+                login.Show();
+
+                
+                this.Hide();
+            }
         }
-        }
+    }
     }
 
