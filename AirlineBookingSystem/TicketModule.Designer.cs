@@ -29,20 +29,12 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnBook = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
             this.btnCancelBook = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.txtAmount = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.txtAccountNumber = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.txtAccountName = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
             this.cbPassengerSeat = new System.Windows.Forms.ComboBox();
-            this.cbPayment = new System.Windows.Forms.ComboBox();
-            this.label22 = new System.Windows.Forms.Label();
             this.lblTax = new System.Windows.Forms.Label();
             this.lblTotalAmount = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -60,7 +52,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.cbArrival = new System.Windows.Forms.ComboBox();
@@ -90,7 +81,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnBook);
+            this.panel2.Controls.Add(this.btnNext);
             this.panel2.Controls.Add(this.btnCancelBook);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 510);
@@ -99,26 +90,26 @@
             this.panel2.TabIndex = 36;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // btnBook
+            // btnNext
             // 
-            this.btnBook.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBook.ForeColor = System.Drawing.Color.White;
-            this.btnBook.Location = new System.Drawing.Point(771, 19);
-            this.btnBook.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBook.Name = "btnBook";
-            this.btnBook.Size = new System.Drawing.Size(140, 41);
-            this.btnBook.TabIndex = 38;
-            this.btnBook.Text = "Book";
-            this.btnBook.UseVisualStyleBackColor = false;
-            this.btnBook.Click += new System.EventHandler(this.btnBook_Click);
+            this.btnNext.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext.ForeColor = System.Drawing.Color.White;
+            this.btnNext.Location = new System.Drawing.Point(771, 19);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(140, 41);
+            this.btnNext.TabIndex = 38;
+            this.btnNext.Text = "Next";
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnBook_Click);
             // 
             // btnCancelBook
             // 
             this.btnCancelBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelBook.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.btnCancelBook.ForeColor = System.Drawing.Color.LightSlateGray;
             this.btnCancelBook.Location = new System.Drawing.Point(611, 19);
             this.btnCancelBook.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelBook.Name = "btnCancelBook";
@@ -130,7 +121,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel3.BackColor = System.Drawing.Color.LightSlateGray;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
@@ -149,15 +140,7 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.txtAmount);
-            this.panel4.Controls.Add(this.label29);
-            this.panel4.Controls.Add(this.txtAccountNumber);
-            this.panel4.Controls.Add(this.label28);
-            this.panel4.Controls.Add(this.txtAccountName);
-            this.panel4.Controls.Add(this.label27);
             this.panel4.Controls.Add(this.cbPassengerSeat);
-            this.panel4.Controls.Add(this.cbPayment);
-            this.panel4.Controls.Add(this.label22);
             this.panel4.Controls.Add(this.lblTax);
             this.panel4.Controls.Add(this.lblTotalAmount);
             this.panel4.Controls.Add(this.label25);
@@ -175,7 +158,6 @@
             this.panel4.Controls.Add(this.label17);
             this.panel4.Controls.Add(this.label15);
             this.panel4.Controls.Add(this.label16);
-            this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.label14);
             this.panel4.Controls.Add(this.label10);
             this.panel4.Controls.Add(this.cbArrival);
@@ -200,68 +182,8 @@
             this.panel4.Controls.Add(this.label1);
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(931, 872);
+            this.panel4.Size = new System.Drawing.Size(931, 696);
             this.panel4.TabIndex = 0;
-            // 
-            // txtAmount
-            // 
-            this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAmount.Location = new System.Drawing.Point(474, 657);
-            this.txtAmount.Margin = new System.Windows.Forms.Padding(4);
-            this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(419, 30);
-            this.txtAmount.TabIndex = 85;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(469, 627);
-            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(86, 25);
-            this.label29.TabIndex = 84;
-            this.label29.Text = "Amount:";
-            // 
-            // txtAccountNumber
-            // 
-            this.txtAccountNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAccountNumber.Location = new System.Drawing.Point(474, 579);
-            this.txtAccountNumber.Margin = new System.Windows.Forms.Padding(4);
-            this.txtAccountNumber.Name = "txtAccountNumber";
-            this.txtAccountNumber.Size = new System.Drawing.Size(419, 30);
-            this.txtAccountNumber.TabIndex = 83;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(469, 549);
-            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(164, 25);
-            this.label28.TabIndex = 82;
-            this.label28.Text = "Account Number:";
-            // 
-            // txtAccountName
-            // 
-            this.txtAccountName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAccountName.Location = new System.Drawing.Point(28, 579);
-            this.txtAccountName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtAccountName.Name = "txtAccountName";
-            this.txtAccountName.Size = new System.Drawing.Size(419, 30);
-            this.txtAccountName.TabIndex = 81;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(23, 549);
-            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(147, 25);
-            this.label27.TabIndex = 80;
-            this.label27.Text = "Account Name:";
             // 
             // cbPassengerSeat
             // 
@@ -274,38 +196,11 @@
             this.cbPassengerSeat.TabIndex = 79;
             this.cbPassengerSeat.SelectedIndexChanged += new System.EventHandler(this.cbPassengerSeat_SelectedIndexChanged);
             // 
-            // cbPayment
-            // 
-            this.cbPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbPayment.FormattingEnabled = true;
-            this.cbPayment.Items.AddRange(new object[] {
-            "Gcash",
-            "Credit/Debit Card",
-            "Online Banking"});
-            this.cbPayment.Location = new System.Drawing.Point(25, 652);
-            this.cbPayment.Margin = new System.Windows.Forms.Padding(4);
-            this.cbPayment.Name = "cbPayment";
-            this.cbPayment.Size = new System.Drawing.Size(422, 33);
-            this.cbPayment.TabIndex = 78;
-            this.cbPayment.SelectedIndexChanged += new System.EventHandler(this.cbPayment_SelectedIndexChanged);
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(21, 625);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(226, 25);
-            this.label22.TabIndex = 77;
-            this.label22.Text = "Select Payment Method:";
-            this.label22.Click += new System.EventHandler(this.label22_Click_1);
-            // 
             // lblTax
             // 
             this.lblTax.AutoSize = true;
             this.lblTax.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTax.Location = new System.Drawing.Point(779, 748);
+            this.lblTax.Location = new System.Drawing.Point(780, 578);
             this.lblTax.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTax.Name = "lblTax";
             this.lblTax.Size = new System.Drawing.Size(77, 27);
@@ -317,7 +212,7 @@
             // 
             this.lblTotalAmount.AutoSize = true;
             this.lblTotalAmount.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalAmount.Location = new System.Drawing.Point(778, 779);
+            this.lblTotalAmount.Location = new System.Drawing.Point(779, 609);
             this.lblTotalAmount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalAmount.Name = "lblTotalAmount";
             this.lblTotalAmount.Size = new System.Drawing.Size(77, 27);
@@ -328,7 +223,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(166, 780);
+            this.label25.Location = new System.Drawing.Point(178, 610);
             this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(586, 25);
@@ -340,7 +235,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(20, 780);
+            this.label26.Location = new System.Drawing.Point(32, 610);
             this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(129, 25);
@@ -351,7 +246,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(154, 750);
+            this.label23.Location = new System.Drawing.Point(166, 580);
             this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(621, 25);
@@ -363,7 +258,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(19, 750);
+            this.label24.Location = new System.Drawing.Point(31, 580);
             this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(46, 25);
@@ -374,7 +269,7 @@
             // 
             this.lblBaseFare.AutoSize = true;
             this.lblBaseFare.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBaseFare.Location = new System.Drawing.Point(779, 721);
+            this.lblBaseFare.Location = new System.Drawing.Point(780, 551);
             this.lblBaseFare.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBaseFare.Name = "lblBaseFare";
             this.lblBaseFare.Size = new System.Drawing.Size(77, 27);
@@ -386,7 +281,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(154, 721);
+            this.label19.Location = new System.Drawing.Point(166, 551);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(621, 25);
@@ -398,7 +293,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(20, 721);
+            this.label18.Location = new System.Drawing.Point(32, 551);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(102, 25);
@@ -499,17 +394,6 @@
             this.label16.Text = "_________________________________________________________________________________" +
     "__________________________________________";
             this.label16.Click += new System.EventHandler(this.label16_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(399, 519);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(153, 25);
-            this.label5.TabIndex = 59;
-            this.label5.Text = "Payment Details";
             // 
             // label14
             // 
@@ -852,12 +736,11 @@
 
         #endregion
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnBook;
+        private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnCancelBook;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbArrival;
@@ -897,14 +780,6 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.ComboBox cbPayment;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.ComboBox cbPassengerSeat;
-        private System.Windows.Forms.TextBox txtAccountName;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox txtAmount;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox txtAccountNumber;
-        private System.Windows.Forms.Label label28;
     }
 }

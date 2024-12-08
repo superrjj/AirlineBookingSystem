@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookView));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.addIcon = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.flpBookingList = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.flpBookingList = new System.Windows.Forms.FlowLayoutPanel();
+            this.addIcon = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.addIcon)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.addIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -50,17 +50,6 @@
             this.panel1.Size = new System.Drawing.Size(1263, 74);
             this.panel1.TabIndex = 0;
             // 
-            // addIcon
-            // 
-            this.addIcon.Image = ((System.Drawing.Image)(resources.GetObject("addIcon.Image")));
-            this.addIcon.Location = new System.Drawing.Point(1172, 12);
-            this.addIcon.Name = "addIcon";
-            this.addIcon.Size = new System.Drawing.Size(79, 50);
-            this.addIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.addIcon.TabIndex = 0;
-            this.addIcon.TabStop = false;
-            this.addIcon.Click += new System.EventHandler(this.addIcon_Click);
-            // 
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
@@ -71,7 +60,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel3.BackColor = System.Drawing.Color.LightSlateGray;
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.panel2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -79,15 +68,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1263, 65);
             this.panel3.TabIndex = 3;
-            // 
-            // flpBookingList
-            // 
-            this.flpBookingList.AutoScroll = true;
-            this.flpBookingList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpBookingList.Location = new System.Drawing.Point(0, 65);
-            this.flpBookingList.Name = "flpBookingList";
-            this.flpBookingList.Size = new System.Drawing.Size(1263, 577);
-            this.flpBookingList.TabIndex = 4;
             // 
             // label1
             // 
@@ -99,6 +79,26 @@
             this.label1.Size = new System.Drawing.Size(146, 32);
             this.label1.TabIndex = 3;
             this.label1.Text = "Your Book";
+            // 
+            // flpBookingList
+            // 
+            this.flpBookingList.AutoScroll = true;
+            this.flpBookingList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpBookingList.Location = new System.Drawing.Point(0, 65);
+            this.flpBookingList.Name = "flpBookingList";
+            this.flpBookingList.Size = new System.Drawing.Size(1263, 577);
+            this.flpBookingList.TabIndex = 4;
+            // 
+            // addIcon
+            // 
+            this.addIcon.Image = ((System.Drawing.Image)(resources.GetObject("addIcon.Image")));
+            this.addIcon.Location = new System.Drawing.Point(1172, 12);
+            this.addIcon.Name = "addIcon";
+            this.addIcon.Size = new System.Drawing.Size(79, 50);
+            this.addIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.addIcon.TabIndex = 0;
+            this.addIcon.TabStop = false;
+            this.addIcon.Click += new System.EventHandler(this.addIcon_Click);
             // 
             // BookView
             // 
@@ -113,9 +113,9 @@
             this.Name = "BookView";
             this.Text = "PassengerControlView";
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.addIcon)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.addIcon)).EndInit();
             this.ResumeLayout(false);
 
         }
