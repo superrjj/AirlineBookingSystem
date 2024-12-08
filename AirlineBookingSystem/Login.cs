@@ -99,5 +99,12 @@ namespace AirlineBookingSystem
             
            
         }
+
+        private void lblAdmin_Click(object sender, EventArgs e)
+        {
+            AdminLogin admin = new AdminLogin();
+            admin.Show();
+            this.Hide();
+        }
     }
 }
