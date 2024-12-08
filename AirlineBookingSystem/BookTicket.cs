@@ -28,11 +28,11 @@ namespace AirlineBookingSystem
             cmd = new SqlCommand();
             //LoadBooked();
         }
-
+            // Gagawin koto
         /* public void LoadBooked()
          {
 
-
+             
              int i = 0;
              dgvBooked.Rows.Clear();
              // Select required columns from the database tables
