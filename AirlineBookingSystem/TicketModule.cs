@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System;
 using System.Collections.Generic;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AirlineBookingSystem
 {
@@ -214,6 +215,47 @@ namespace AirlineBookingSystem
         private void btnCancelBook_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cbTravelClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Define price ranges based on travel class
+            Random random = new Random(); // To generate random prices within the range
+            int baseFare = 0;
+            int tax = 0;
+
+            if (cbTravelClass.SelectedItem != null)
+            {
+                switch (cbTravelClass.SelectedItem.ToString())
+                {
+                    case "Economy Class":
+                        baseFare = random.Next(1500, 5001); // 1500 - 5000 inclusive
+                        tax = 1620;
+                        break;
+                    case "Premium Economy Class":
+                        baseFare = random.Next(15000, 25001); // 15000 - 25000 inclusive
+                        tax = 2200;
+                        break;
+                    case "Business Class":
+                        baseFare = random.Next(50000, 100001); // 50000 - 30000 inclusive
+                        tax = 2700;
+                        break;
+                    default:
+                        baseFare = 0; // Default value if no valid class is selected
+                        break;
+                }
+
+                // Display the calculated base fare
+                lblBaseFare.Text = $"{baseFare:C}"; // Format as currency
+                lblTax.Text = $"{tax:C}";
+
+                decimal totalAmount = baseFare + tax;
+                lblTotalAmount.Text = $"{totalAmount:C}";
+            }
+            else
+            {
+                lblBaseFare.Text = "Base Fare: Not Selected";
+            }
         }
     }
 }
