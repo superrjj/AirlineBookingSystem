@@ -28,7 +28,7 @@ namespace AirlineBookingSystem
             cmd = new SqlCommand();
             //LoadBooked();
         }
-            // Gagawin koto
+            // Pogi si harvee
         /* public void LoadBooked()
          {
 
