@@ -1,17 +1,21 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace AirlineBookingSystem
 {
     public partial class BookView : Form
     {
+        
+
         public BookView()
         {
             InitializeComponent();
 
             // Instantiate the bookListView before adding it to the FlowLayoutPanel
             BookListView bookListView = new BookListView(); // Instantiate it here
-            flpBookingList.Controls.Add(bookListView); // Assuming flpBookingList is the name of your FlowLayoutPanel
+            
+
         }
 
         private void addIcon_Click(object sender, EventArgs e)
@@ -32,11 +36,30 @@ namespace AirlineBookingSystem
 
             // Add the new control to the FlowLayoutPanel (Assume the FlowLayoutPanel is named flpBookingList)
             flpBookingList.Controls.Add(newBookingControl);
+
+            // After adding, check if any booking exists and show/hide accordingly
+            ToggleBookListViewVisibility();
+
+
         }
 
-        private void flpBookingList_Paint(object sender, PaintEventArgs e)
+        // Method to toggle visibility of the BookListView based on the presence of bookings
+        private void ToggleBookListViewVisibility()
         {
+            // Check if there are any controls in the FlowLayoutPanel that are BookListView instances
+            var anyBookings = flpBookingList.Controls.OfType<BookListView>().Any();
 
+            // Show or hide the BookListView based on whether any bookings are added
+            foreach (Control control in flpBookingList.Controls)
+            {
+                if (control is BookListView bookListView)
+                {
+                    bookListView.Visible = anyBookings; // Only visible if there are bookings
+                }
+            }
         }
+
+
+
     }
 }

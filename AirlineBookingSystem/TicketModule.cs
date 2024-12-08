@@ -98,9 +98,11 @@ namespace AirlineBookingSystem
                         {
                             // Only proceed to complete the transaction after payment is successful
                             MessageBox.Show("Booking and payment completed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
+                            BookView bookView = new BookView();
+                            bookView.Show();
+                            
                         }
-                        this.Show();
+                        this.Close();
                     }
                 }
             }
