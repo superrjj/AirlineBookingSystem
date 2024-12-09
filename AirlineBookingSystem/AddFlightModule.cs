@@ -13,12 +13,12 @@ namespace AirlineBookingSystem
 {
     public partial class AddFlightModule : Form
     {
-        private readonly SearchFlightView _parentForm;
+        private readonly AdminFlightView _adminFlightView;
 
-        public AddFlightModule(SearchFlightView parentForm)
+        public AddFlightModule(AdminFlightView adminFlightView)
         {
             InitializeComponent();
-            _parentForm = parentForm;
+            _adminFlightView = adminFlightView;  // Store the reference
             PopulateFlightCodes();
 
             // Subscribe to the SelectedIndexChanged event
@@ -105,7 +105,7 @@ namespace AirlineBookingSystem
                         cmd.ExecuteNonQuery(); // Execute the insert operation
 
                         // Call AddFlightToList method if needed (adjust as required)
-                        _parentForm.AddFlight(
+                        _adminFlightView.AddFlight(
                             cbFlightCode.SelectedItem.ToString(),
                             cbTravel.SelectedItem.ToString(),
                             cbDepartureFrom.SelectedItem.ToString(),
