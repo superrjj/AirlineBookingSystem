@@ -79,7 +79,7 @@
             this.panel1.Controls.Add(this.lblGender);
             this.panel1.Controls.Add(this.lblContact);
             this.panel1.Controls.Add(this.lblFullName);
-            this.panel1.Location = new System.Drawing.Point(5, 8);
+            this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1234, 201);
             this.panel1.TabIndex = 0;
@@ -344,7 +344,7 @@
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.Controls.Add(this.panel1);
             this.Name = "BookListView";
-            this.Size = new System.Drawing.Size(1245, 215);
+            this.Size = new System.Drawing.Size(1245, 212);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
