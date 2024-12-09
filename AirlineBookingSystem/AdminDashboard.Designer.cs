@@ -41,6 +41,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnAddFlight = new System.Windows.Forms.Button();
+            this.adminPanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeIcon)).BeginInit();
             this.panel2.SuspendLayout();
@@ -202,12 +203,22 @@
             this.btnAddFlight.Text = "        Add Flight";
             this.btnAddFlight.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddFlight.UseVisualStyleBackColor = true;
+            this.btnAddFlight.Click += new System.EventHandler(this.btnAddFlight_Click);
+            // 
+            // adminPanel
+            // 
+            this.adminPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.adminPanel.Location = new System.Drawing.Point(225, 89);
+            this.adminPanel.Name = "adminPanel";
+            this.adminPanel.Size = new System.Drawing.Size(1275, 608);
+            this.adminPanel.TabIndex = 3;
             // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1500, 697);
+            this.Controls.Add(this.adminPanel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -239,5 +250,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnAddFlight;
+        private System.Windows.Forms.Panel adminPanel;
     }
 }

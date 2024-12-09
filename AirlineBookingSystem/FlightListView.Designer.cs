@@ -38,7 +38,7 @@
             this.lblTravel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +46,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.lblDate);
             this.panel1.Controls.Add(this.lblTravel);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.lblArrivalTo);
@@ -152,15 +152,15 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "label2";
             // 
-            // label6
+            // lblDate
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(856, 6);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(150, 25);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Departure Date:";
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(856, 6);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(150, 25);
+            this.lblDate.TabIndex = 8;
+            this.lblDate.Text = "Departure Date:";
             // 
             // FlightListView
             // 
@@ -188,6 +188,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblFlightCode;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblDate;
     }
 }

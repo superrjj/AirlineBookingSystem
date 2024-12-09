@@ -77,6 +77,12 @@
     <Compile Include="AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminFlightView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminFlightView.Designer.cs">
+      <DependentUpon>AdminFlightView.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminLogin.cs">
       <SubType>Form</SubType>
     </Compile>
