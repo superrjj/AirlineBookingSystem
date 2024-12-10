@@ -19,7 +19,7 @@ namespace AirlineBookingSystem
             InitializeComponent();
             // Instantiate the FlightListView and add it to the FlowLayoutPanel
             FlightListView flightListView = new FlightListView();
-            flpAdminFlightView.Controls.Add(flightListView);  // Add the control to the FlowLayoutPanel
+            
         }
 
         private void flpAdminFlightView_Paint(object sender, PaintEventArgs e)
@@ -28,16 +28,17 @@ namespace AirlineBookingSystem
         }
 
 
-        public void AddFlight(string departureFrom, string arrivalTo, string departureDate, string flightCode, string travelClass)
+        public void AddFlight(string departFrom, string arrivTo, string departDate, string flightCode, string travel)
         {
-            // Create a new instance of BookListView user control
-            AdminFlightView newBookingControl = new AdminFlightView();
+            
+            // Create a new instance of FlightListView user control
+            FlightListView newFlightControl = new FlightListView();
 
             // Update the labels with the booking details
-            newBookingControl.UpdateAddFlight(departureFrom, arrivalTo, departureDate, travelClass);
+            newFlightControl.UpdateAddFlight(departFrom, arrivTo, departDate, travel, flightCode);
 
             // Add the new control to the FlowLayoutPanel (Assume the FlowLayoutPanel is named flpBookingList)
-            flpAdminFlightView.Controls.Add(newBookingControl);
+            flpAdminFlightView.Controls.Add(newFlightControl);
 
             // After adding, check if any booking exists and show/hide accordingly
             ToggleBookListViewVisibility();
@@ -50,16 +51,22 @@ namespace AirlineBookingSystem
         private void ToggleBookListViewVisibility()
         {
             // Check if there are any controls in the FlowLayoutPanel that are FlightListView instances
-            var anyBookings = flpAdminFlightView.Controls.OfType<FlightListView>().Any();
+            var anyFlight = flpAdminFlightView.Controls.OfType<FlightListView>().Any();
 
             // Show or hide the BookListView based on whether any bookings are added
             foreach (Control control in flpAdminFlightView.Controls)
             {
                 if (control is FlightListView flightListView)
                 {
-                    flightListView.Visible = anyBookings; // Only visible if there are bookings
+                    flightListView.Visible = anyFlight; // Only visible if there are bookings
                 }
             }
+        }
+
+        private void addIcon_Click(object sender, EventArgs e)
+        {
+            AddFlightModule afm = new AddFlightModule(this);
+            afm.ShowDialog();
         }
     }
 }

@@ -36,7 +36,7 @@ namespace AirlineBookingSystem
 
         private void btnAddFlight_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new AdminFlightView());
         }
     }
 }

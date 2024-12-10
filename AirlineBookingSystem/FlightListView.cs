@@ -18,15 +18,17 @@ namespace AirlineBookingSystem
             InitializeComponent();
         }
 
-      
-        public void UpdateAddFlight( string departureFrom, string arrivalTo, string departureDate, string flightCode, string travelClass)
+
+        public void UpdateAddFlight(string departFrom, string arrivTo, string departDate, string flightCode, string travel)
         {
-            lblDepartureFrom.Text = departureFrom;
-            lblArrivalTo.Text = arrivalTo;
-            lblDate.Text = departureDate;
+            lblDepartureFrom.Text = departFrom;
+            lblArrivalTo.Text = arrivTo;
+            lblDate.Text = departDate;
             lblFlightCode.Text = flightCode;
-            lblTravel.Text = travelClass;
+            lblTravel.Text = travel;
         }
+
+
     }
 
     }

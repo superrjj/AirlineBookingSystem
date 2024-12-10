@@ -89,6 +89,7 @@
             this.addIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.addIcon.TabIndex = 0;
             this.addIcon.TabStop = false;
+            this.addIcon.Click += new System.EventHandler(this.addIcon_Click);
             // 
             // flpAdminFlightView
             // 

@@ -108,21 +108,9 @@
             this.cbTravel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTravel.FormattingEnabled = true;
             this.cbTravel.Items.AddRange(new object[] {
-            "Filipino ",
-            "Japanese ",
-            "Chinese",
-            "Indian",
-            "Korean",
-            "Vietnamese",
-            "Thai ",
-            "Malaysian",
-            "Singaporean",
-            "Indonesian ",
-            "Bangladeshi ",
-            "Pakistani ",
-            "Saudi Arabian",
-            "Emirati ",
-            "Qatari "});
+            "Economy Class",
+            "Premium Economy Class",
+            "Business Class"});
             this.cbTravel.Location = new System.Drawing.Point(214, 132);
             this.cbTravel.Margin = new System.Windows.Forms.Padding(4);
             this.cbTravel.Name = "cbTravel";
@@ -134,21 +122,40 @@
             this.cbDepartureFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDepartureFrom.FormattingEnabled = true;
             this.cbDepartureFrom.Items.AddRange(new object[] {
-            "Filipino ",
-            "Japanese ",
-            "Chinese",
-            "Indian",
-            "Korean",
-            "Vietnamese",
-            "Thai ",
-            "Malaysian",
-            "Singaporean",
-            "Indonesian ",
-            "Bangladeshi ",
-            "Pakistani ",
-            "Saudi Arabian",
-            "Emirati ",
-            "Qatari "});
+            "Ninoy Aquino International Airport (NAIA) - Manila",
+            "Mactan-Cebu International Airport (MCIA) - Cebu",
+            "Clark International Airport (CRK) - Pampanga",
+            "Francisco Bangoy International Airport (Davao International Airport) - Davao",
+            "Iloilo International Airport - Iloilo",
+            "Laguindingan Airport - Cagayan de Oro (Misamis Oriental)",
+            "Bacolod-Silay International Airport - Negros Occidental",
+            "Kalibo International Airport - Aklan",
+            "Godofredo P. Ramos Airport (Caticlan Airport) - Aklan",
+            "Puerto Princesa International Airport - Palawan",
+            "Bohol-Panglao International Airport - Bohol",
+            "General Santos International Airport - General Santos City",
+            "Zamboanga International Airport - Zamboanga City",
+            "Subic Bay International Airport - Zambales",
+            "Laoag International Airport - Ilocos Norte",
+            "Legazpi Airport (Bicol International Airport) - Albay",
+            "Tacloban Airport (Daniel Z. Romualdez Airport) - Leyte",
+            "Dumaguete Airport (Sibulan Airport) - Negros Oriental",
+            "Surigao Airport - Surigao City",
+            "Ozamis Airport (Labo Airport) - Misamis Occidental",
+            "Butuan Airport (Bancasi Airport) - Agusan del Norte",
+            "Dipolog Airport - Zamboanga del Norte",
+            "Roxas Airport - Capiz",
+            "San Jose Airport - Occidental Mindoro",
+            "Basco Airport - Batanes",
+            "Catarman National Airport - Northern Samar",
+            "Calbayog Airport - Samar",
+            "Naga Airport - Camarines Sur",
+            "Masbate Airport - Masbate",
+            "Pagadian Airport - Zamboanga del Sur",
+            "Ormoc Airport - Leyte",
+            "Camiguin Airport - Camiguin Island",
+            "Virac Airport - Catanduanes",
+            "Siargao Airport (Sayak Airport) - Siargao Island"});
             this.cbDepartureFrom.Location = new System.Drawing.Point(30, 206);
             this.cbDepartureFrom.Margin = new System.Windows.Forms.Padding(4);
             this.cbDepartureFrom.Name = "cbDepartureFrom";
@@ -171,21 +178,40 @@
             this.cbArrivalTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbArrivalTo.FormattingEnabled = true;
             this.cbArrivalTo.Items.AddRange(new object[] {
-            "Filipino ",
-            "Japanese ",
-            "Chinese",
-            "Indian",
-            "Korean",
-            "Vietnamese",
-            "Thai ",
-            "Malaysian",
-            "Singaporean",
-            "Indonesian ",
-            "Bangladeshi ",
-            "Pakistani ",
-            "Saudi Arabian",
-            "Emirati ",
-            "Qatari "});
+            "Ninoy Aquino International Airport (NAIA) - Manila",
+            "Mactan-Cebu International Airport (MCIA) - Cebu",
+            "Clark International Airport (CRK) - Pampanga",
+            "Francisco Bangoy International Airport (Davao International Airport) - Davao",
+            "Iloilo International Airport - Iloilo",
+            "Laguindingan Airport - Cagayan de Oro (Misamis Oriental)",
+            "Bacolod-Silay International Airport - Negros Occidental",
+            "Kalibo International Airport - Aklan",
+            "Godofredo P. Ramos Airport (Caticlan Airport) - Aklan",
+            "Puerto Princesa International Airport - Palawan",
+            "Bohol-Panglao International Airport - Bohol",
+            "General Santos International Airport - General Santos City",
+            "Zamboanga International Airport - Zamboanga City",
+            "Subic Bay International Airport - Zambales",
+            "Laoag International Airport - Ilocos Norte",
+            "Legazpi Airport (Bicol International Airport) - Albay",
+            "Tacloban Airport (Daniel Z. Romualdez Airport) - Leyte",
+            "Dumaguete Airport (Sibulan Airport) - Negros Oriental",
+            "Surigao Airport - Surigao City",
+            "Ozamis Airport (Labo Airport) - Misamis Occidental",
+            "Butuan Airport (Bancasi Airport) - Agusan del Norte",
+            "Dipolog Airport - Zamboanga del Norte",
+            "Roxas Airport - Capiz",
+            "San Jose Airport - Occidental Mindoro",
+            "Basco Airport - Batanes",
+            "Catarman National Airport - Northern Samar",
+            "Calbayog Airport - Samar",
+            "Naga Airport - Camarines Sur",
+            "Masbate Airport - Masbate",
+            "Pagadian Airport - Zamboanga del Sur",
+            "Ormoc Airport - Leyte",
+            "Camiguin Airport - Camiguin Island",
+            "Virac Airport - Catanduanes",
+            "Siargao Airport (Sayak Airport) - Siargao Island"});
             this.cbArrivalTo.Location = new System.Drawing.Point(30, 270);
             this.cbArrivalTo.Margin = new System.Windows.Forms.Padding(4);
             this.cbArrivalTo.Name = "cbArrivalTo";
@@ -280,6 +306,7 @@
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddFlightModule";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddFlightModule";
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);

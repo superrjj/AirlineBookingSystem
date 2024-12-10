@@ -99,7 +99,7 @@ namespace AirlineBookingSystem
                         cmd.Parameters.AddWithValue("@flight_code", cbFlightCode.SelectedItem?.ToString() ?? "N/A");
                         cmd.Parameters.AddWithValue("@travel", cbTravel.SelectedItem?.ToString() ?? "N/A");
                         cmd.Parameters.AddWithValue("@depart_from", cbDepartureFrom.SelectedItem?.ToString() ?? "N/A");
-                        cmd.Parameters.AddWithValue("@arrival_to", cbArrivalTo.SelectedItem?.ToString() ?? "N/A");
+                        cmd.Parameters.AddWithValue("@arriv_to", cbArrivalTo.SelectedItem?.ToString() ?? "N/A");
                         cmd.Parameters.AddWithValue("@depart_date", dtDepartureDate.Value);
 
                         cmd.ExecuteNonQuery(); // Execute the insert operation
