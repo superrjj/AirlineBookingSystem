@@ -62,6 +62,7 @@
             // 
             // flpSearchFlight
             // 
+            this.flpSearchFlight.AutoScroll = true;
             this.flpSearchFlight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpSearchFlight.Location = new System.Drawing.Point(0, 73);
             this.flpSearchFlight.Name = "flpSearchFlight";

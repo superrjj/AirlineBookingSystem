@@ -104,6 +104,11 @@ namespace AirlineBookingSystem
 
                         cmd.ExecuteNonQuery(); // Execute the insert operation
 
+                        cbArrivalTo.SelectedIndex = -1;
+                        cbDepartureFrom.SelectedIndex = -1;
+                        cbFlightCode.SelectedIndex = -1;
+                        cbTravel.SelectedIndex = -1;
+
                         // Call AddFlightToList method if needed (adjust as required)
                         _adminFlightView.AddFlight(
                             cbFlightCode.SelectedItem.ToString(),
@@ -111,9 +116,12 @@ namespace AirlineBookingSystem
                             cbDepartureFrom.SelectedItem.ToString(),
                             cbArrivalTo.SelectedItem.ToString(),
                             dtDepartureDate.Value.ToShortDateString());
-                           
 
-                     
+
+                        MessageBox.Show("Flight added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+
                     }
                 }
             }
