@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AirlineBookingSystem
@@ -18,25 +12,24 @@ namespace AirlineBookingSystem
         public AddFlightModule(AdminFlightView adminFlightView)
         {
             InitializeComponent();
-            _adminFlightView = adminFlightView;  // Store the reference
+
+            if (adminFlightView == null)
+            {
+                MessageBox.Show("AdminFlightView reference is missing.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+                return;
+            }
+
+            _adminFlightView = adminFlightView; // Store the reference
             PopulateFlightCodes();
-
-            // Subscribe to the SelectedIndexChanged event
             cbFlightCode.SelectedIndexChanged += cbFlightCode_SelectedIndexChanged;
-
         }
-
 
         private void PopulateFlightCodes()
         {
-            // Clear existing items in the ComboBox
-            cbFlightCode.Items.Clear();
-
-            // Generate flight codes
-            List<string> flightCodes = GenerateFlightCodes();
-
-            // Add generated flight codes to the ComboBox
-            cbFlightCode.Items.AddRange(flightCodes.ToArray());
+            cbFlightCode.Items.Clear(); // Clear existing items
+            List<string> flightCodes = GenerateFlightCodes(); // Generate flight codes
+            cbFlightCode.Items.AddRange(flightCodes.ToArray()); // Populate the ComboBox
         }
 
         private List<string> GenerateFlightCodes()
@@ -44,11 +37,10 @@ namespace AirlineBookingSystem
             var flightCodes = new List<string>();
             Random random = new Random();
 
-            // Generate 50 flight codes
             for (int i = 0; i < 50; i++)
             {
                 string prefix = $"{(char)random.Next('A', 'Z' + 1)}{(char)random.Next('A', 'Z' + 1)}{(char)random.Next('A', 'Z' + 1)}";
-                string suffix = random.Next(0, 10000).ToString("D4"); // Four-digit suffix
+                string suffix = random.Next(0, 10000).ToString("D4");
                 flightCodes.Add($"{prefix}-{suffix}");
             }
 
@@ -57,21 +49,15 @@ namespace AirlineBookingSystem
 
         private void cbFlightCode_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            // Get the selected flight code
             string selectedFlightCode = cbFlightCode.SelectedItem?.ToString();
-
             if (!string.IsNullOrEmpty(selectedFlightCode))
             {
-                
+                // Handle flight code selection logic (if needed)
             }
-
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
-            // Validate required fields
             if (cbFlightCode.SelectedItem == null ||
                 cbTravel.SelectedItem == null ||
                 cbDepartureFrom.SelectedItem == null ||
@@ -81,59 +67,49 @@ namespace AirlineBookingSystem
                 return;
             }
 
-            // Insert the booking reference into the database before proceeding to payment
-            string insertBookingQuery = @"
-                INSERT INTO FlightDetails
-                (Flight_Code, Travel, Depart_Date, Depart_From, Arriv_To)
-                VALUES (@flight_code, @travel, @depart_date, @depart_from, @arriv_to)";
-
+            string flightCode = cbFlightCode.SelectedItem.ToString();
+            string departFrom = cbDepartureFrom.SelectedItem.ToString();
+            string arrivalTo = cbArrivalTo.SelectedItem.ToString();
+            string travel = cbTravel.SelectedItem.ToString();
+            string departDate = dtDepartureDate.Value.ToShortDateString();
 
             try
             {
                 using (SqlConnection conn = new SqlConnection(@"Data Source=MSI\SQLEXPRESS;Initial Catalog=AirlineBookingDB;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"))
                 {
                     conn.Open();
+                    string insertBookingQuery = @"
+                        INSERT INTO FlightDetails (Flight_Code, Travel, Depart_Date, Depart_From, Arriv_To)
+                        VALUES (@flight_code, @travel, @depart_date, @depart_from, @arriv_to)";
+
                     using (SqlCommand cmd = new SqlCommand(insertBookingQuery, conn))
                     {
-                     
-                        cmd.Parameters.AddWithValue("@flight_code", cbFlightCode.SelectedItem?.ToString() ?? "N/A");
-                        cmd.Parameters.AddWithValue("@travel", cbTravel.SelectedItem?.ToString() ?? "N/A");
-                        cmd.Parameters.AddWithValue("@depart_from", cbDepartureFrom.SelectedItem?.ToString() ?? "N/A");
-                        cmd.Parameters.AddWithValue("@arriv_to", cbArrivalTo.SelectedItem?.ToString() ?? "N/A");
+                        cmd.Parameters.AddWithValue("@flight_code", flightCode);
+                        cmd.Parameters.AddWithValue("@travel", travel);
                         cmd.Parameters.AddWithValue("@depart_date", dtDepartureDate.Value);
+                        cmd.Parameters.AddWithValue("@depart_from", departFrom);
+                        cmd.Parameters.AddWithValue("@arriv_to", arrivalTo);
 
-                        cmd.ExecuteNonQuery(); // Execute the insert operation
-
-                        cbArrivalTo.SelectedIndex = -1;
-                        cbDepartureFrom.SelectedIndex = -1;
-                        cbFlightCode.SelectedIndex = -1;
-                        cbTravel.SelectedIndex = -1;
-
-                        // Call AddFlightToList method if needed (adjust as required)
-                        _adminFlightView.AddFlight(
-                            cbFlightCode.SelectedItem.ToString(),
-                            cbDepartureFrom.SelectedItem.ToString(),
-                            cbArrivalTo.SelectedItem.ToString(),
-                            dtDepartureDate.Value.ToShortDateString(),
-                            cbTravel.SelectedItem.ToString());
-
-
-                        MessageBox.Show("Flight added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-
+                        cmd.ExecuteNonQuery();
                     }
                 }
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show($"Database error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                _adminFlightView.AddFlight(departFrom, arrivalTo, departDate, flightCode, travel); // Update flight list
+                ClearFormFields(); // Reset fields
+                MessageBox.Show("Flight added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
 
+        private void ClearFormFields()
+        {
+            cbFlightCode.SelectedIndex = -1;
+            cbDepartureFrom.SelectedIndex = -1;
+            cbArrivalTo.SelectedIndex = -1;
+            cbTravel.SelectedIndex = -1;
         }
     }
 }
