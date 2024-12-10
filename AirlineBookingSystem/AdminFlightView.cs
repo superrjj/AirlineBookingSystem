@@ -28,14 +28,14 @@ namespace AirlineBookingSystem
         }
 
 
-        public void AddFlight(string departFrom, string arrivTo, string departDate, string flightCode, string travel)
+        public void AddFlight(string flightCode, string departFrom, string arrivTo, string departDate, string travel)
         {
             
             // Create a new instance of FlightListView user control
             FlightListView newFlightControl = new FlightListView();
 
             // Update the labels with the booking details
-            newFlightControl.UpdateAddFlight(departFrom, arrivTo, departDate, travel, flightCode);
+            newFlightControl.UpdateAddFlight(flightCode, departFrom, arrivTo, departDate, travel);
 
             // Add the new control to the FlowLayoutPanel (Assume the FlowLayoutPanel is named flpBookingList)
             flpAdminFlightView.Controls.Add(newFlightControl);

@@ -40,17 +40,18 @@ namespace AirlineBookingSystem
                             {
                                 // Retrieve data from the reader
 
-                                string departFrom = reader["Flight_Code"].ToString();
-                                string departDate = reader["Depart_From"].ToString();
-                                string arrivTo = reader["Depart_Date"].ToString();
+                                string flightCode = reader["Flight_Code"].ToString();
+                                string departFrom = reader["Depart_From"].ToString();
+                                string arrivTo = reader["Arriv_To"].ToString();
+                                string departDate = reader["Depart_Date"].ToString();
                                 string travel = reader["Travel"].ToString();
-                                string flightCode = reader["Arriv_To"].ToString();
+
 
                                 // Create a new instance of the BookListView user control
                                 FlightListView flightControl = new FlightListView();
 
                                 // Update the control's data
-                                flightControl.UpdateAddFlight(departFrom, arrivTo, departDate, flightCode, travel);
+                                flightControl.UpdateAddFlight(flightCode, departFrom, arrivTo, departDate, travel);
 
                                 // Add the user control to the FlowLayoutPanel
                                 flpSearchFlight.Controls.Add(flightControl);

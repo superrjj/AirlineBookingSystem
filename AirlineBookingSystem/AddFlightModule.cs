@@ -112,10 +112,10 @@ namespace AirlineBookingSystem
                         // Call AddFlightToList method if needed (adjust as required)
                         _adminFlightView.AddFlight(
                             cbFlightCode.SelectedItem.ToString(),
-                            cbTravel.SelectedItem.ToString(),
                             cbDepartureFrom.SelectedItem.ToString(),
                             cbArrivalTo.SelectedItem.ToString(),
-                            dtDepartureDate.Value.ToShortDateString());
+                            dtDepartureDate.Value.ToShortDateString(),
+                            cbTravel.SelectedItem.ToString());
 
 
                         MessageBox.Show("Flight added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
