@@ -20,6 +20,8 @@ namespace AirlineBookingSystem
         public void UpdateBookingInfo(string book_ref, string book_date, string fullName, string contact, string gender, string nationality,
                                        string departureFrom, string arrivalTo, string departureDate, string numberSeats, string travelClass)
         {
+            
+
             lblRef.Text = book_ref;
             lblDate.Text = book_date;
             lblFullName.Text = fullName;
@@ -89,6 +91,25 @@ namespace AirlineBookingSystem
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+
+            TicketModule ticketModule = new TicketModule(
+               null,
+               lblRef.Text,
+               lblDate.Text,
+               lblFullName.Text,
+               lblContact.Text,
+               lblGender.Text,
+               lblNationality.Text,
+               lblDepartureFrom.Text,
+               lblArrivalTo.Text,
+               DateTime.Parse(lblDepartureDate.Text),
+               lblNumberSeats.Text,
+               lblTravel.Text);
+
+            if (ticketModule.ShowDialog() == DialogResult.OK)
+            {
+                //MessageBox.Show("Booking updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
         }
     }
