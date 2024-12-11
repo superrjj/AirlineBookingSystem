@@ -22,7 +22,7 @@ namespace AirlineBookingSystem
         // Method to load historical booking data into the FlowLayoutPanel
         private void LoadHistoryData()
         {
-            string query = "SELECT * FROM PassengerDetails ORDER BY Book_Date DESC"; // SQL query for retrieving booking history
+            string query = "SELECT * FROM PassengerDetails ORDER BY Book_Date , Firstname DESC"; // SQL query for retrieving booking history
 
             try
             {
@@ -41,7 +41,7 @@ namespace AirlineBookingSystem
                                 // Retrieve data from the reader
                                 string bookRef = reader["Book_Ref"].ToString();
                                 string bookDate = reader["Book_Date"].ToString();
-                                string fullName = $"{reader["Firstname"]} {reader["Lastname"]}";
+                                string fullName = $"{reader["Firstname"]} {reader["Middlename"]} {reader["Lastname"]}";
                                 string contact = reader["Contact_No"].ToString();
                                 string gender = reader["Gender"].ToString();
                                 string nationality = reader["Nationality"].ToString();

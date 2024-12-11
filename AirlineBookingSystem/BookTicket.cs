@@ -28,7 +28,12 @@ namespace AirlineBookingSystem
             cmd = new SqlCommand();
             //LoadBooked();
         }
-            // Gagawin kona to bukas
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        // Gagawin kona to bukas
         /* public void LoadBooked()
          
          {

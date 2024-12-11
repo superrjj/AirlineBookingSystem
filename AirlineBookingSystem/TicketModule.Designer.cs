@@ -74,6 +74,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtLastname = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -81,6 +82,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnUpdate);
             this.panel2.Controls.Add(this.btnNext);
             this.panel2.Controls.Add(this.btnCancelBook);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -96,7 +98,7 @@
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.ForeColor = System.Drawing.Color.White;
-            this.btnNext.Location = new System.Drawing.Point(771, 19);
+            this.btnNext.Location = new System.Drawing.Point(779, 19);
             this.btnNext.Margin = new System.Windows.Forms.Padding(4);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(140, 41);
@@ -110,7 +112,7 @@
             this.btnCancelBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelBook.ForeColor = System.Drawing.Color.LightSlateGray;
-            this.btnCancelBook.Location = new System.Drawing.Point(611, 19);
+            this.btnCancelBook.Location = new System.Drawing.Point(442, 19);
             this.btnCancelBook.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelBook.Name = "btnCancelBook";
             this.btnCancelBook.Size = new System.Drawing.Size(140, 41);
@@ -716,6 +718,21 @@
             this.label1.TabIndex = 36;
             this.label1.Text = "Last name:";
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.Green;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.Location = new System.Drawing.Point(610, 19);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(140, 41);
+            this.btnUpdate.TabIndex = 39;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // TicketModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -785,5 +802,6 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.ComboBox cbPassengerSeat;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }

@@ -13,8 +13,9 @@ namespace AirlineBookingSystem
         private readonly BookView _parentForm;
         public bool IsEditMode { get; private set; } = false;
         private string OriginalBookingRef;
+       
 
-        //Hindi pa na debug yung book_ref na may nvarchar(4000)
+     
 
         public TicketModule(BookView parentForm)
         {
@@ -28,23 +29,47 @@ namespace AirlineBookingSystem
             // Generate booking reference
             lblRefNo.Text = GenerateBookingReference();
 
-            UpdateBooking();
         }
 
         // Constructor for editing existing bookings
         public TicketModule(BookView parentForm, string bookRef, string bookDate, string fullName, string contact, string gender,
-                            string nationality, string departureFrom, string arrivalTo, DateTime departureDate,
-                            string seatNo, string travelClass)
-            : this(parentForm)
+                       string nationality, string departureFrom, string arrivalTo, DateTime departureDate,
+                       string seatNo, string travelClass)
+                       : this(parentForm)
         {
-            IsEditMode = true;
+            // If editing an existing booking, disable btnNext
+            if (IsEditMode)
+            {
+                btnNext.Enabled = true;
+                btnUpdate.Enabled = false;  // Enable Update button only when editing
+            }
+            else
+            {
+                btnNext.Enabled = false;  // Enable Next button only for new bookings
+                btnUpdate.Enabled = true;
+            }
 
+            // Set the OriginalBookingRef for update functionality
+            OriginalBookingRef = bookRef;
+
+            // Now, set all the fields to display the existing booking details
             lblRefNo.Text = bookRef;
             lblDate.Text = bookDate;
 
+            // Split the full name into parts
             string[] nameParts = fullName.Split(' ');
-            txtFirstname.Text = nameParts[0];
-            if (nameParts.Length > 1) txtLastname.Text = nameParts[1];
+
+            // Assign first, middle, and last names (if available)
+            txtFirstname.Text = nameParts[0]; // First name
+            if (nameParts.Length > 2)
+            {
+                txtMiddlename.Text = nameParts[1]; // Middle name
+                txtLastname.Text = nameParts[2];  // Last name
+            }
+            else if (nameParts.Length > 1)
+            {
+                txtLastname.Text = nameParts[1]; // If only first and last names exist
+            }
 
             txtContact.Text = contact;
             cbGender.SelectedItem = gender;
@@ -55,8 +80,36 @@ namespace AirlineBookingSystem
             cbPassengerSeat.SelectedItem = seatNo;
             cbTravelClass.SelectedItem = travelClass;
 
-            OriginalBookingRef = bookRef;
+            // Ensure cbPassengerSeat is populated before selecting
+            if (cbPassengerSeat.Items.Count == 0)
+            {
+                for (char row = 'A'; row <= 'D'; row++) // Rows A to D
+                {
+                    for (int number = 1; number <= 10; number++) // Numbers 1 to 10
+                    {
+                        string seat = $"{row}{number}";
+                        cbPassengerSeat.Items.Add(seat); // Add seat label (e.g., A1, B5, D10)
+                    }
+                }
+            }
+
+            // Select the seat only if it's in the list
+            if (cbPassengerSeat.Items.Contains(seatNo))
+            {
+                cbPassengerSeat.SelectedItem = seatNo;
+            }
+            else
+            {
+                MessageBox.Show("Seat not found: " + seatNo);
+            }
+
+            cbTravelClass.SelectedItem = travelClass;
         }
+
+        
+
+        
+
 
 
 
@@ -69,6 +122,7 @@ namespace AirlineBookingSystem
 
         private void btnBook_Click(object sender, EventArgs e)
         {
+          
             // Validate required fields
             if (string.IsNullOrWhiteSpace(txtFirstname.Text) ||
                 string.IsNullOrWhiteSpace(txtLastname.Text) ||
@@ -83,25 +137,12 @@ namespace AirlineBookingSystem
                 return;
             }
 
-
-            if (IsEditMode)
-            {
-                UpdateBooking();
-            }
-            else
-            {
-                InsertBooking();
-            }
-        }
-
-        private void InsertBooking()
-        {
             string insertBookingQuery = @"
                 INSERT INTO PassengerDetails
                 (Book_Ref, Book_Date, Firstname, Middlename, Lastname, Nationality, Contact_No, Gender, 
-                 Departure_From, Arrival_To, Departure_Date, Seat_No, Travel_Class)
+                 Departure_From, Arrival_To, Departure_Date, Seat_No, Travel_Class, Base_Fare, Tax, Total_Amount)
                 VALUES (@book_ref, @book_date, @firstname, @middlename, @lastname, @nationality, @contact_no, @gender, 
-                        @departure_from, @arrival_to, @departure_date, @seat_no, @travel_class)";
+                        @departure_from, @arrival_to, @departure_date, @seat_no, @travel_class, @base_fare, @tax, @total_amount)";
 
             try
             {
@@ -124,54 +165,75 @@ namespace AirlineBookingSystem
                         cmd.Parameters.AddWithValue("@seat_no", cbPassengerSeat.SelectedItem?.ToString());
                         cmd.Parameters.AddWithValue("@travel_class", cbTravelClass.SelectedItem?.ToString());
 
+                        // Parse Base Fare, Tax, and Total Amount as integers
+                        cmd.Parameters.AddWithValue("@base_fare", int.Parse(lblBaseFare.Text, System.Globalization.NumberStyles.Currency));
+                        cmd.Parameters.AddWithValue("@tax", int.Parse(lblTax.Text, System.Globalization.NumberStyles.Currency));
+                        cmd.Parameters.AddWithValue("@total_amount", int.Parse(lblTotalAmount.Text, System.Globalization.NumberStyles.Currency));
+
                         cmd.ExecuteNonQuery();
-                        MessageBox.Show("Booking created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                       
+                        // Proceed to the PaymentModule with the successfully inserted Book_Ref
+                        PaymentModule paymentModule = new PaymentModule(lblRefNo.Text, lblTotalAmount.Text);
+                        paymentModule.Show();
+                      
 
                         _parentForm.AddNewBooking(
-                            lblRefNo.Text, lblDate.Text, $"{txtFirstname.Text} {txtLastname.Text}", txtContact.Text,
+                            lblRefNo.Text, lblDate.Text, $"{txtFirstname.Text} {txtMiddlename.Text} {txtLastname.Text}", txtContact.Text,
                             cbGender.SelectedItem?.ToString(), cbNationality.SelectedItem?.ToString(),
                             cbDeparture.SelectedItem?.ToString(), cbArrival.SelectedItem?.ToString(),
                             dtDeparture.Value.ToString("yyyy-MM-dd"), cbPassengerSeat.SelectedItem?.ToString(),
                             cbTravelClass.SelectedItem?.ToString());
 
-                        this.Close();
+                        
                     }
+                    this.Close();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error inserting booking: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
-        private void UpdateBooking()
+
+
+        //For update button
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
             string updateBookingQuery = @"
-                UPDATE PassengerDetails
-                SET Book_Date = @book_date,
-                    Firstname = @firstname,
-                    Middlename = @middlename,
-                    Lastname = @lastname,
-                    Nationality = @nationality,
-                    Contact_No = @contact_no,
-                    Gender = @gender,
-                    Departure_From = @departure_from,
-                    Arrival_To = @arrival_to,
-                    Departure_Date = @departure_date,
-                    Seat_No = @seat_no,
-                    Travel_Class = @travel_class
-                WHERE Book_Ref = @book_ref";
+        UPDATE PassengerDetails
+        SET
+            Firstname = @firstname,
+            Middlename = @middlename,
+            Lastname = @lastname,
+            Nationality = @nationality,
+            Contact_No = @contact_no,
+            Gender = @gender,
+            Departure_From = @departure_from,
+            Arrival_To = @arrival_to,
+            Departure_Date = @departure_date,
+            Seat_No = @seat_no,
+            Travel_Class = @travel_class,
+            Base_Fare = @base_fare,
+            Tax = @tax,
+            Total_Amount = @total_amount
+        WHERE Book_Ref = @book_ref";
 
             try
             {
+                if (string.IsNullOrWhiteSpace(OriginalBookingRef))
+                {
+                    MessageBox.Show("No booking reference available for update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+              
                 using (SqlConnection conn = new SqlConnection(@"Data Source=MSI\SQLEXPRESS;Initial Catalog=AirlineBookingDB;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"))
                 {
                     conn.Open();
                     using (SqlCommand cmd = new SqlCommand(updateBookingQuery, conn))
                     {
                         cmd.Parameters.AddWithValue("@book_ref", OriginalBookingRef);
-                        cmd.Parameters.AddWithValue("@book_date", lblDate.Text);
                         cmd.Parameters.AddWithValue("@firstname", txtFirstname.Text.Trim());
                         cmd.Parameters.AddWithValue("@middlename", string.IsNullOrWhiteSpace(txtMiddlename.Text) ? "N/A" : txtMiddlename.Text.Trim());
                         cmd.Parameters.AddWithValue("@lastname", txtLastname.Text.Trim());
@@ -183,10 +245,23 @@ namespace AirlineBookingSystem
                         cmd.Parameters.AddWithValue("@departure_date", dtDeparture.Value);
                         cmd.Parameters.AddWithValue("@seat_no", cbPassengerSeat.SelectedItem?.ToString());
                         cmd.Parameters.AddWithValue("@travel_class", cbTravelClass.SelectedItem?.ToString());
+                        cmd.Parameters.AddWithValue("@base_fare", int.Parse(lblBaseFare.Text, System.Globalization.NumberStyles.Currency));
+                        cmd.Parameters.AddWithValue("@tax", int.Parse(lblTax.Text, System.Globalization.NumberStyles.Currency));
+                        cmd.Parameters.AddWithValue("@total_amount", int.Parse(lblTotalAmount.Text, System.Globalization.NumberStyles.Currency));
 
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Booking updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.DialogResult = DialogResult.OK;
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        // Check if any rows were updated
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Booking updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                             
+                        }
+                        else
+                        {
+                            MessageBox.Show("No rows were updated. Please verify the booking reference.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }
@@ -194,6 +269,28 @@ namespace AirlineBookingSystem
             {
                 MessageBox.Show($"Error updating booking: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+
+
+        public void Clear()
+        {
+            // Clears form and optionally disables update button
+            txtFirstname.Clear();
+            txtMiddlename.Clear();
+            txtLastname.Clear();
+            txtContact.Clear();
+            cbGender.SelectedItem = null;
+            cbNationality.SelectedItem = null;
+            cbDeparture.SelectedItem = null;
+            cbArrival.SelectedItem = null;
+            dtDeparture.Value = DateTime.Now;
+            cbPassengerSeat.SelectedItem = null;
+            cbTravelClass.SelectedItem = null;
+            lblRefNo.Text = GenerateBookingReference();
+            lblDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
+
+            
         }
 
 

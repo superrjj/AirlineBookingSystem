@@ -5,14 +5,14 @@ namespace AirlineBookingSystem
 {
     public partial class BookListView : UserControl
     {
-        
+
         public BookListView()
         {
             InitializeComponent();
-           
+
         }
 
-      
+
 
 
 
@@ -20,7 +20,7 @@ namespace AirlineBookingSystem
         public void UpdateBookingInfo(string book_ref, string book_date, string fullName, string contact, string gender, string nationality,
                                        string departureFrom, string arrivalTo, string departureDate, string numberSeats, string travelClass)
         {
-            
+
 
             lblRef.Text = book_ref;
             lblDate.Text = book_date;
@@ -108,7 +108,7 @@ namespace AirlineBookingSystem
 
             if (ticketModule.ShowDialog() == DialogResult.OK)
             {
-                //MessageBox.Show("Booking updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Booking updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
