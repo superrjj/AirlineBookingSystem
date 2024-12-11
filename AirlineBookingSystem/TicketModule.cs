@@ -14,7 +14,7 @@ namespace AirlineBookingSystem
         public bool IsEditMode { get; private set; } = false;
         private string OriginalBookingRef;
 
-
+        //Hindi pa na debug yung book_ref na may nvarchar(4000)
 
         public TicketModule(BookView parentForm)
         {
