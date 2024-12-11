@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System;
 using System.Collections.Generic;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Linq;
 
 namespace AirlineBookingSystem
 {
@@ -59,16 +60,21 @@ namespace AirlineBookingSystem
             // Split the full name into parts
             string[] nameParts = fullName.Split(' ');
 
-            // Assign first, middle, and last names (if available)
-            txtFirstname.Text = nameParts[0]; // First name
+            // Assign first name (always the first part)
+            txtFirstname.Text = nameParts[0];
+
+            // Assign last name (always the last part)
+            txtLastname.Text = nameParts[nameParts.Length - 1];
+
+            // Assign middle name (if any), join all middle name parts together
             if (nameParts.Length > 2)
             {
-                txtMiddlename.Text = nameParts[1]; // Middle name
-                txtLastname.Text = nameParts[2];  // Last name
+                txtMiddlename.Text = string.Join(" ", nameParts.Skip(1).Take(nameParts.Length - 2));
+                // Takes everything between the first and last part as middle name
             }
-            else if (nameParts.Length > 1)
+            else
             {
-                txtLastname.Text = nameParts[1]; // If only first and last names exist
+                txtMiddlename.Text = ""; // If no middle name, leave it blank
             }
 
             txtContact.Text = contact;

@@ -90,6 +90,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1234, 201);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // picDelete
             // 
@@ -100,6 +101,7 @@
             this.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picDelete.TabIndex = 33;
             this.picDelete.TabStop = false;
+            this.picDelete.Click += new System.EventHandler(this.picDelete_Click);
             // 
             // picEdit
             // 
@@ -373,6 +375,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "BookListView";
             this.Size = new System.Drawing.Size(1245, 212);
+            this.Load += new System.EventHandler(this.BookListView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picDelete)).EndInit();

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace AirlineBookingSystem
@@ -112,5 +113,112 @@ namespace AirlineBookingSystem
             }
 
         }
+
+        private void picDelete_Click(object sender, EventArgs e)
+        { // Confirm the action with the user
+            var result = MessageBox.Show("Are you sure you want to archive this booking?", "Archive Booking", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                // Archive the booking in the database (mark as archived)
+                ArchiveBookingInDatabase(lblRef.Text);
+
+                // Remove the current booking UserControl from the UI (hide or remove it)
+                this.Parent.Controls.Remove(this); // Remove this UserControl from its parent container
+                this.Dispose(); // Optionally dispose the UserControl to free up resources
+
+                MessageBox.Show("Booking archived successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+
+
+        }
+
+
+        private void ArchiveBookingInDatabase(string bookingRef)
+        {
+            string query = "UPDATE PassengerDetails SET IsArchived = 1 WHERE Book_Ref = @book_ref";
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(@"Data Source=MSI\SQLEXPRESS;Initial Catalog=AirlineBookingDB;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@book_ref", bookingRef);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error archiving booking: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // This method will be called to refresh the bookings list
+        public void RefreshBookings()
+        {
+            // Query to get non-archived bookings
+            string query = "SELECT * FROM PassengerDetails WHERE IsArchived = 0"; // Only select non-archived records
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(@"Data Source=MSI\SQLEXPRESS;Initial Catalog=AirlineBookingDB;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            // Clear the current list of bookings in the UI
+                          //  bookingsListView.Items.Clear();
+
+                            // Loop through the results and add them to the UI
+                            while (reader.Read())
+                            {
+                                var bookingControl = new BookListView();
+
+                                // Set booking info for each UserControl (you would need to implement a method to set this data)
+                                bookingControl.UpdateBookingInfo(
+                                    reader["Book_Ref"].ToString(),
+                                    reader["Book_Date"].ToString(),
+                                    reader["FullName"].ToString(),
+                                    reader["Contact"].ToString(),
+                                    reader["Gender"].ToString(),
+                                    reader["Nationality"].ToString(),
+                                    reader["DepartureFrom"].ToString(),
+                                    reader["ArrivalTo"].ToString(),
+                                    reader["DepartureDate"].ToString(),
+                                    reader["NumberSeats"].ToString(),
+                                    reader["TravelClass"].ToString()
+                                );
+
+                                // Add the UserControl to the ListView or any other container you're using
+                               // bookingsListView.Controls.Add(bookingControl);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading bookings: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void BookListView_Load(object sender, EventArgs e)
+        {
+           
+        }
     }
-}
+    }
