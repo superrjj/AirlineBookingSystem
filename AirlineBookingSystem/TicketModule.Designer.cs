@@ -597,6 +597,7 @@
             // 
             // txtContact
             // 
+            this.txtContact.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContact.Location = new System.Drawing.Point(325, 211);
             this.txtContact.Margin = new System.Windows.Forms.Padding(4);
@@ -654,6 +655,7 @@
             // 
             // txtMiddlename
             // 
+            this.txtMiddlename.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMiddlename.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMiddlename.Location = new System.Drawing.Point(632, 144);
             this.txtMiddlename.Margin = new System.Windows.Forms.Padding(4);
@@ -674,6 +676,7 @@
             // 
             // txtFirstname
             // 
+            this.txtFirstname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFirstname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFirstname.Location = new System.Drawing.Point(325, 144);
             this.txtFirstname.Margin = new System.Windows.Forms.Padding(4);
@@ -694,6 +697,7 @@
             // 
             // txtLastname
             // 
+            this.txtLastname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtLastname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLastname.Location = new System.Drawing.Point(37, 144);
             this.txtLastname.Margin = new System.Windows.Forms.Padding(4);

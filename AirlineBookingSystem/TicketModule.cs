@@ -20,12 +20,15 @@ namespace AirlineBookingSystem
         {
             InitializeComponent();
             _parentForm = parentForm;
+            
 
             // Set the current date
             lblDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
 
             // Generate booking reference
             lblRefNo.Text = GenerateBookingReference();
+
+            UpdateBooking();
         }
 
         // Constructor for editing existing bookings
