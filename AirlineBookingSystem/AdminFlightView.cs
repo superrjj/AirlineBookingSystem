@@ -13,7 +13,6 @@ namespace AirlineBookingSystem
     public partial class AdminFlightView : Form
     {
 
-        //Hjsdgfjfghjgfd
         public AdminFlightView()
         {
             InitializeComponent();
