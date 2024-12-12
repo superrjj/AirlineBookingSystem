@@ -58,24 +58,40 @@ namespace AirlineBookingSystem
             lblDate.Text = bookDate;
 
             // Split the full name into parts
-            string[] nameParts = fullName.Split(' ');
+            string[] nameParts = fullName.Trim().Split(' ');
 
-            // Assign first name (always the first part)
-            txtFirstname.Text = nameParts[0];
-
-            // Assign last name (always the last part)
-            txtLastname.Text = nameParts[nameParts.Length - 1];
-
-            // Assign middle name (if any), join all middle name parts together
-            if (nameParts.Length > 2)
+            // Check the number of parts in the name
+            if (nameParts.Length == 1)
             {
-                txtMiddlename.Text = string.Join(" ", nameParts.Skip(1).Take(nameParts.Length - 2));
-                // Takes everything between the first and last part as middle name
+                // Only one part, assume it’s the first name
+                txtFirstname.Text = nameParts[0];
+                txtMiddlename.Text = "";
+                txtLastname.Text = "";
+            }
+            else if (nameParts.Length == 2)
+            {
+                // Two parts, combine both into the first name
+                txtFirstname.Text = nameParts[0] + " " + nameParts[1];
+                txtMiddlename.Text = "";
+                txtLastname.Text = "";
+            }
+            else if (nameParts.Length == 3)
+            {
+                // Three parts, handle as first, middle, and last name
+                txtFirstname.Text = nameParts[0] + " " + nameParts[1];
+                txtMiddlename.Text = nameParts[2];
+                txtLastname.Text = "";
             }
             else
             {
-                txtMiddlename.Text = ""; // If no middle name, leave it blank
+                // Four or more parts, handle first and second as first name, middle name(s), and last name
+                txtFirstname.Text = nameParts[0] + " " + nameParts[1];
+                txtMiddlename.Text = string.Join(" ", nameParts, 2, nameParts.Length - 3);
+                txtLastname.Text = nameParts[nameParts.Length - 1];
             }
+
+
+
 
             txtContact.Text = contact;
             cbGender.SelectedItem = gender;
@@ -207,6 +223,9 @@ namespace AirlineBookingSystem
         //For update button
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+
+
+
             string updateBookingQuery = @"
         UPDATE PassengerDetails
         SET
@@ -362,16 +381,16 @@ namespace AirlineBookingSystem
                 switch (cbTravelClass.SelectedItem.ToString())
                 {
                     case "Economy Class":
-                        baseFare = random.Next(1500, 5001); // 1500 - 5000 inclusive
-                        tax = 1620;
+                        baseFare = random.Next(1500, 3001); // 1500 - 3001 inclusive
+                        tax = 850;
                         break;
                     case "Premium Economy Class":
-                        baseFare = random.Next(15000, 25001); // 15000 - 25000 inclusive
-                        tax = 2200;
+                        baseFare = random.Next(3002, 7001); // 3002 - 7001 inclusive
+                        tax = 1150;
                         break;
                     case "Business Class":
-                        baseFare = random.Next(50000, 100001); // 50000 - 30000 inclusive
-                        tax = 2700;
+                        baseFare = random.Next(7002, 10001); // 7002 - 10001 inclusive
+                        tax = 1620;
                         break;
                     default:
                         baseFare = 0; // Default value if no valid class is selected
