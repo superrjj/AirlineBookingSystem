@@ -32,6 +32,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.flpSearchFlight = new System.Windows.Forms.FlowLayoutPanel();
+            this.txtSearchBar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -46,6 +49,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.LightSlateGray;
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.txtSearchBar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -69,6 +74,27 @@
             this.flpSearchFlight.Size = new System.Drawing.Size(1483, 551);
             this.flpSearchFlight.TabIndex = 4;
             // 
+            // txtSearchBar
+            // 
+            this.txtSearchBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearchBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchBar.Location = new System.Drawing.Point(405, 20);
+            this.txtSearchBar.Name = "txtSearchBar";
+            this.txtSearchBar.Size = new System.Drawing.Size(529, 34);
+            this.txtSearchBar.TabIndex = 0;
+            this.txtSearchBar.TextChanged += new System.EventHandler(this.txtSearchBar_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(302, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 29);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Search:";
+            // 
             // SearchFlightView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -82,6 +108,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SearchFlightView";
             this.Text = "SearchFlightView";
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -91,5 +119,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.FlowLayoutPanel flpSearchFlight;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtSearchBar;
     }
 }

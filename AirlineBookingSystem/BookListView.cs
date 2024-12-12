@@ -20,7 +20,7 @@ namespace AirlineBookingSystem
 
         // Method to update all the labels with booking information
         public void UpdateBookingInfo(string book_ref, string book_date, string fullName, string contact, string gender, string nationality,
-                                       string departureFrom, string arrivalTo, string departureDate, string numberSeats, string travelClass)
+                                          string departureFrom, string arrivalTo, string departureDate, string numberSeats, string travelClass)
         {
 
 

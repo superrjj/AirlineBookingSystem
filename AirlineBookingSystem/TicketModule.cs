@@ -12,7 +12,7 @@ namespace AirlineBookingSystem
 
         
         private readonly BookView _parentForm;
-        public bool IsEditMode { get; private set; } = false;
+        public bool IsEditMode { get; private set; } = true;
         private string OriginalBookingRef;
        
 
@@ -38,17 +38,22 @@ namespace AirlineBookingSystem
                        string seatNo, string travelClass)
                        : this(parentForm)
         {
-            // If editing an existing booking, disable btnNext
+
+            // Enable or disable buttons based on edit mode
             if (IsEditMode)
             {
-                btnNext.Enabled = true;
-                btnUpdate.Enabled = false;  // Enable Update button only when editing
+                btnNext.Enabled = false;  // Disable Next button in edit mode
+                btnUpdate.Enabled = true;  // Enable Update button in edit mode
             }
             else
             {
-                btnNext.Enabled = false;  // Enable Next button only for new bookings
-                btnUpdate.Enabled = true;
+                btnNext.Enabled = false;  // Enable Next button for new bookings
+                btnUpdate.Enabled = false;  // Disable Update button for new bookings
             }
+
+             // Set to false when adding a new booking
+
+
 
             // Set the OriginalBookingRef for update functionality
             OriginalBookingRef = bookRef;
@@ -60,7 +65,6 @@ namespace AirlineBookingSystem
             // Split the full name into parts
             string[] nameParts = fullName.Trim().Split(' ');
 
-            // Check the number of parts in the name
             if (nameParts.Length == 1)
             {
                 // Only one part, assume it’s the first name
@@ -70,26 +74,25 @@ namespace AirlineBookingSystem
             }
             else if (nameParts.Length == 2)
             {
-                // Two parts, combine both into the first name
-                txtFirstname.Text = nameParts[0] + " " + nameParts[1];
+                // Two parts, first name and last name
+                txtFirstname.Text = nameParts[0];
                 txtMiddlename.Text = "";
-                txtLastname.Text = "";
+                txtLastname.Text = nameParts[1];
             }
             else if (nameParts.Length == 3)
             {
-                // Three parts, handle as first, middle, and last name
-                txtFirstname.Text = nameParts[0] + " " + nameParts[1];
-                txtMiddlename.Text = nameParts[2];
-                txtLastname.Text = "";
+                // Three parts, first, middle, and last name
+                txtFirstname.Text = nameParts[0];
+                txtMiddlename.Text = nameParts[1];
+                txtLastname.Text = nameParts[2];
             }
             else
             {
-                // Four or more parts, handle first and second as first name, middle name(s), and last name
+                // Four or more parts, handle first name, middle name(s), and last name
                 txtFirstname.Text = nameParts[0] + " " + nameParts[1];
-                txtMiddlename.Text = string.Join(" ", nameParts, 2, nameParts.Length - 3);
+                txtMiddlename.Text = string.Join(" ", nameParts, 2, nameParts.Length - 3 + 1); // Adjusted length
                 txtLastname.Text = nameParts[nameParts.Length - 1];
             }
-
 
 
 
@@ -144,7 +147,9 @@ namespace AirlineBookingSystem
 
         private void btnBook_Click(object sender, EventArgs e)
         {
-          
+
+            
+
             // Validate required fields
             if (string.IsNullOrWhiteSpace(txtFirstname.Text) ||
                 string.IsNullOrWhiteSpace(txtLastname.Text) ||
@@ -408,6 +413,11 @@ namespace AirlineBookingSystem
             {
                 lblBaseFare.Text = "Base Fare: Not Selected";
             }
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
