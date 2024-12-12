@@ -55,17 +55,6 @@ namespace AirlineBookingSystem
             openChildForm(new PromoModule()); // Suggested airport
         }
 
-       
-
-        private void btnMyFlight_Click_1(object sender, EventArgs e)
-        {
-            openChildForm(new HistoryView());
-        }
-
-        private void btnDiscount_Click(object sender, EventArgs e)
-        {
-            openChildForm(new BookView()); //Kapag magbobook na siya
-        }
 
         public void LoadHome()
         {
@@ -77,6 +66,18 @@ namespace AirlineBookingSystem
         private void btnSearchFlight_Click(object sender, EventArgs e)
         {
             openChildForm(new SearchFlightView()); //Searh for flight
+        }
+
+        private void btnViewHistory_Click(object sender, EventArgs e)
+        {
+            HistoryView historyView = new HistoryView();
+            openChildForm(historyView);
+            
+        }
+
+        private void btnTicket_Click(object sender, EventArgs e)
+        {
+            openChildForm(new BookView()); //Kapag magbobook na siya
         }
     }
 }

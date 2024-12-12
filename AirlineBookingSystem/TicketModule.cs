@@ -180,7 +180,8 @@ namespace AirlineBookingSystem
                        
                         // Proceed to the PaymentModule with the successfully inserted Book_Ref
                         PaymentModule paymentModule = new PaymentModule(lblRefNo.Text, lblTotalAmount.Text);
-                        paymentModule.Show();
+                        paymentModule.ShowDialog();
+                        this.Hide();
                       
 
                         _parentForm.AddNewBooking(
@@ -192,7 +193,7 @@ namespace AirlineBookingSystem
 
                         
                     }
-                    this.Close();
+                    
                 }
             }
             catch (Exception ex)

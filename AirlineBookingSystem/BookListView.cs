@@ -7,6 +7,7 @@ namespace AirlineBookingSystem
     public partial class BookListView : UserControl
     {
 
+
         public BookListView()
         {
             InitializeComponent();
@@ -115,19 +116,28 @@ namespace AirlineBookingSystem
         }
 
         private void picDelete_Click(object sender, EventArgs e)
-        { // Confirm the action with the user
+        {
+            // Confirm the action with the user
             var result = MessageBox.Show("Are you sure you want to archive this booking?", "Archive Booking", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
-                // Archive the booking in the database (mark as archived)
+                // Archive the booking in the database
                 ArchiveBookingInDatabase(lblRef.Text);
 
                 // Remove the current booking UserControl from the UI (hide or remove it)
-                this.Parent.Controls.Remove(this); // Remove this UserControl from its parent container
-                this.Dispose(); // Optionally dispose the UserControl to free up resources
+                if (this.Parent != null)
+                {
+                    this.Parent.Controls.Remove(this); // Remove this UserControl from its parent container
+                    this.Dispose(); // Optionally dispose the UserControl to free up resources
 
-                MessageBox.Show("Booking archived successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Booking archived successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                if (this.Parent != null)
+                {
+                    RefreshBookings(this.Parent, false); // Refresh the bookings list
+                }
             }
 
 
@@ -157,11 +167,15 @@ namespace AirlineBookingSystem
             }
         }
 
-        // This method will be called to refresh the bookings list
-        public void RefreshBookings()
+        public void RefreshBookings(Control parentControl, bool showArchived)
         {
-            // Query to get non-archived bookings
-            string query = "SELECT * FROM PassengerDetails WHERE IsArchived = 0"; // Only select non-archived records
+            // Query to get bookings
+            string query = "SELECT * FROM PassengerDetails";
+
+            if (!showArchived)
+            {
+                query += " WHERE IsArchived = 0"; // Only select non-archived records
+            }
 
             try
             {
@@ -173,15 +187,14 @@ namespace AirlineBookingSystem
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             // Clear the current list of bookings in the UI
-                          //  bookingsListView.Items.Clear();
+                            parentControl.Controls.Clear();
 
                             // Loop through the results and add them to the UI
                             while (reader.Read())
                             {
-                                var bookingControl = new BookListView();
-
-                                // Set booking info for each UserControl (you would need to implement a method to set this data)
-                                bookingControl.UpdateBookingInfo(
+                                // Create a new UserControl for each booking
+                                BookListView bookingView = new BookListView();
+                                bookingView.UpdateBookingInfo(
                                     reader["Book_Ref"].ToString(),
                                     reader["Book_Date"].ToString(),
                                     reader["FullName"].ToString(),
@@ -192,11 +205,10 @@ namespace AirlineBookingSystem
                                     reader["ArrivalTo"].ToString(),
                                     reader["DepartureDate"].ToString(),
                                     reader["NumberSeats"].ToString(),
-                                    reader["TravelClass"].ToString()
-                                );
+                                    reader["TravelClass"].ToString());
 
-                                // Add the UserControl to the ListView or any other container you're using
-                               // bookingsListView.Controls.Add(bookingControl);
+                                // Add the UserControl to the parent control
+                                parentControl.Controls.Add(bookingView);
                             }
                         }
                     }
@@ -204,9 +216,10 @@ namespace AirlineBookingSystem
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading bookings: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error refreshing bookings: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
 
