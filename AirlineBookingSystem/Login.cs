@@ -69,7 +69,7 @@ namespace AirlineBookingSystem
                 using (SqlCommand cmd = new SqlCommand(query, connect))
                 {
                     cmd.Parameters.AddWithValue("@username", txtUsername.Text);
-                    cmd.Parameters.AddWithValue("@password", hashedPassword);
+                    cmd.Parameters.AddWithValue("@password", txtPassword.Text);
 
                     object result = cmd.ExecuteScalar();
 
