@@ -38,5 +38,16 @@ namespace AirlineBookingSystem
         {
             openChildForm(new AdminFlightView());
         }
+
+        private void btnLogoutAdmin_Click(object sender, EventArgs e)
+        {
+            // Confirm logout
+            if (MessageBox.Show("Are you sure you want to log out?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Login loginForm = new Login();
+                loginForm.Show();
+                this.Hide();
+            }
+        }
     }
 }
