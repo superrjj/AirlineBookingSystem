@@ -23,7 +23,16 @@ namespace AirlineBookingSystem
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            lblFullname.Text = "Welcome, " + userFullName + "!";
+            // Ensure that the user is logged in before showing the dashboard
+            if (!SessionManager.IsUserLoggedIn())
+            {
+                MessageBox.Show("Unauthorized access. Please log in first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Close();
+                return;
+            }
+
+            // Display the user's full name
+            lblFullname.Text = "Welcome, " + SessionManager.GetCurrentFullName() + "!";
         }
 
         private void closeIcon_Click(object sender, EventArgs e)
@@ -78,6 +87,23 @@ namespace AirlineBookingSystem
         private void btnTicket_Click(object sender, EventArgs e)
         {
             openChildForm(new BookView()); //Kapag magbobook na siya
+        }
+
+        private void btnLogoutUser_Click(object sender, EventArgs e)
+        {
+            // Confirm logout
+            if (MessageBox.Show("Are you sure you want to log out?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                // Clear the session
+                SessionManager.ClearSession();
+
+                // Redirect to the login form
+                Login loginForm = new Login();
+                loginForm.Show();
+
+                // Close the current form (Dashboard)
+                this.Close();
+            }
         }
     }
 }

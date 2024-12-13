@@ -155,6 +155,7 @@
     <Compile Include="SearchFlightView.Designer.cs">
       <DependentUpon>SearchFlightView.cs</DependentUpon>
     </Compile>
+    <Compile Include="SessionManager.cs" />
     <Compile Include="TicketModule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -287,5 +288,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

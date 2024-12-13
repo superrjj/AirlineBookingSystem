@@ -42,6 +42,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnAddFlight = new System.Windows.Forms.Button();
             this.adminPanel = new System.Windows.Forms.Panel();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeIcon)).BeginInit();
             this.panel2.SuspendLayout();
@@ -57,18 +58,16 @@
             this.panel1.Controls.Add(this.lblFullname);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1500, 89);
+            this.panel1.Size = new System.Drawing.Size(1125, 72);
             this.panel1.TabIndex = 1;
             // 
             // closeIcon
             // 
             this.closeIcon.Image = ((System.Drawing.Image)(resources.GetObject("closeIcon.Image")));
-            this.closeIcon.Location = new System.Drawing.Point(1444, 4);
-            this.closeIcon.Margin = new System.Windows.Forms.Padding(4);
+            this.closeIcon.Location = new System.Drawing.Point(1083, 3);
             this.closeIcon.Name = "closeIcon";
-            this.closeIcon.Size = new System.Drawing.Size(52, 36);
+            this.closeIcon.Size = new System.Drawing.Size(39, 29);
             this.closeIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.closeIcon.TabIndex = 2;
             this.closeIcon.TabStop = false;
@@ -78,25 +77,24 @@
             this.lblFullname.AutoSize = true;
             this.lblFullname.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFullname.ForeColor = System.Drawing.Color.White;
-            this.lblFullname.Location = new System.Drawing.Point(16, 26);
-            this.lblFullname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFullname.Location = new System.Drawing.Point(12, 21);
             this.lblFullname.Name = "lblFullname";
-            this.lblFullname.Size = new System.Drawing.Size(0, 39);
+            this.lblFullname.Size = new System.Drawing.Size(0, 31);
             this.lblFullname.TabIndex = 1;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel2.Controls.Add(this.btnLogout);
             this.panel2.Controls.Add(this.btnPassenger);
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 89);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Location = new System.Drawing.Point(0, 72);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(225, 608);
+            this.panel2.Size = new System.Drawing.Size(169, 494);
             this.panel2.TabIndex = 2;
             // 
             // btnPassenger
@@ -107,21 +105,19 @@
             this.btnPassenger.ForeColor = System.Drawing.Color.White;
             this.btnPassenger.Image = ((System.Drawing.Image)(resources.GetObject("btnPassenger.Image")));
             this.btnPassenger.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPassenger.Location = new System.Drawing.Point(0, 100);
-            this.btnPassenger.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPassenger.Location = new System.Drawing.Point(0, 81);
             this.btnPassenger.Name = "btnPassenger";
-            this.btnPassenger.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnPassenger.Size = new System.Drawing.Size(225, 54);
+            this.btnPassenger.Padding = new System.Windows.Forms.Padding(19, 0, 0, 0);
+            this.btnPassenger.Size = new System.Drawing.Size(169, 44);
             this.btnPassenger.TabIndex = 0;
             this.btnPassenger.Text = "   Passenger";
             // 
             // panel6
             // 
             this.panel6.Controls.Add(this.btnSearchFlight);
-            this.panel6.Location = new System.Drawing.Point(0, 216);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4);
+            this.panel6.Location = new System.Drawing.Point(0, 176);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(225, 53);
+            this.panel6.Size = new System.Drawing.Size(169, 43);
             this.panel6.TabIndex = 3;
             // 
             // btnSearchFlight
@@ -134,10 +130,9 @@
             this.btnSearchFlight.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchFlight.Image")));
             this.btnSearchFlight.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSearchFlight.Location = new System.Drawing.Point(0, 0);
-            this.btnSearchFlight.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearchFlight.Name = "btnSearchFlight";
-            this.btnSearchFlight.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnSearchFlight.Size = new System.Drawing.Size(225, 53);
+            this.btnSearchFlight.Padding = new System.Windows.Forms.Padding(19, 0, 0, 0);
+            this.btnSearchFlight.Size = new System.Drawing.Size(169, 43);
             this.btnSearchFlight.TabIndex = 0;
             this.btnSearchFlight.Text = "     Search Flight";
             this.btnSearchFlight.UseVisualStyleBackColor = true;
@@ -145,10 +140,9 @@
             // panel5
             // 
             this.panel5.Controls.Add(this.btnViewHistory);
-            this.panel5.Location = new System.Drawing.Point(0, 161);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4);
+            this.panel5.Location = new System.Drawing.Point(0, 131);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(225, 47);
+            this.panel5.Size = new System.Drawing.Size(169, 38);
             this.panel5.TabIndex = 2;
             // 
             // btnViewHistory
@@ -161,29 +155,26 @@
             this.btnViewHistory.Image = ((System.Drawing.Image)(resources.GetObject("btnViewHistory.Image")));
             this.btnViewHistory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnViewHistory.Location = new System.Drawing.Point(0, 0);
-            this.btnViewHistory.Margin = new System.Windows.Forms.Padding(4);
             this.btnViewHistory.Name = "btnViewHistory";
-            this.btnViewHistory.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnViewHistory.Size = new System.Drawing.Size(225, 47);
+            this.btnViewHistory.Padding = new System.Windows.Forms.Padding(19, 0, 0, 0);
+            this.btnViewHistory.Size = new System.Drawing.Size(169, 38);
             this.btnViewHistory.TabIndex = 3;
             this.btnViewHistory.Text = "    View History";
             this.btnViewHistory.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
-            this.panel4.Location = new System.Drawing.Point(0, 103);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Location = new System.Drawing.Point(0, 84);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(225, 54);
+            this.panel4.Size = new System.Drawing.Size(169, 44);
             this.panel4.TabIndex = 1;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.btnAddFlight);
-            this.panel3.Location = new System.Drawing.Point(0, 47);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Location = new System.Drawing.Point(0, 38);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(225, 49);
+            this.panel3.Size = new System.Drawing.Size(169, 40);
             this.panel3.TabIndex = 0;
             // 
             // btnAddFlight
@@ -194,11 +185,10 @@
             this.btnAddFlight.ForeColor = System.Drawing.Color.White;
             this.btnAddFlight.Image = ((System.Drawing.Image)(resources.GetObject("btnAddFlight.Image")));
             this.btnAddFlight.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddFlight.Location = new System.Drawing.Point(0, 4);
-            this.btnAddFlight.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddFlight.Location = new System.Drawing.Point(0, 3);
             this.btnAddFlight.Name = "btnAddFlight";
-            this.btnAddFlight.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnAddFlight.Size = new System.Drawing.Size(225, 49);
+            this.btnAddFlight.Padding = new System.Windows.Forms.Padding(19, 0, 0, 0);
+            this.btnAddFlight.Size = new System.Drawing.Size(169, 40);
             this.btnAddFlight.TabIndex = 2;
             this.btnAddFlight.Text = "        Add Flight";
             this.btnAddFlight.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -208,20 +198,39 @@
             // adminPanel
             // 
             this.adminPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.adminPanel.Location = new System.Drawing.Point(225, 89);
+            this.adminPanel.Location = new System.Drawing.Point(169, 72);
+            this.adminPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.adminPanel.Name = "adminPanel";
-            this.adminPanel.Size = new System.Drawing.Size(1275, 608);
+            this.adminPanel.Size = new System.Drawing.Size(956, 494);
             this.adminPanel.TabIndex = 3;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
+            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogout.Location = new System.Drawing.Point(0, 451);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Padding = new System.Windows.Forms.Padding(19, 0, 0, 0);
+            this.btnLogout.Size = new System.Drawing.Size(169, 43);
+            this.btnLogout.TabIndex = 4;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
             // 
             // AdminDashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1500, 697);
+            this.ClientSize = new System.Drawing.Size(1125, 566);
             this.Controls.Add(this.adminPanel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AdminDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminDashboard";
@@ -251,5 +260,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnAddFlight;
         private System.Windows.Forms.Panel adminPanel;
+        private System.Windows.Forms.Button btnLogout;
     }
 }
