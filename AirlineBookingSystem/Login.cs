@@ -1,9 +1,6 @@
-﻿// Complete code for Login and CreateAccount functionality
-using System;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Security.Cryptography;
-using System.Text;
 using System.Windows.Forms;
 
 namespace AirlineBookingSystem
@@ -37,20 +34,6 @@ namespace AirlineBookingSystem
             this.Hide();
         }
 
-        private string ComputeHash(string input)
-        {
-            using (SHA256 sha256 = SHA256.Create())
-            {
-                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(input));
-                StringBuilder builder = new StringBuilder();
-                foreach (byte b in bytes)
-                {
-                    builder.Append(b.ToString("x2"));
-                }
-                return builder.ToString();
-            }
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
@@ -63,7 +46,6 @@ namespace AirlineBookingSystem
             {
                 connect.Open();
 
-                string hashedPassword = ComputeHash(txtPassword.Text);
                 string query = "SELECT fullName FROM UserAccount WHERE username = @username AND password = @password";
 
                 using (SqlCommand cmd = new SqlCommand(query, connect))
@@ -106,9 +88,6 @@ namespace AirlineBookingSystem
 
         private void Login_Load(object sender, EventArgs e)
         {
-
-
         }
-
     }
 }
