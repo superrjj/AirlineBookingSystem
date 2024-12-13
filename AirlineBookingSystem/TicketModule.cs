@@ -30,6 +30,23 @@ namespace AirlineBookingSystem
             // Generate booking reference
             lblRefNo.Text = GenerateBookingReference();
 
+            IsEditMode = false;
+            UpdateButtonState();
+
+        }
+
+        private void UpdateButtonState()
+        {
+            if (IsEditMode)
+            {
+                btnNext.Enabled = false;  // Disable Next button in edit mode
+                btnUpdate.Enabled = true; // Enable Update button in edit mode
+            }
+            else
+            {
+                btnNext.Enabled = true;  // Enable Next button for new bookings
+                btnUpdate.Enabled = false; // Disable Update button for new bookings
+            }
         }
 
         // Constructor for editing existing bookings
@@ -38,22 +55,9 @@ namespace AirlineBookingSystem
                        string seatNo, string travelClass)
                        : this(parentForm)
         {
-
-            // Enable or disable buttons based on edit mode
-            if (IsEditMode)
-            {
-                btnNext.Enabled = false;  // Disable Next button in edit mode
-                btnUpdate.Enabled = true;  // Enable Update button in edit mode
-            }
-            else
-            {
-                btnNext.Enabled = false;  // Enable Next button for new bookings
-                btnUpdate.Enabled = false;  // Disable Update button for new bookings
-            }
-
-             // Set to false when adding a new booking
-
-
+            IsEditMode = true;
+            // Update button states
+            UpdateButtonState();
 
             // Set the OriginalBookingRef for update functionality
             OriginalBookingRef = bookRef;
@@ -63,7 +67,7 @@ namespace AirlineBookingSystem
             lblDate.Text = bookDate;
 
             // Split the full name into parts
-            string[] nameParts = fullName.Trim().Split(' ');
+            string[] nameParts = fullName.Trim().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
             if (nameParts.Length == 1)
             {
@@ -79,19 +83,12 @@ namespace AirlineBookingSystem
                 txtMiddlename.Text = "";
                 txtLastname.Text = nameParts[1];
             }
-            else if (nameParts.Length == 3)
-            {
-                // Three parts, first, middle, and last name
-                txtFirstname.Text = nameParts[0];
-                txtMiddlename.Text = nameParts[1];
-                txtLastname.Text = nameParts[2];
-            }
             else
             {
-                // Four or more parts, handle first name, middle name(s), and last name
-                txtFirstname.Text = nameParts[0] + " " + nameParts[1];
-                txtMiddlename.Text = string.Join(" ", nameParts, 2, nameParts.Length - 3 + 1); // Adjusted length
-                txtLastname.Text = nameParts[nameParts.Length - 1];
+                // Three or more parts
+                txtFirstname.Text = string.Join(" ", nameParts, 0, nameParts.Length - 2); // All parts except the last two
+                txtMiddlename.Text = nameParts[nameParts.Length - 2]; // Second-to-last part
+                txtLastname.Text = nameParts[nameParts.Length - 1]; // Last part
             }
 
 
@@ -117,6 +114,8 @@ namespace AirlineBookingSystem
                     }
                 }
             }
+
+
 
             // Select the seat only if it's in the list
             if (cbPassengerSeat.Items.Contains(seatNo))
