@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTravel = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.lblArrivalTo = new System.Windows.Forms.Label();
+            this.lblDepartureFrom = new System.Windows.Forms.Label();
+            this.lblFlightCode = new System.Windows.Forms.Label();
             this.lblDateT = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblFlightCode = new System.Windows.Forms.Label();
-            this.lblDepartureFrom = new System.Windows.Forms.Label();
-            this.lblArrivalTo = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.lblTravel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,11 +60,61 @@
             this.panel1.Size = new System.Drawing.Size(1223, 113);
             this.panel1.TabIndex = 0;
             // 
+            // lblTravel
+            // 
+            this.lblTravel.AutoSize = true;
+            this.lblTravel.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblTravel.Location = new System.Drawing.Point(151, 89);
+            this.lblTravel.Name = "lblTravel";
+            this.lblTravel.Size = new System.Drawing.Size(17, 16);
+            this.lblTravel.TabIndex = 14;
+            this.lblTravel.Text = "tc";
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(929, 6);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(28, 25);
+            this.lblDate.TabIndex = 13;
+            this.lblDate.Text = "dt";
+            // 
+            // lblArrivalTo
+            // 
+            this.lblArrivalTo.AutoSize = true;
+            this.lblArrivalTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblArrivalTo.Location = new System.Drawing.Point(186, 60);
+            this.lblArrivalTo.Name = "lblArrivalTo";
+            this.lblArrivalTo.Size = new System.Drawing.Size(28, 25);
+            this.lblArrivalTo.TabIndex = 12;
+            this.lblArrivalTo.Text = "at";
+            // 
+            // lblDepartureFrom
+            // 
+            this.lblDepartureFrom.AutoSize = true;
+            this.lblDepartureFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDepartureFrom.Location = new System.Drawing.Point(186, 33);
+            this.lblDepartureFrom.Name = "lblDepartureFrom";
+            this.lblDepartureFrom.Size = new System.Drawing.Size(28, 25);
+            this.lblDepartureFrom.TabIndex = 11;
+            this.lblDepartureFrom.Text = "df";
+            // 
+            // lblFlightCode
+            // 
+            this.lblFlightCode.AutoSize = true;
+            this.lblFlightCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFlightCode.Location = new System.Drawing.Point(162, 6);
+            this.lblFlightCode.Name = "lblFlightCode";
+            this.lblFlightCode.Size = new System.Drawing.Size(60, 25);
+            this.lblFlightCode.TabIndex = 10;
+            this.lblFlightCode.Text = "fcode";
+            // 
             // lblDateT
             // 
             this.lblDateT.AutoSize = true;
             this.lblDateT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateT.Location = new System.Drawing.Point(809, 6);
+            this.lblDateT.Location = new System.Drawing.Point(756, 6);
             this.lblDateT.Name = "lblDateT";
             this.lblDateT.Size = new System.Drawing.Size(150, 25);
             this.lblDateT.TabIndex = 8;
@@ -110,56 +160,6 @@
             this.label1.Size = new System.Drawing.Size(118, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Flight Code:";
-            // 
-            // lblFlightCode
-            // 
-            this.lblFlightCode.AutoSize = true;
-            this.lblFlightCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFlightCode.Location = new System.Drawing.Point(162, 6);
-            this.lblFlightCode.Name = "lblFlightCode";
-            this.lblFlightCode.Size = new System.Drawing.Size(60, 25);
-            this.lblFlightCode.TabIndex = 10;
-            this.lblFlightCode.Text = "fcode";
-            // 
-            // lblDepartureFrom
-            // 
-            this.lblDepartureFrom.AutoSize = true;
-            this.lblDepartureFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartureFrom.Location = new System.Drawing.Point(186, 33);
-            this.lblDepartureFrom.Name = "lblDepartureFrom";
-            this.lblDepartureFrom.Size = new System.Drawing.Size(28, 25);
-            this.lblDepartureFrom.TabIndex = 11;
-            this.lblDepartureFrom.Text = "df";
-            // 
-            // lblArrivalTo
-            // 
-            this.lblArrivalTo.AutoSize = true;
-            this.lblArrivalTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArrivalTo.Location = new System.Drawing.Point(186, 60);
-            this.lblArrivalTo.Name = "lblArrivalTo";
-            this.lblArrivalTo.Size = new System.Drawing.Size(28, 25);
-            this.lblArrivalTo.TabIndex = 12;
-            this.lblArrivalTo.Text = "at";
-            // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(982, 6);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(28, 25);
-            this.lblDate.TabIndex = 13;
-            this.lblDate.Text = "dt";
-            // 
-            // lblTravel
-            // 
-            this.lblTravel.AutoSize = true;
-            this.lblTravel.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblTravel.Location = new System.Drawing.Point(151, 89);
-            this.lblTravel.Name = "lblTravel";
-            this.lblTravel.Size = new System.Drawing.Size(17, 16);
-            this.lblTravel.TabIndex = 14;
-            this.lblTravel.Text = "tc";
             // 
             // FlightListView
             // 

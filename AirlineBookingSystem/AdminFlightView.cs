@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,60 +13,96 @@ namespace AirlineBookingSystem
 {
     public partial class AdminFlightView : Form
     {
-
         public AdminFlightView()
         {
             InitializeComponent();
-            // Instantiate the FlightListView and add it to the FlowLayoutPanel
-            FlightListView flightListView = new FlightListView();
-            
+            LoadFlightData(); // Load existing flights on initialization
         }
 
-        private void flpAdminFlightView_Paint(object sender, PaintEventArgs e)
+        // Event handler for the add icon button
+        private void addIcon_Click(object sender, EventArgs e)
         {
+            // Open the AddFlightModule dialog
+            AddFlightModule afm = new AddFlightModule(this);
+            afm.ShowDialog();
 
+            // Refresh the flight data after the dialog is closed
+            LoadFlightData();
         }
 
-
+        // Method to add a new flight to the UI
         public void AddFlight(string flightCode, string departFrom, string arrivTo, string departDate, string travel)
         {
-            
-            // Create a new instance of FlightListView user control
+            // Create a new instance of the FlightListView user control
             FlightListView newFlightControl = new FlightListView();
 
-            // Update the labels with the booking details
+            // Update the labels with the flight details
             newFlightControl.UpdateAddFlight(flightCode, departFrom, arrivTo, departDate, travel);
 
-            // Add the new control to the FlowLayoutPanel (Assume the FlowLayoutPanel is named flpBookingList)
-            flpAdminFlightView.Controls.Add(newFlightControl);
+            // Add the new control to the FlowLayoutPanel (Assume the FlowLayoutPanel is named flowAdminFlightView)
+            flowAdminFlightView.Controls.Add(newFlightControl);
 
-            // After adding, check if any booking exists and show/hide accordingly
-            ToggleBookListViewVisibility();
-
-
+            // After adding, check if any flights exist and toggle visibility accordingly
+            ToggleFlightListViewVisibility();
         }
 
-
-        // Method to toggle visibility of the BookListView based on the presence of bookings
-        private void ToggleBookListViewVisibility()
+        // Method to load all flights and display them in the FlowLayoutPanel
+        private void LoadFlightData()
         {
-            // Check if there are any controls in the FlowLayoutPanel that are FlightListView instances
-            var anyFlight = flpAdminFlightView.Controls.OfType<FlightListView>().Any();
+            string query = "SELECT * FROM FlightDetails ORDER BY Depart_Date DESC";
 
-            // Show or hide the BookListView based on whether any bookings are added
-            foreach (Control control in flpAdminFlightView.Controls)
+            try
             {
-                if (control is FlightListView flightListView)
+                using (SqlConnection conn = new SqlConnection(@"Data Source=MSI\SQLEXPRESS;Initial Catalog=AirlineBookingDB;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"))
                 {
-                    flightListView.Visible = anyFlight; // Only visible if there are bookings
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            // Clear the FlowLayoutPanel before adding updated data
+                            flowAdminFlightView.Controls.Clear();
+
+                            while (reader.Read())
+                            {
+                                // Retrieve data from the reader
+                                string flightCode = reader["Flight_Code"].ToString();
+                                string departFrom = reader["Depart_From"].ToString();
+                                string arrivTo = reader["Arriv_To"].ToString();
+                                string departDate = reader["Depart_Date"].ToString();
+                                string travel = reader["Travel"].ToString();
+
+                                // Add the flight to the UI
+                                AddFlight(flightCode, departFrom, arrivTo, departDate, travel);
+                            }
+                        }
+                    }
                 }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Database error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void addIcon_Click(object sender, EventArgs e)
+        // Method to toggle visibility of the flights based on presence of controls
+        private void ToggleFlightListViewVisibility()
         {
-            AddFlightModule afm = new AddFlightModule(this);
-            afm.ShowDialog();
+            // Check if there are any controls in the FlowLayoutPanel that are FlightListView instances
+            bool anyFlight = flowAdminFlightView.Controls.OfType<FlightListView>().Any();
+
+            // Toggle visibility of the FlightListView controls
+            foreach (Control control in flowAdminFlightView.Controls)
+            {
+                if (control is FlightListView flightListView)
+                {
+                    flightListView.Visible = anyFlight; // Only visible if there are flights
+                }
+            }
         }
     }
 }

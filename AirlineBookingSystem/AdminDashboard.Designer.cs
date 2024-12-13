@@ -135,6 +135,7 @@
             this.btnPassenger.Size = new System.Drawing.Size(225, 54);
             this.btnPassenger.TabIndex = 0;
             this.btnPassenger.Text = "   Passenger";
+            this.btnPassenger.Click += new System.EventHandler(this.btnPassenger_Click);
             // 
             // panel6
             // 

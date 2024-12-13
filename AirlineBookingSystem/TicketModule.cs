@@ -224,6 +224,7 @@ namespace AirlineBookingSystem
 
 
 
+
         //For update button
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -231,8 +232,8 @@ namespace AirlineBookingSystem
 
 
             string updateBookingQuery = @"
-        UPDATE PassengerDetails
-        SET
+            UPDATE PassengerDetails
+            SET
             Firstname = @firstname,
             Middlename = @middlename,
             Lastname = @lastname,
@@ -247,7 +248,7 @@ namespace AirlineBookingSystem
             Base_Fare = @base_fare,
             Tax = @tax,
             Total_Amount = @total_amount
-        WHERE Book_Ref = @book_ref";
+            WHERE Book_Ref = @book_ref";
 
             try
             {
@@ -300,29 +301,6 @@ namespace AirlineBookingSystem
                 MessageBox.Show($"Error updating booking: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
-
-        public void Clear()
-        {
-            // Clears form and optionally disables update button
-            txtFirstname.Clear();
-            txtMiddlename.Clear();
-            txtLastname.Clear();
-            txtContact.Clear();
-            cbGender.SelectedItem = null;
-            cbNationality.SelectedItem = null;
-            cbDeparture.SelectedItem = null;
-            cbArrival.SelectedItem = null;
-            dtDeparture.Value = DateTime.Now;
-            cbPassengerSeat.SelectedItem = null;
-            cbTravelClass.SelectedItem = null;
-            lblRefNo.Text = GenerateBookingReference();
-            lblDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
-
-            
-        }
-
 
 
         private void TicketModule_Load(object sender, EventArgs e)

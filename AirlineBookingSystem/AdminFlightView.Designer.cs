@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminFlightView));
             this.panel1 = new System.Windows.Forms.Panel();
             this.addIcon = new System.Windows.Forms.PictureBox();
-            this.flpAdminFlightView = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowAdminFlightView = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addIcon)).BeginInit();
             this.SuspendLayout();
@@ -57,22 +57,21 @@
             this.addIcon.TabStop = false;
             this.addIcon.Click += new System.EventHandler(this.addIcon_Click);
             // 
-            // flpAdminFlightView
+            // flowAdminFlightView
             // 
-            this.flpAdminFlightView.AutoScroll = true;
-            this.flpAdminFlightView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpAdminFlightView.Location = new System.Drawing.Point(0, 0);
-            this.flpAdminFlightView.Name = "flpAdminFlightView";
-            this.flpAdminFlightView.Size = new System.Drawing.Size(1263, 642);
-            this.flpAdminFlightView.TabIndex = 6;
-            this.flpAdminFlightView.Paint += new System.Windows.Forms.PaintEventHandler(this.flpAdminFlightView_Paint);
+            this.flowAdminFlightView.AutoScroll = true;
+            this.flowAdminFlightView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowAdminFlightView.Location = new System.Drawing.Point(0, 0);
+            this.flowAdminFlightView.Name = "flowAdminFlightView";
+            this.flowAdminFlightView.Size = new System.Drawing.Size(1263, 642);
+            this.flowAdminFlightView.TabIndex = 5;
             // 
             // AdminFlightView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1263, 716);
-            this.Controls.Add(this.flpAdminFlightView);
+            this.Controls.Add(this.flowAdminFlightView);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdminFlightView";
@@ -86,6 +85,6 @@
         #endregion
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox addIcon;
-        private System.Windows.Forms.FlowLayoutPanel flpAdminFlightView;
+        private System.Windows.Forms.FlowLayoutPanel flowAdminFlightView;
     }
 }

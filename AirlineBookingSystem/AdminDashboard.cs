@@ -49,5 +49,10 @@ namespace AirlineBookingSystem
                 this.Hide();
             }
         }
+
+        private void btnPassenger_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
