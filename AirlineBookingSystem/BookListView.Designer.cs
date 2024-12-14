@@ -54,6 +54,7 @@
             this.lblGender = new System.Windows.Forms.Label();
             this.lblContact = new System.Windows.Forms.Label();
             this.lblFullName = new System.Windows.Forms.Label();
+            this.lblCancel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEdit)).BeginInit();
@@ -62,6 +63,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.lblCancel);
             this.panel1.Controls.Add(this.picDelete);
             this.panel1.Controls.Add(this.picEdit);
             this.panel1.Controls.Add(this.lblTravel);
@@ -367,6 +369,18 @@
             this.lblFullName.TabIndex = 10;
             this.lblFullName.Text = "Fname";
             // 
+            // lblCancel
+            // 
+            this.lblCancel.AutoSize = true;
+            this.lblCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCancel.ForeColor = System.Drawing.Color.Red;
+            this.lblCancel.Location = new System.Drawing.Point(1143, 162);
+            this.lblCancel.Name = "lblCancel";
+            this.lblCancel.Size = new System.Drawing.Size(80, 25);
+            this.lblCancel.TabIndex = 34;
+            this.lblCancel.Text = "Cancel";
+            this.lblCancel.Click += new System.EventHandler(this.lblCancel_Click);
+            // 
             // BookListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -411,5 +425,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox picEdit;
         private System.Windows.Forms.PictureBox picDelete;
+        private System.Windows.Forms.Label lblCancel;
     }
 }

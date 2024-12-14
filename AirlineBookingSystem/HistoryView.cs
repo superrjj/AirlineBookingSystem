@@ -20,13 +20,18 @@ namespace AirlineBookingSystem
         }
 
         // Method to load historical booking data into the FlowLayoutPanel
-        private void LoadHistoryData(bool showArchived = false)
+        private void LoadHistoryData(bool showArchived = false , bool showCancelled = false)
         {
             string query = "SELECT * FROM PassengerDetails ORDER BY Book_Date , Firstname DESC"; // SQL query for retrieving booking history
 
             if (!showArchived)
             {
                 query = "SELECT * FROM PassengerDetails WHERE IsArchived = 0 ORDER BY Book_Date , Firstname DESC"; // SQL query for retrieving non-archived booking history
+            }
+
+            if (!showCancelled)
+            {
+                query = "SELECT * FROM PassengerDetails WHERE IsCancelled = 0 ORDER BY Book_Date , Firstname DESC"; // SQL query for retrieving non-cancelled booking history
             }
 
 
