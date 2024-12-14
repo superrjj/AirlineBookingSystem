@@ -86,24 +86,23 @@ namespace AirlineBookingSystem
 
             if (result == DialogResult.Yes)
             {
-                ArchiveBookingInDatabase(lblRef.Text);
+                // Mark the booking as archived in the database
+                MarkBookingAsArchived(lblRef.Text);
 
-                // Remove the UserControl from the UI and free resources
+                // Remove the UserControl from the parent container
                 if (this.Parent != null)
                 {
                     this.Parent.Controls.Remove(this);
                     this.Dispose();
-                    MessageBox.Show("Booking archived successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                if (this.Parent != null)
-                {
-                    RefreshBookings(this.Parent, false, false);
-                }
+                // Notify the user
+                MessageBox.Show("Booking archived successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        private void ArchiveBookingInDatabase(string bookingRef)
+        // Method to mark the booking as archived in the database
+        private void MarkBookingAsArchived(string bookingRef)
         {
             string query = "UPDATE PassengerDetails SET IsArchived = 1 WHERE Book_Ref = @book_ref";
 
@@ -193,6 +192,7 @@ namespace AirlineBookingSystem
                     this.Parent.Controls.Remove(this);
                     this.Dispose();
                 }
+
 
                 // Notify the user
                 MessageBox.Show("Booking canceled successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

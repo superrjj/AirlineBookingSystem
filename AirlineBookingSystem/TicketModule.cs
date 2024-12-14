@@ -211,7 +211,9 @@ namespace AirlineBookingSystem
                             dtDeparture.Value.ToString("yyyy-MM-dd"), cbPassengerSeat.SelectedItem?.ToString(),
                             cbTravelClass.SelectedItem?.ToString());
 
-                        
+                        _parentForm.RetrieveAllBookingsFromDatabase();
+
+
                     }
                     
                 }
