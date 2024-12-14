@@ -66,7 +66,7 @@ namespace AirlineBookingSystem
                                 BookListView historyControl = new BookListView();
 
                                 // Update the control's data
-                                historyControl.UpdateBookingInfo(bookRef, bookDate, fullName, contact, gender, nationality, departureFrom, arrivalTo, departureDate, numberSeats, travelClass);
+                                historyControl.UpdateBookingInfo(bookRef, bookDate, fullName, contact, gender, nationality, departureFrom, arrivalTo, departureDate, numberSeats, travelClass, true);
 
                                 // Add the user control to the FlowLayoutPanel
                                 flowHistoryViewPanel.Controls.Add(historyControl);

@@ -13,7 +13,7 @@ namespace AirlineBookingSystem
 
         // Method to update all the labels with booking information
         public void UpdateBookingInfo(string book_ref, string book_date, string fullName, string contact, string gender, string nationality,
-                                      string departureFrom, string arrivalTo, string departureDate, string numberSeats, string travelClass)
+                                      string departureFrom, string arrivalTo, string departureDate, string numberSeats, string travelClass, bool isBookingCreated)
         {
             lblRef.Text = book_ref;
             lblDate.Text = book_date;
@@ -26,6 +26,21 @@ namespace AirlineBookingSystem
             lblDepartureDate.Text = departureDate;
             lblNumberSeats.Text = numberSeats;
             lblTravel.Text = travelClass;
+
+            // Hide the picEdit, picDelete, and lblCancel if the booking is created
+            if (isBookingCreated)
+            {
+                picEdit.Visible = false;
+                picDelete.Visible = false;
+                lblCancel.Visible = false;
+            }
+            else
+            {
+                picEdit.Visible = true;  // Show the controls if the booking is not yet created
+                picDelete.Visible = true;
+                lblCancel.Visible = true;
+            }
+
         }
 
         #region UI Event Handlers
@@ -42,7 +57,7 @@ namespace AirlineBookingSystem
         private void lblDepartureFrom_Click(object sender, EventArgs e) { }
         #endregion
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void picEdit_Click(object sender, EventArgs e)
         {
             TicketModule ticketModule = new TicketModule(
                null,
@@ -149,7 +164,7 @@ namespace AirlineBookingSystem
                                     reader["ArrivalTo"].ToString(),
                                     reader["DepartureDate"].ToString(),
                                     reader["NumberSeats"].ToString(),
-                                    reader["TravelClass"].ToString());
+                                    reader["TravelClass"].ToString(), false);
 
                                 parentControl.Controls.Add(bookingView);
                             }
@@ -211,5 +226,7 @@ namespace AirlineBookingSystem
         private void panel1_Paint(object sender, PaintEventArgs e) { }
         private void BookListView_Load(object sender, EventArgs e) { }
         #endregion
+
+    
     }
 }

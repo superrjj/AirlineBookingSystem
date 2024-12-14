@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookListView));
             this.panel1 = new System.Windows.Forms.Panel();
             this.picDelete = new System.Windows.Forms.PictureBox();
-            this.picEdit = new System.Windows.Forms.PictureBox();
             this.lblTravel = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -55,6 +54,7 @@
             this.lblContact = new System.Windows.Forms.Label();
             this.lblFullName = new System.Windows.Forms.Label();
             this.lblCancel = new System.Windows.Forms.Label();
+            this.picEdit = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEdit)).BeginInit();
@@ -63,9 +63,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.picEdit);
             this.panel1.Controls.Add(this.lblCancel);
             this.panel1.Controls.Add(this.picDelete);
-            this.panel1.Controls.Add(this.picEdit);
             this.panel1.Controls.Add(this.lblTravel);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label9);
@@ -104,17 +104,6 @@
             this.picDelete.TabIndex = 33;
             this.picDelete.TabStop = false;
             this.picDelete.Click += new System.EventHandler(this.picDelete_Click);
-            // 
-            // picEdit
-            // 
-            this.picEdit.Image = ((System.Drawing.Image)(resources.GetObject("picEdit.Image")));
-            this.picEdit.Location = new System.Drawing.Point(1157, 6);
-            this.picEdit.Name = "picEdit";
-            this.picEdit.Size = new System.Drawing.Size(33, 36);
-            this.picEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picEdit.TabIndex = 32;
-            this.picEdit.TabStop = false;
-            this.picEdit.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // lblTravel
             // 
@@ -381,6 +370,17 @@
             this.lblCancel.Text = "Cancel";
             this.lblCancel.Click += new System.EventHandler(this.lblCancel_Click);
             // 
+            // picEdit
+            // 
+            this.picEdit.Image = ((System.Drawing.Image)(resources.GetObject("picEdit.Image")));
+            this.picEdit.Location = new System.Drawing.Point(1159, 6);
+            this.picEdit.Name = "picEdit";
+            this.picEdit.Size = new System.Drawing.Size(33, 36);
+            this.picEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picEdit.TabIndex = 35;
+            this.picEdit.TabStop = false;
+            this.picEdit.Click += new System.EventHandler(this.picEdit_Click);
+            // 
             // BookListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -423,8 +423,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox picEdit;
         private System.Windows.Forms.PictureBox picDelete;
         private System.Windows.Forms.Label lblCancel;
+        private System.Windows.Forms.PictureBox picEdit;
     }
 }
