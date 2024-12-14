@@ -52,7 +52,15 @@ namespace AirlineBookingSystem
 
         private void btnPassenger_Click(object sender, EventArgs e)
         {
+            openChildForm(new AdminViewPassenger());
+        }
 
+        private void closeIcon_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Exit Application", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }

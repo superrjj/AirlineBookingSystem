@@ -58,7 +58,7 @@
             this.panel1.Controls.Add(this.lblFullname);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1500, 89);
             this.panel1.TabIndex = 1;
@@ -67,12 +67,13 @@
             // 
             this.closeIcon.Image = ((System.Drawing.Image)(resources.GetObject("closeIcon.Image")));
             this.closeIcon.Location = new System.Drawing.Point(1444, 4);
-            this.closeIcon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.closeIcon.Margin = new System.Windows.Forms.Padding(4);
             this.closeIcon.Name = "closeIcon";
             this.closeIcon.Size = new System.Drawing.Size(52, 36);
             this.closeIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.closeIcon.TabIndex = 2;
             this.closeIcon.TabStop = false;
+            this.closeIcon.Click += new System.EventHandler(this.closeIcon_Click);
             // 
             // lblFullname
             // 
@@ -96,7 +97,7 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 89);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(225, 608);
             this.panel2.TabIndex = 2;
@@ -111,7 +112,7 @@
             this.btnLogoutAdmin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogoutAdmin.Image")));
             this.btnLogoutAdmin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogoutAdmin.Location = new System.Drawing.Point(0, 555);
-            this.btnLogoutAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogoutAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogoutAdmin.Name = "btnLogoutAdmin";
             this.btnLogoutAdmin.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.btnLogoutAdmin.Size = new System.Drawing.Size(225, 53);
@@ -129,7 +130,7 @@
             this.btnPassenger.Image = ((System.Drawing.Image)(resources.GetObject("btnPassenger.Image")));
             this.btnPassenger.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPassenger.Location = new System.Drawing.Point(0, 100);
-            this.btnPassenger.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPassenger.Margin = new System.Windows.Forms.Padding(4);
             this.btnPassenger.Name = "btnPassenger";
             this.btnPassenger.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.btnPassenger.Size = new System.Drawing.Size(225, 54);
@@ -141,7 +142,7 @@
             // 
             this.panel6.Controls.Add(this.btnSearchFlight);
             this.panel6.Location = new System.Drawing.Point(0, 217);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(225, 53);
             this.panel6.TabIndex = 3;
@@ -156,7 +157,7 @@
             this.btnSearchFlight.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchFlight.Image")));
             this.btnSearchFlight.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSearchFlight.Location = new System.Drawing.Point(0, 0);
-            this.btnSearchFlight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearchFlight.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearchFlight.Name = "btnSearchFlight";
             this.btnSearchFlight.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.btnSearchFlight.Size = new System.Drawing.Size(225, 53);
@@ -168,7 +169,7 @@
             // 
             this.panel5.Controls.Add(this.btnViewHistory);
             this.panel5.Location = new System.Drawing.Point(0, 161);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(225, 47);
             this.panel5.TabIndex = 2;
@@ -183,7 +184,7 @@
             this.btnViewHistory.Image = ((System.Drawing.Image)(resources.GetObject("btnViewHistory.Image")));
             this.btnViewHistory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnViewHistory.Location = new System.Drawing.Point(0, 0);
-            this.btnViewHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnViewHistory.Margin = new System.Windows.Forms.Padding(4);
             this.btnViewHistory.Name = "btnViewHistory";
             this.btnViewHistory.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.btnViewHistory.Size = new System.Drawing.Size(225, 47);
@@ -194,7 +195,7 @@
             // panel4
             // 
             this.panel4.Location = new System.Drawing.Point(0, 103);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(225, 54);
             this.panel4.TabIndex = 1;
@@ -203,7 +204,7 @@
             // 
             this.panel3.Controls.Add(this.btnAddFlight);
             this.panel3.Location = new System.Drawing.Point(0, 47);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(225, 49);
             this.panel3.TabIndex = 0;
@@ -217,7 +218,7 @@
             this.btnAddFlight.Image = ((System.Drawing.Image)(resources.GetObject("btnAddFlight.Image")));
             this.btnAddFlight.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddFlight.Location = new System.Drawing.Point(0, 4);
-            this.btnAddFlight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddFlight.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddFlight.Name = "btnAddFlight";
             this.btnAddFlight.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.btnAddFlight.Size = new System.Drawing.Size(225, 49);
