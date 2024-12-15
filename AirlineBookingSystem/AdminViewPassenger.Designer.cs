@@ -127,11 +127,11 @@
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column1.HeaderText = "Book Refernce";
+            this.Column1.HeaderText = "Book Reference";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 137;
+            this.Column1.Width = 145;
             // 
             // Column2
             // 

@@ -30,26 +30,21 @@ namespace AirlineBookingSystem
             LoadFlightData();
         }
 
-        // Method to add a new flight to the UI
         public void AddFlight(string flightCode, string departFrom, string arrivTo, string departDate, string travel)
         {
-            // Create a new instance of the FlightListView user control
-            FlightListView newFlightControl = new FlightListView();
+            // Add a new row to the DataGridView with the new flight details
+            dgFlights.Rows.Add(flightCode, departFrom, arrivTo, departDate, travel);
 
-            // Update the labels with the flight details
-            newFlightControl.UpdateAddFlight(flightCode, departFrom, arrivTo, departDate, travel);
-
-            // Add the new control to the FlowLayoutPanel (Assume the FlowLayoutPanel is named flowAdminFlightView)
-            flowAdminFlightView.Controls.Add(newFlightControl);
-
-            // After adding, check if any flights exist and toggle visibility accordingly
-            ToggleFlightListViewVisibility();
+            // Optionally, you can also handle any additional UI changes here (like toggling visibility)
         }
 
         // Method to load all flights and display them in the FlowLayoutPanel
         private void LoadFlightData()
         {
-            string query = "SELECT * FROM FlightDetails ORDER BY Depart_Date DESC";
+            dgFlights.Rows.Clear(); // Clear existing rows in DataGridView
+
+            string query = "SELECT Flight_Code, Depart_From, Arriv_To, Depart_Date, Travel " +
+                           "FROM FlightDetails";
 
             try
             {
@@ -58,22 +53,67 @@ namespace AirlineBookingSystem
                     conn.Open();
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
+                        SqlDataReader sdr = cmd.ExecuteReader();
+
+                        // Read data from SqlDataReader and populate DataGridView
+                        while (sdr.Read())
+                        {
+                            dgFlights.Rows.Add(sdr[0].ToString(), sdr[1].ToString(),
+                                                   sdr[2].ToString(), sdr[3].ToString(),
+                                                   sdr[4].ToString());
+                        }
+                        sdr.Close();
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error retrieving flight data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtSearchBar_TextChanged(object sender, EventArgs e)
+        {
+            string searchQuery = txtSearchBar.Text.Trim(); // Get the search input
+            SearchFlights(searchQuery); // Call the search method with the query
+        }
+
+        private void SearchFlights(string searchQuery)
+        {
+            dgFlights.Rows.Clear(); //Clear existing rows in DataGridView
+
+            //SQL query with a WHERE clause to filter based on searchQuery in various columns
+            string query = @"
+                SELECT Flight_Code, Depart_From, Arriv_To, Depart_Date, Travel
+                FROM FlightDetails 
+                WHERE Flight_Code LIKE @searchQuery
+                OR Depart_From LIKE @searchQuery
+                OR Arriv_To LIKE @searchQuery
+                ORDER BY Depart_Date DESC"; // Adjust the sorting column if needed
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(@"Data Source=MSI\SQLEXPRESS;Initial Catalog=AirlineBookingDB;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        // Add parameter to prevent SQL injection
+                        cmd.Parameters.AddWithValue("@searchQuery", "%" + searchQuery + "%");
+
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            // Clear the FlowLayoutPanel before adding updated data
-                            flowAdminFlightView.Controls.Clear();
-
+                            // Read data from SqlDataReader and populate DataGridView
                             while (reader.Read())
                             {
-                                // Retrieve data from the reader
-                                string flightCode = reader["Flight_Code"].ToString();
-                                string departFrom = reader["Depart_From"].ToString();
-                                string arrivTo = reader["Arriv_To"].ToString();
-                                string departDate = reader["Depart_Date"].ToString();
-                                string travel = reader["Travel"].ToString();
-
-                                // Add the flight to the UI
-                                AddFlight(flightCode, departFrom, arrivTo, departDate, travel);
+                                dgFlights.Rows.Add(
+                                    reader["Flight_Code"].ToString(),
+                                    reader["Depart_From"].ToString(),
+                                    reader["Arriv_To"].ToString(),
+                                    reader["Depart_Date"].ToString(),
+                                    reader["Travel"].ToString()
+                                );
                             }
                         }
                     }
@@ -89,20 +129,5 @@ namespace AirlineBookingSystem
             }
         }
 
-        // Method to toggle visibility of the flights based on presence of controls
-        private void ToggleFlightListViewVisibility()
-        {
-            // Check if there are any controls in the FlowLayoutPanel that are FlightListView instances
-            bool anyFlight = flowAdminFlightView.Controls.OfType<FlightListView>().Any();
-
-            // Toggle visibility of the FlightListView controls
-            foreach (Control control in flowAdminFlightView.Controls)
-            {
-                if (control is FlightListView flightListView)
-                {
-                    flightListView.Visible = anyFlight; // Only visible if there are flights
-                }
-            }
-        }
     }
 }

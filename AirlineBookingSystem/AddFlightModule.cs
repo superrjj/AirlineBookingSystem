@@ -111,5 +111,10 @@ namespace AirlineBookingSystem
             cbArrivalTo.SelectedIndex = -1;
             cbTravel.SelectedIndex = -1;
         }
+
+        private void btnCancelBook_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

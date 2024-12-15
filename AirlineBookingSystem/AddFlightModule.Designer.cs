@@ -286,6 +286,7 @@
             this.btnCancelBook.TabIndex = 37;
             this.btnCancelBook.Text = "Cancel";
             this.btnCancelBook.UseVisualStyleBackColor = true;
+            this.btnCancelBook.Click += new System.EventHandler(this.btnCancelBook_Click);
             // 
             // AddFlightModule
             // 
