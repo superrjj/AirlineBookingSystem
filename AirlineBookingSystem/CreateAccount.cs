@@ -54,6 +54,11 @@ namespace AirlineBookingSystem
                 return;
             }
 
+            if (txtPassword.Text != txtConfirmPassword.Text)
+            {
+                MessageBox.Show("Password does not match", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             try
             {
                 connect.Open();
@@ -106,5 +111,35 @@ namespace AirlineBookingSystem
         {
 
         }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            string password = txtPassword.Text;
+            string strengthMessage;
+            Color strengthColor;
+
+            if (password.Length < 6)
+            {
+                strengthMessage = "Password is too short (min 6 characters)";
+                strengthColor = Color.Red;
+            }
+            else if (!HasUpperCase(password) || !HasLowerCase(password) || !HasDigit(password))
+            {
+                strengthMessage = "Password should include uppercase, lowercase, and a number";
+                strengthColor = Color.Orange;
+            }
+            else
+            {
+                strengthMessage = "Strong password";
+                strengthColor = Color.Green;
+            }
+
+            lblPassword.Text = strengthMessage;
+            lblPassword.ForeColor = strengthColor;
+        }
+
+        private bool HasUpperCase(string input) => input.Any(char.IsUpper);
+        private bool HasLowerCase(string input) => input.Any(char.IsLower);
+        private bool HasDigit(string input) => input.Any(char.IsDigit);
     }
 }

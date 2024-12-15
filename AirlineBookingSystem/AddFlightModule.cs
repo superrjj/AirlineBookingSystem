@@ -8,10 +8,12 @@ namespace AirlineBookingSystem
     public partial class AddFlightModule : Form
     {
         private readonly AdminFlightView _adminFlightView;
-
+       
         public AddFlightModule(AdminFlightView adminFlightView)
         {
             InitializeComponent();
+
+  
 
             if (adminFlightView == null)
             {

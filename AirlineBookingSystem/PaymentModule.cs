@@ -95,7 +95,8 @@ namespace AirlineBookingSystem
             }
         }
 
-        private void btnCancelPayment_Click(object sender, EventArgs e)
+
+        private void btnCancelPayment_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }

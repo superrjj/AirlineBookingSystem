@@ -37,15 +37,17 @@
             this.pictureClose = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.picBack = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBack)).BeginInit();
             this.SuspendLayout();
             // 
             // chkShowPass
             // 
             this.chkShowPass.AutoSize = true;
             this.chkShowPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkShowPass.Location = new System.Drawing.Point(280, 383);
+            this.chkShowPass.Location = new System.Drawing.Point(280, 432);
             this.chkShowPass.Margin = new System.Windows.Forms.Padding(4);
             this.chkShowPass.Name = "chkShowPass";
             this.chkShowPass.Size = new System.Drawing.Size(151, 24);
@@ -60,7 +62,7 @@
             this.btnLoginAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoginAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoginAdmin.ForeColor = System.Drawing.Color.White;
-            this.btnLoginAdmin.Location = new System.Drawing.Point(44, 423);
+            this.btnLoginAdmin.Location = new System.Drawing.Point(44, 472);
             this.btnLoginAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoginAdmin.Name = "btnLoginAdmin";
             this.btnLoginAdmin.Size = new System.Drawing.Size(387, 42);
@@ -73,7 +75,7 @@
             // 
             this.txtAdminPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAdminPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAdminPassword.Location = new System.Drawing.Point(44, 344);
+            this.txtAdminPassword.Location = new System.Drawing.Point(44, 393);
             this.txtAdminPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtAdminPassword.Name = "txtAdminPassword";
             this.txtAdminPassword.Size = new System.Drawing.Size(391, 30);
@@ -84,7 +86,7 @@
             // 
             this.txtAdminName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAdminName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAdminName.Location = new System.Drawing.Point(44, 275);
+            this.txtAdminName.Location = new System.Drawing.Point(44, 324);
             this.txtAdminName.Margin = new System.Windows.Forms.Padding(4);
             this.txtAdminName.Name = "txtAdminName";
             this.txtAdminName.Size = new System.Drawing.Size(391, 30);
@@ -94,7 +96,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(39, 247);
+            this.label2.Location = new System.Drawing.Point(39, 296);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(131, 25);
@@ -116,7 +118,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(94, 8);
+            this.pictureBox1.Location = new System.Drawing.Point(94, 57);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(304, 215);
@@ -128,18 +130,31 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(39, 318);
+            this.label1.Location = new System.Drawing.Point(39, 367);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(165, 25);
             this.label1.TabIndex = 26;
             this.label1.Text = "Admin Password:";
             // 
+            // picBack
+            // 
+            this.picBack.Image = ((System.Drawing.Image)(resources.GetObject("picBack.Image")));
+            this.picBack.Location = new System.Drawing.Point(10, 10);
+            this.picBack.Margin = new System.Windows.Forms.Padding(4);
+            this.picBack.Name = "picBack";
+            this.picBack.Size = new System.Drawing.Size(33, 38);
+            this.picBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBack.TabIndex = 27;
+            this.picBack.TabStop = false;
+            this.picBack.Click += new System.EventHandler(this.picBack_Click);
+            // 
             // AdminLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(483, 597);
+            this.Controls.Add(this.picBack);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.chkShowPass);
             this.Controls.Add(this.btnLoginAdmin);
@@ -154,6 +169,7 @@
             this.Text = "AdminLogin";
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBack)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,5 +185,6 @@
         private System.Windows.Forms.PictureBox pictureClose;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox picBack;
     }
 }

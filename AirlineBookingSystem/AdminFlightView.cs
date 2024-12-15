@@ -129,5 +129,9 @@ namespace AirlineBookingSystem
             }
         }
 
+        private void dgFlights_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
     }
 }

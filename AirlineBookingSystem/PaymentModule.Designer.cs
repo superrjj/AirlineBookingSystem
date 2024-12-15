@@ -179,6 +179,7 @@
             this.btnCancelPayment.TabIndex = 96;
             this.btnCancelPayment.Text = "Cancel";
             this.btnCancelPayment.UseVisualStyleBackColor = true;
+            this.btnCancelPayment.Click += new System.EventHandler(this.btnCancelPayment_Click_1);
             // 
             // PaymentModule
             // 

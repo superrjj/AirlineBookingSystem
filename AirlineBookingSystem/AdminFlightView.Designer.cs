@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminFlightView));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.addIcon = new System.Windows.Forms.PictureBox();
             this.dgFlights = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearchBar = new System.Windows.Forms.TextBox();
+            this.addIcon = new System.Windows.Forms.PictureBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.addIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgFlights)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -58,31 +58,20 @@
             this.panel1.Size = new System.Drawing.Size(1263, 74);
             this.panel1.TabIndex = 4;
             // 
-            // addIcon
-            // 
-            this.addIcon.Image = ((System.Drawing.Image)(resources.GetObject("addIcon.Image")));
-            this.addIcon.Location = new System.Drawing.Point(1172, 12);
-            this.addIcon.Name = "addIcon";
-            this.addIcon.Size = new System.Drawing.Size(79, 50);
-            this.addIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.addIcon.TabIndex = 0;
-            this.addIcon.TabStop = false;
-            this.addIcon.Click += new System.EventHandler(this.addIcon_Click);
-            // 
             // dgFlights
             // 
             this.dgFlights.AllowUserToAddRows = false;
             this.dgFlights.AllowUserToDeleteRows = false;
             this.dgFlights.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgFlights.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightSlateGray;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgFlights.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightSlateGray;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgFlights.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgFlights.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgFlights.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -95,11 +84,12 @@
             this.dgFlights.Name = "dgFlights";
             this.dgFlights.ReadOnly = true;
             this.dgFlights.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgFlights.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgFlights.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgFlights.RowTemplate.Height = 24;
             this.dgFlights.Size = new System.Drawing.Size(1263, 642);
             this.dgFlights.TabIndex = 5;
+            this.dgFlights.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgFlights_CellContentClick);
             // 
             // label1
             // 
@@ -121,6 +111,17 @@
             this.txtSearchBar.Size = new System.Drawing.Size(529, 34);
             this.txtSearchBar.TabIndex = 2;
             this.txtSearchBar.TextChanged += new System.EventHandler(this.txtSearchBar_TextChanged);
+            // 
+            // addIcon
+            // 
+            this.addIcon.Image = ((System.Drawing.Image)(resources.GetObject("addIcon.Image")));
+            this.addIcon.Location = new System.Drawing.Point(1172, 12);
+            this.addIcon.Name = "addIcon";
+            this.addIcon.Size = new System.Drawing.Size(79, 50);
+            this.addIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.addIcon.TabIndex = 0;
+            this.addIcon.TabStop = false;
+            this.addIcon.Click += new System.EventHandler(this.addIcon_Click);
             // 
             // Column1
             // 
@@ -174,8 +175,8 @@
             this.Text = "AdminFlightView";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.addIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgFlights)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addIcon)).EndInit();
             this.ResumeLayout(false);
 
         }
