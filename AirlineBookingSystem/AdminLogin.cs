@@ -48,7 +48,7 @@ namespace AirlineBookingSystem
             if (txtAdminName.Text == "Admin01" && txtAdminPassword.Text == "adminpass")
             {
                 // If admin credentials match, show the admin dashboard or perform admin-specific actions
-                MessageBox.Show("Logged in as Admin", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Logged in as Admin!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Admin dashboard or special action
                 AdminDashboard adminDash = new AdminDashboard();  // Assuming you have an AdminDashboard form
@@ -76,7 +76,7 @@ namespace AirlineBookingSystem
                         {
                             string fullName = result.ToString(); // Get the full name
 
-                            MessageBox.Show("Logged In Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Logged In Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             // Pass the full name to the Dashboard
                             UserDashboard dash = new UserDashboard(fullName);

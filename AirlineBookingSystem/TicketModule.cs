@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Linq;
+using System.Windows.Controls;
 
 namespace AirlineBookingSystem
 {
@@ -114,27 +115,7 @@ namespace AirlineBookingSystem
                     }
                 }
             }
-
-
-
-            // Select the seat only if it's in the list
-            if (cbPassengerSeat.Items.Contains(seatNo))
-            {
-                cbPassengerSeat.SelectedItem = seatNo;
-            }
-            else
-            {
-                MessageBox.Show("Seat not found: " + seatNo);
-            }
-
-            cbTravelClass.SelectedItem = travelClass;
         }
-
-        
-
-        
-
-
 
 
         private string GenerateBookingReference()
@@ -144,24 +125,120 @@ namespace AirlineBookingSystem
             return $"TR{timestamp.Substring(4)}"; // Using only last 10 digits for brevity
         }
 
+        private bool IsValidFullName(string name)
+        {
+            // Regular expression to match a name with letters and spaces
+            var regex = new System.Text.RegularExpressions.Regex(@"^[a-zA-Z\s]+$");
+            return regex.IsMatch(name);
+        }
+
+        private bool IsValidContactNumber(string contact)
+        {
+            // Regular expression to match a contact number starting with "09" and a total length of 11 characters
+            var regex = new System.Text.RegularExpressions.Regex(@"^09\d{9}$");
+            return regex.IsMatch(contact);
+        }
+
+
+
         private void btnBook_Click(object sender, EventArgs e)
         {
-
-            
-
+            //Here the validation for the next button
+            #region
             // Validate required fields
             if (string.IsNullOrWhiteSpace(txtFirstname.Text) ||
+                string.IsNullOrWhiteSpace(txtMiddlename.Text) ||
                 string.IsNullOrWhiteSpace(txtLastname.Text) ||
-                cbGender.SelectedItem == null ||
-                string.IsNullOrWhiteSpace(txtContact.Text) ||
-                cbPassengerSeat.SelectedItem == null ||
-                cbDeparture.SelectedItem == null ||
-                cbArrival.SelectedItem == null ||
-                cbTravelClass.SelectedItem == null)
+                string.IsNullOrWhiteSpace(txtContact.Text))
             {
                 MessageBox.Show("Please fill in all required fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+
+            // For full name validation
+            string lastName = txtLastname.Text;
+            string middleName = txtMiddlename.Text;
+            string firstName = txtFirstname.Text;
+
+            if (!IsValidFullName(lastName))
+            {
+                MessageBox.Show("Last name can only contain letters.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!IsValidFullName(middleName))
+            {
+                MessageBox.Show("Middle name can only contain letters.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!IsValidFullName(firstName))
+            {
+                MessageBox.Show("First name can only contain letters.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DateTime selectedDate = dtDeparture.Value;
+
+            // Check if the selected date is in the past
+            if (selectedDate < DateTime.Today)
+            {
+                MessageBox.Show("Departure date cannot be in the past.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // For contact number validation
+            string contactNumber = txtContact.Text;
+
+            if (!IsValidContactNumber(contactNumber))
+            {
+                MessageBox.Show("Contact number must start with '09' and have a total of 11 digits.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // For nationality validation
+            if (cbNationality.SelectedItem == null || cbNationality.SelectedItem.ToString() == "Please Select Nationality")
+            {
+                MessageBox.Show("Please select a valid nationality.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // For gender validation
+            if (cbGender.SelectedItem == null || cbGender.SelectedItem.ToString() == "Please Select Gender")
+            {
+                MessageBox.Show("Please select a valid gender.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // For departure validation
+            if (cbDeparture.SelectedItem == null || cbDeparture.SelectedItem.ToString() == "Please Select Departure From")
+            {
+                MessageBox.Show("Please select a valid departure.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // For arrival validation
+            if (cbArrival.SelectedItem == null || cbArrival.SelectedItem.ToString() == "Please Select Arrival To")
+            {
+                MessageBox.Show("Please select a valid arrival.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // For passenger seat validation
+            if (cbPassengerSeat.SelectedItem == null || cbPassengerSeat.SelectedItem.ToString() == "Please Select Passenger Seat")
+            {
+                MessageBox.Show("Please select a valid passenger seat.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // For travel class validation
+            if (cbTravelClass.SelectedItem == null || cbTravelClass.SelectedItem.ToString() == "Please Select Travel Class")
+            {
+                MessageBox.Show("Please select a valid travel class.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            #endregion
+
+
 
             string insertBookingQuery = @"
                 INSERT INTO PassengerDetails
@@ -230,7 +307,101 @@ namespace AirlineBookingSystem
         //For update button
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            //Here the validation for update button
+            #region
 
+            // Validate required fields
+            if (string.IsNullOrWhiteSpace(txtFirstname.Text) ||
+                string.IsNullOrWhiteSpace(txtLastname.Text) ||
+                string.IsNullOrWhiteSpace(txtMiddlename.Text) ||
+                string.IsNullOrWhiteSpace(txtContact.Text))
+            {
+                MessageBox.Show("Please fill in all required fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+            // For full name validation
+            string lastName = txtLastname.Text;
+            string middleName = txtMiddlename.Text;
+            string firstName = txtFirstname.Text;
+
+            if (!IsValidFullName(lastName))
+            {
+                MessageBox.Show("Last name can only contain letters.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!IsValidFullName(middleName))
+            {
+                MessageBox.Show("Middle name can only contain letters.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!IsValidFullName(firstName))
+            {
+                MessageBox.Show("First name can only contain letters.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DateTime selectedDate = dtDeparture.Value;
+
+            // Check if the selected date is in the past
+            if (selectedDate < DateTime.Today)
+            {
+                MessageBox.Show("Departure date cannot be in the past.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // For contact number validation
+            string contactNumber = txtContact.Text;
+
+            if (!IsValidContactNumber(contactNumber))
+            {
+                MessageBox.Show("Contact number must start with '09' and have a total of 11 digits.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // For nationality validation
+            if (cbNationality.SelectedItem == null || cbNationality.SelectedItem.ToString() == "Please Select Nationality")
+            {
+                MessageBox.Show("Please select a valid nationality.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // For gender validation
+            if (cbGender.SelectedItem == null || cbGender.SelectedItem.ToString() == "Please Select Gender")
+            {
+                MessageBox.Show("Please select a valid gender.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // For departure validation
+            if (cbDeparture.SelectedItem == null || cbDeparture.SelectedItem.ToString() == "Please Select Departure From")
+            {
+                MessageBox.Show("Please select a valid departure.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // For arrival validation
+            if (cbArrival.SelectedItem == null || cbArrival.SelectedItem.ToString() == "Please Select Arrival To")
+            {
+                MessageBox.Show("Please select a valid arrival.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // For passenger seat validation
+            if (cbPassengerSeat.SelectedItem == null || cbPassengerSeat.SelectedItem.ToString() == "Please Select Passenger Seat")
+            {
+                MessageBox.Show("Please select a valid passenger seat.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // For travel class validation
+            if (cbTravelClass.SelectedItem == null || cbTravelClass.SelectedItem.ToString() == "Please Select Travel Class")
+            {
+                MessageBox.Show("Please select a valid travel class.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            #endregion
 
 
             string updateBookingQuery = @"
