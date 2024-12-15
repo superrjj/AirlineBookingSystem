@@ -20,7 +20,7 @@ namespace AirlineBookingSystem
         }
 
         // Method to load historical booking data into the FlowLayoutPanel
-        private void LoadHistoryData(bool showArchived = false , bool showCancelled = false)
+        private void LoadHistoryData(bool showArchived = false, bool IsCancelled = false)
         {
             string query = "SELECT * FROM PassengerDetails ORDER BY Book_Date , Firstname DESC"; // SQL query for retrieving booking history
 
@@ -29,10 +29,12 @@ namespace AirlineBookingSystem
                 query = "SELECT * FROM PassengerDetails WHERE IsArchived = 0 ORDER BY Book_Date , Firstname DESC"; // SQL query for retrieving non-archived booking history
             }
 
-            if (!showCancelled)
+            if (!IsCancelled)
             {
-                query = "SELECT * FROM PassengerDetails WHERE IsCancelled = 0 ORDER BY Book_Date , Firstname DESC"; // SQL query for retrieving non-cancelled booking history
+                query = "SELECT * FROM PassengerDetails WHERE IsCancelled = 1 ORDER BY Book_Date, Firstname DESC";
             }
+
+            
 
 
             try
@@ -66,7 +68,7 @@ namespace AirlineBookingSystem
                                 BookListView historyControl = new BookListView();
 
                                 // Update the control's data
-                                historyControl.UpdateBookingInfo(bookRef, bookDate, fullName, contact, gender, nationality, departureFrom, arrivalTo, departureDate, numberSeats, travelClass, true);
+                                historyControl.UpdateBookingInfo(bookRef, bookDate, fullName, contact, gender, nationality, departureFrom, arrivalTo, departureDate, numberSeats, travelClass, true, true);
 
                                 // Add the user control to the FlowLayoutPanel
                                 flowHistoryViewPanel.Controls.Add(historyControl);

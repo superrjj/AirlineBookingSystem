@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace AirlineBookingSystem
 {
@@ -13,7 +14,7 @@ namespace AirlineBookingSystem
 
         // Method to update all the labels with booking information
         public void UpdateBookingInfo(string book_ref, string book_date, string fullName, string contact, string gender, string nationality,
-                                      string departureFrom, string arrivalTo, string departureDate, string numberSeats, string travelClass, bool isBookingCreated)
+                                      string departureFrom, string arrivalTo, string departureDate, string numberSeats, string travelClass, bool isBookingCreated, bool isCancelled)
         {
             lblRef.Text = book_ref;
             lblDate.Text = book_date;
@@ -26,6 +27,23 @@ namespace AirlineBookingSystem
             lblDepartureDate.Text = departureDate;
             lblNumberSeats.Text = numberSeats;
             lblTravel.Text = travelClass;
+
+
+         
+
+
+            // Handle the canceled status visually
+            if (isCancelled)
+            {
+                lblCancelled.Text = "Cancelled";  // Show "Cancelled" text
+                lblCancelled.ForeColor = Color.Red;  // Change label color to red
+                lblCancelled.Visible = true;  // Make the label visible
+            }
+            else
+            {
+                lblCancelled.Visible = false;  // Hide if not cancelled
+            }
+
 
             // Hide the picEdit, picDelete, and lblCancel if the booking is created
             if (isBookingCreated)
@@ -124,58 +142,7 @@ namespace AirlineBookingSystem
             }
         }
 
-        public void RefreshBookings(Control parentControl, bool showArchived, bool showCancelled)
-        {
-            string query = "SELECT * FROM PassengerDetails";
-
-            if (!showArchived)
-            {
-                query += " WHERE IsArchived = 0"; // Only select non-archived records
-            }
-
-            if (!showCancelled)
-            {
-                query += " WHERE IsCancelled = 0"; //Only select cancelled records
-            }
-
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(@"Data Source=MSI\SQLEXPRESS;Initial Catalog=AirlineBookingDB;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"))
-                {
-                    conn.Open();
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            parentControl.Controls.Clear();
-
-                            while (reader.Read())
-                            {
-                                BookListView bookingView = new BookListView();
-                                bookingView.UpdateBookingInfo(
-                                    reader["Book_Ref"].ToString(),
-                                    reader["Book_Date"].ToString(),
-                                    reader["FullName"].ToString(),
-                                    reader["Contact"].ToString(),
-                                    reader["Gender"].ToString(),
-                                    reader["Nationality"].ToString(),
-                                    reader["DepartureFrom"].ToString(),
-                                    reader["ArrivalTo"].ToString(),
-                                    reader["DepartureDate"].ToString(),
-                                    reader["NumberSeats"].ToString(),
-                                    reader["TravelClass"].ToString(), false);
-
-                                parentControl.Controls.Add(bookingView);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error refreshing bookings: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+       
         private void lblCancel_Click(object sender, EventArgs e)
 {
 

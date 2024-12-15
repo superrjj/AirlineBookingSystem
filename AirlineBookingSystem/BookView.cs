@@ -30,7 +30,7 @@ namespace AirlineBookingSystem
             BookListView newBookingControl = new BookListView();
 
             // Update the labels with the booking details
-            newBookingControl.UpdateBookingInfo(book_ref, book_date, fullName, contact, gender, nationality, departureFrom, arrivalTo, departureDate, numberSeats, travelClass, false);
+            newBookingControl.UpdateBookingInfo(book_ref, book_date, fullName, contact, gender, nationality, departureFrom, arrivalTo, departureDate, numberSeats, travelClass, false, false);
 
             // Add the new control to the FlowLayoutPanel (Assume the FlowLayoutPanel is named flpBookingList)
             flpBookingList.Controls.Add(newBookingControl);

@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookListView));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblCancelled = new System.Windows.Forms.Label();
+            this.picEdit = new System.Windows.Forms.PictureBox();
+            this.lblCancel = new System.Windows.Forms.Label();
             this.picDelete = new System.Windows.Forms.PictureBox();
             this.lblTravel = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -53,16 +56,15 @@
             this.lblGender = new System.Windows.Forms.Label();
             this.lblContact = new System.Windows.Forms.Label();
             this.lblFullName = new System.Windows.Forms.Label();
-            this.lblCancel = new System.Windows.Forms.Label();
-            this.picEdit = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDelete)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.lblCancelled);
             this.panel1.Controls.Add(this.picEdit);
             this.panel1.Controls.Add(this.lblCancel);
             this.panel1.Controls.Add(this.picDelete);
@@ -93,6 +95,40 @@
             this.panel1.Size = new System.Drawing.Size(1234, 201);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // lblCancelled
+            // 
+            this.lblCancelled.AutoSize = true;
+            this.lblCancelled.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCancelled.ForeColor = System.Drawing.Color.Red;
+            this.lblCancelled.Location = new System.Drawing.Point(1087, 162);
+            this.lblCancelled.Name = "lblCancelled";
+            this.lblCancelled.Size = new System.Drawing.Size(30, 25);
+            this.lblCancelled.TabIndex = 36;
+            this.lblCancelled.Text = "...";
+            // 
+            // picEdit
+            // 
+            this.picEdit.Image = ((System.Drawing.Image)(resources.GetObject("picEdit.Image")));
+            this.picEdit.Location = new System.Drawing.Point(1159, 6);
+            this.picEdit.Name = "picEdit";
+            this.picEdit.Size = new System.Drawing.Size(33, 36);
+            this.picEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picEdit.TabIndex = 35;
+            this.picEdit.TabStop = false;
+            this.picEdit.Click += new System.EventHandler(this.picEdit_Click);
+            // 
+            // lblCancel
+            // 
+            this.lblCancel.AutoSize = true;
+            this.lblCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCancel.ForeColor = System.Drawing.Color.Red;
+            this.lblCancel.Location = new System.Drawing.Point(1143, 162);
+            this.lblCancel.Name = "lblCancel";
+            this.lblCancel.Size = new System.Drawing.Size(80, 25);
+            this.lblCancel.TabIndex = 34;
+            this.lblCancel.Text = "Cancel";
+            this.lblCancel.Click += new System.EventHandler(this.lblCancel_Click);
             // 
             // picDelete
             // 
@@ -358,29 +394,6 @@
             this.lblFullName.TabIndex = 10;
             this.lblFullName.Text = "Fname";
             // 
-            // lblCancel
-            // 
-            this.lblCancel.AutoSize = true;
-            this.lblCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCancel.ForeColor = System.Drawing.Color.Red;
-            this.lblCancel.Location = new System.Drawing.Point(1143, 162);
-            this.lblCancel.Name = "lblCancel";
-            this.lblCancel.Size = new System.Drawing.Size(80, 25);
-            this.lblCancel.TabIndex = 34;
-            this.lblCancel.Text = "Cancel";
-            this.lblCancel.Click += new System.EventHandler(this.lblCancel_Click);
-            // 
-            // picEdit
-            // 
-            this.picEdit.Image = ((System.Drawing.Image)(resources.GetObject("picEdit.Image")));
-            this.picEdit.Location = new System.Drawing.Point(1159, 6);
-            this.picEdit.Name = "picEdit";
-            this.picEdit.Size = new System.Drawing.Size(33, 36);
-            this.picEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picEdit.TabIndex = 35;
-            this.picEdit.TabStop = false;
-            this.picEdit.Click += new System.EventHandler(this.picEdit_Click);
-            // 
             // BookListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -392,8 +405,8 @@
             this.Load += new System.EventHandler(this.BookListView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDelete)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -426,5 +439,6 @@
         private System.Windows.Forms.PictureBox picDelete;
         private System.Windows.Forms.Label lblCancel;
         private System.Windows.Forms.PictureBox picEdit;
+        private System.Windows.Forms.Label lblCancelled;
     }
 }

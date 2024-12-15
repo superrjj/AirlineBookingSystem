@@ -189,7 +189,7 @@
             this.btnViewHistory.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.btnViewHistory.Size = new System.Drawing.Size(225, 47);
             this.btnViewHistory.TabIndex = 3;
-            this.btnViewHistory.Text = "    View History";
+            this.btnViewHistory.Text = "    Cancellation";
             this.btnViewHistory.UseVisualStyleBackColor = true;
             // 
             // panel4
