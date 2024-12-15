@@ -36,13 +36,13 @@
             this.btnLogoutAdmin = new System.Windows.Forms.Button();
             this.btnPassenger = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.btnSearchFlight = new System.Windows.Forms.Button();
+            this.btnArchived = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.btnViewHistory = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnAddFlight = new System.Windows.Forms.Button();
             this.adminPanel = new System.Windows.Forms.Panel();
+            this.btnCancellation = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeIcon)).BeginInit();
             this.panel2.SuspendLayout();
@@ -140,57 +140,39 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.btnSearchFlight);
+            this.panel6.Controls.Add(this.btnArchived);
             this.panel6.Location = new System.Drawing.Point(0, 217);
             this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(225, 53);
             this.panel6.TabIndex = 3;
             // 
-            // btnSearchFlight
+            // btnArchived
             // 
-            this.btnSearchFlight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSearchFlight.FlatAppearance.BorderSize = 0;
-            this.btnSearchFlight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchFlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchFlight.ForeColor = System.Drawing.Color.White;
-            this.btnSearchFlight.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchFlight.Image")));
-            this.btnSearchFlight.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearchFlight.Location = new System.Drawing.Point(0, 0);
-            this.btnSearchFlight.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSearchFlight.Name = "btnSearchFlight";
-            this.btnSearchFlight.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnSearchFlight.Size = new System.Drawing.Size(225, 53);
-            this.btnSearchFlight.TabIndex = 0;
-            this.btnSearchFlight.Text = "     Search Flight";
-            this.btnSearchFlight.UseVisualStyleBackColor = true;
+            this.btnArchived.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnArchived.FlatAppearance.BorderSize = 0;
+            this.btnArchived.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArchived.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnArchived.ForeColor = System.Drawing.Color.White;
+            this.btnArchived.Image = ((System.Drawing.Image)(resources.GetObject("btnArchived.Image")));
+            this.btnArchived.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnArchived.Location = new System.Drawing.Point(0, 0);
+            this.btnArchived.Margin = new System.Windows.Forms.Padding(4);
+            this.btnArchived.Name = "btnArchived";
+            this.btnArchived.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnArchived.Size = new System.Drawing.Size(225, 53);
+            this.btnArchived.TabIndex = 0;
+            this.btnArchived.Text = "     Search Flight";
+            this.btnArchived.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.btnViewHistory);
+            this.panel5.Controls.Add(this.btnCancellation);
             this.panel5.Location = new System.Drawing.Point(0, 161);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(225, 47);
             this.panel5.TabIndex = 2;
-            // 
-            // btnViewHistory
-            // 
-            this.btnViewHistory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnViewHistory.FlatAppearance.BorderSize = 0;
-            this.btnViewHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewHistory.ForeColor = System.Drawing.Color.White;
-            this.btnViewHistory.Image = ((System.Drawing.Image)(resources.GetObject("btnViewHistory.Image")));
-            this.btnViewHistory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnViewHistory.Location = new System.Drawing.Point(0, 0);
-            this.btnViewHistory.Margin = new System.Windows.Forms.Padding(4);
-            this.btnViewHistory.Name = "btnViewHistory";
-            this.btnViewHistory.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.btnViewHistory.Size = new System.Drawing.Size(225, 47);
-            this.btnViewHistory.TabIndex = 3;
-            this.btnViewHistory.Text = "    Cancellation";
-            this.btnViewHistory.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
@@ -237,6 +219,25 @@
             this.adminPanel.Size = new System.Drawing.Size(1275, 608);
             this.adminPanel.TabIndex = 3;
             // 
+            // btnCancellation
+            // 
+            this.btnCancellation.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCancellation.FlatAppearance.BorderSize = 0;
+            this.btnCancellation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancellation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancellation.ForeColor = System.Drawing.Color.White;
+            this.btnCancellation.Image = ((System.Drawing.Image)(resources.GetObject("btnCancellation.Image")));
+            this.btnCancellation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancellation.Location = new System.Drawing.Point(0, 0);
+            this.btnCancellation.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancellation.Name = "btnCancellation";
+            this.btnCancellation.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.btnCancellation.Size = new System.Drawing.Size(225, 47);
+            this.btnCancellation.TabIndex = 4;
+            this.btnCancellation.Text = "    Cancellation";
+            this.btnCancellation.UseVisualStyleBackColor = true;
+            this.btnCancellation.Click += new System.EventHandler(this.btnCancellation_Click);
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -269,13 +270,13 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnPassenger;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button btnSearchFlight;
+        private System.Windows.Forms.Button btnArchived;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button btnViewHistory;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnAddFlight;
         private System.Windows.Forms.Panel adminPanel;
         private System.Windows.Forms.Button btnLogoutAdmin;
+        private System.Windows.Forms.Button btnCancellation;
     }
 }

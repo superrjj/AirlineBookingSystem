@@ -16,6 +16,7 @@ namespace AirlineBookingSystem
         public AdminDashboard()
         {
             InitializeComponent();
+            LoadFlight();
         }
 
         private Form activeForm = null;
@@ -35,6 +36,11 @@ namespace AirlineBookingSystem
         }
 
         private void btnAddFlight_Click(object sender, EventArgs e)
+        {
+            openChildForm(new AdminFlightView());
+        }
+
+        public void LoadFlight()
         {
             openChildForm(new AdminFlightView());
         }
@@ -61,6 +67,11 @@ namespace AirlineBookingSystem
             {
                 Application.Exit();
             }
+        }
+
+        private void btnCancellation_Click(object sender, EventArgs e)
+        {
+            openChildForm(new AdminViewCancellation());
         }
     }
 }
