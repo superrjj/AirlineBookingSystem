@@ -29,7 +29,7 @@ namespace AirlineBookingSystem
             lblTravel.Text = travelClass;
 
 
-         
+
 
 
             // Handle the canceled status visually
@@ -142,9 +142,9 @@ namespace AirlineBookingSystem
             }
         }
 
-       
+
         private void lblCancel_Click(object sender, EventArgs e)
-{
+        {
 
             var result = MessageBox.Show("Are you sure you want to cancel this booking?", "Cancel Booking", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -194,6 +194,6 @@ namespace AirlineBookingSystem
         private void BookListView_Load(object sender, EventArgs e) { }
         #endregion
 
-    
+
     }
 }
