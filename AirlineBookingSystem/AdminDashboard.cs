@@ -73,5 +73,10 @@ namespace AirlineBookingSystem
         {
             openChildForm(new AdminViewCancellation());
         }
+
+        private void btnArchived_Click(object sender, EventArgs e)
+        {
+            openChildForm(new AdminViewArchive());
+        }
     }
 }

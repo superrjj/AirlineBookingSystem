@@ -11,30 +11,24 @@ using System.Windows.Forms;
 
 namespace AirlineBookingSystem
 {
-    public partial class AdminViewCancellation : Form
+    public partial class AdminViewArchive : Form
     {
-        public AdminViewCancellation()
+        public AdminViewArchive()
         {
             InitializeComponent();
-            LoadBookData();
+            LoadArchiveData();
         }
 
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void LoadArchiveData()
         {
-
-        }
-
-        private void LoadBookData()
-        {
-            dvCancellation.Rows.Clear(); // Clear existing rows in DataGridView
+            dvArchived.Rows.Clear(); // Clear existing rows in DataGridView
 
             // SQL query to select required columns from the database, including IsArchived and IsCancelled
             string query = @"
                 SELECT Book_Ref, Book_Date, Firstname, Middlename, Lastname, Nationality, Contact_No, Gender, 
                        Departure_From, Arrival_To, Departure_Date, Seat_No, Travel_Class
                 FROM PassengerDetails
-                WHERE  IsCancelled = 1";  //Only show cancelled bookings
+                WHERE IsArchived = 1";  //Only show archived 
 
             // Open database connection and execute query
             try
@@ -50,7 +44,7 @@ namespace AirlineBookingSystem
                         while (sdr.Read())
                         {
                             // Add rows to DataGridView (ensure correct mapping of columns from SqlDataReader)
-                            dvCancellation.Rows.Add(sdr[0].ToString(), sdr[1].ToString(),
+                            dvArchived.Rows.Add(sdr[0].ToString(), sdr[1].ToString(),
                                                    sdr[2].ToString(), sdr[3].ToString(),
                                                    sdr[4].ToString(), sdr[5].ToString(),
                                                    sdr[6].ToString(), sdr[7].ToString(),
@@ -69,16 +63,17 @@ namespace AirlineBookingSystem
             }
         }
 
+
         private void SearchBookings(string searchQuery)
         {
-            dvCancellation.Rows.Clear(); // Clear existing rows in DataGridView
+            dvArchived.Rows.Clear(); // Clear existing rows in DataGridView
 
             // SQL query to include filtering for non-archived and non-cancelled bookings
             string query = @"
                         SELECT Book_Ref, Book_Date, Firstname, Middlename, Lastname, Nationality, Contact_No, Gender, 
                                Departure_From, Arrival_To, Departure_Date, Seat_No, Travel_Class
                         FROM PassengerDetails 
-                        WHERE (IsCancelled = 1) 
+                        WHERE (IsArchived = 1) 
                         AND (
                                Book_Ref LIKE @searchQuery
                                OR Firstname LIKE @searchQuery
@@ -104,7 +99,7 @@ namespace AirlineBookingSystem
                             while (reader.Read())
                             {
                                 // Add rows to DataGridView (ensure correct mapping of columns from SqlDataReader)
-                                dvCancellation.Rows.Add(reader["Book_Ref"].ToString(), reader["Book_Date"].ToString(),
+                                dvArchived.Rows.Add(reader["Book_Ref"].ToString(), reader["Book_Date"].ToString(),
                                                         reader["Firstname"].ToString(), reader["Middlename"].ToString(),
                                                         reader["Lastname"].ToString(), reader["Nationality"].ToString(),
                                                         reader["Contact_No"].ToString(), reader["Gender"].ToString(),
