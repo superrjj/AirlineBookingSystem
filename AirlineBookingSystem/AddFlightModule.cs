@@ -8,11 +8,13 @@ namespace AirlineBookingSystem
     public partial class AddFlightModule : Form
     {
         private readonly AdminFlightView _adminFlightView;
-       
+        public bool IsEditMode { get; private set; } = true;
+        public bool IsAddMode { get; private set; } = true;
+
+
         public AddFlightModule(AdminFlightView adminFlightView)
         {
             InitializeComponent();
-
   
 
             if (adminFlightView == null)
@@ -25,6 +27,37 @@ namespace AirlineBookingSystem
             _adminFlightView = adminFlightView; // Store the reference
             PopulateFlightCodes();
             cbFlightCode.SelectedIndexChanged += cbFlightCode_SelectedIndexChanged;
+            UpdateButtonState();
+            AddButtonState();
+            IsEditMode = false;
+        }
+
+        private void UpdateButtonState()
+        {
+            if (IsEditMode)
+            {
+                btnAdd.Visible = false;  // Disable Next button in edit mode
+                btnUpdate.Visible = true; // Enable Update button in edit mode
+            }
+            else
+            {
+                btnAdd.Visible = true;  // Enable Next button for new bookings
+                btnUpdate.Visible = false; // Disable Update button for new bookings
+            }
+        }
+
+        private void AddButtonState()
+        {
+            if (IsAddMode)
+            {
+                btnAdd.Visible = true;  // Disable Next button in edit mode
+                btnUpdate.Visible = false; // Enable Update button in edit mode
+            }
+            else
+            {
+                btnAdd.Visible = false;  // Enable Next button for new bookings
+                btnUpdate.Visible = true; // Disable Update button for new bookings
+            }
         }
 
         private void PopulateFlightCodes()
@@ -117,6 +150,11 @@ namespace AirlineBookingSystem
         private void btnCancelBook_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

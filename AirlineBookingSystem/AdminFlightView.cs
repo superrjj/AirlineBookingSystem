@@ -13,6 +13,7 @@ namespace AirlineBookingSystem
 {
     public partial class AdminFlightView : Form
     {
+
         public AdminFlightView()
         {
             InitializeComponent();
@@ -131,7 +132,31 @@ namespace AirlineBookingSystem
 
         private void dgFlights_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
+            string colName = dgFlights.Columns[e.ColumnIndex].Name;
+
+            if (colName == "Edit")
+            {
+                // Open the AdminUpdateFlight form and pass the current AdminFlightView instance
+                AddFlightModule am = new AddFlightModule(this);
+
+                // Populate the form fields with the selected row's data from dgFlights
+                am.cbFlightCode.Text = dgFlights.Rows[e.RowIndex].Cells[0].Value.ToString(); // Flight Code
+                am.cbDepartureFrom.Text = dgFlights.Rows[e.RowIndex].Cells[1].Value.ToString(); // Departure From
+                am.cbArrivalTo.Text = dgFlights.Rows[e.RowIndex].Cells[2].Value.ToString(); // Arrival To
+                am.cbTravel.Text = dgFlights.Rows[e.RowIndex].Cells[3].Value.ToString(); // Travel
+                if (DateTime.TryParse(dgFlights.Rows[e.RowIndex].Cells[4].Value.ToString(), out DateTime departureDate))
+                {
+                    am.dtDepartureDate.Value = departureDate; // Set the date if valid
+                }
+                else
+                {
+                    
+                }
+                // Show the AdminUpdateFlight dialog
+                am.ShowDialog();
+            }
+
         }
     }
 }

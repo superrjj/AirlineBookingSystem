@@ -27,12 +27,6 @@ namespace AirlineBookingSystem
             return regex.IsMatch(name);
         }
 
-        private bool IsValidAccountNumber(string contact)
-        {
-            // Regular expression to match a contact number starting with "09" and a total length of 11 characters
-            var regex = new System.Text.RegularExpressions.Regex(@"^09\d{9}$");
-            return regex.IsMatch(contact);
-        }
 
         private bool IsValidGcashNumber(string number)
         {
