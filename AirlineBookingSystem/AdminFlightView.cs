@@ -132,29 +132,28 @@ namespace AirlineBookingSystem
 
         private void dgFlights_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            string colName = dgFlights.Columns[e.ColumnIndex].Name;
-
-            if (colName == "Edit")
+            if (e.ColumnIndex == dgFlights.Columns["Edit"].Index)  // Assuming there's an Edit column
             {
-                // Open the AdminUpdateFlight form and pass the current AdminFlightView instance
-                AddFlightModule am = new AddFlightModule(this);
+                // Get the selected flight details and populate the form fields
+                AddFlightModule afm = new AddFlightModule(this);
 
-                // Populate the form fields with the selected row's data from dgFlights
-                am.cbFlightCode.Text = dgFlights.Rows[e.RowIndex].Cells[0].Value.ToString(); // Flight Code
-                am.cbDepartureFrom.Text = dgFlights.Rows[e.RowIndex].Cells[1].Value.ToString(); // Departure From
-                am.cbArrivalTo.Text = dgFlights.Rows[e.RowIndex].Cells[2].Value.ToString(); // Arrival To
-                am.cbTravel.Text = dgFlights.Rows[e.RowIndex].Cells[3].Value.ToString(); // Travel
-                if (DateTime.TryParse(dgFlights.Rows[e.RowIndex].Cells[4].Value.ToString(), out DateTime departureDate))
+                // Set the form fields with the selected flight data
+                afm.cbFlightCode.SelectedItem = dgFlights.Rows[e.RowIndex].Cells[0].Value.ToString();
+                afm.cbDepartureFrom.SelectedItem = dgFlights.Rows[e.RowIndex].Cells[1].Value.ToString();
+                afm.cbArrivalTo.SelectedItem = dgFlights.Rows[e.RowIndex].Cells[2].Value.ToString();
+                afm.cbTravel.SelectedItem = dgFlights.Rows[e.RowIndex].Cells[3].Value.ToString();
+
+                DateTime departureDate;
+                if (DateTime.TryParse(dgFlights.Rows[e.RowIndex].Cells[4].Value.ToString(), out departureDate))
                 {
-                    am.dtDepartureDate.Value = departureDate; // Set the date if valid
+                    afm.dtDepartureDate.Value = departureDate;
                 }
-                else
-                {
-                    
-                }
-                // Show the AdminUpdateFlight dialog
-                am.ShowDialog();
+
+                // Switch to Edit mode
+                afm.SwitchToEditMode();  // Now the Update button will be visible
+
+                // Show the form
+                afm.ShowDialog();
             }
 
         }
