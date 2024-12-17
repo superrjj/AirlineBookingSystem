@@ -31,6 +31,7 @@ namespace AirlineBookingSystem
 
             IsEditMode = false;
             UpdateButtonState();
+            SetUpDate();
 
         }
 
@@ -126,9 +127,10 @@ namespace AirlineBookingSystem
             return regex.IsMatch(contact);
         }
 
-
-
-
+        public void SetUpDate()
+        {
+            dtDeparture.MinDate = DateTime.Now;
+        }
 
         private void btnBook_Click(object sender, EventArgs e)
         {
@@ -166,14 +168,6 @@ namespace AirlineBookingSystem
                 return;
             }
 
-            DateTime selectedDate = dtDeparture.Value;
-
-            // Check if the selected date is in the past
-            if (selectedDate < DateTime.Today)
-            {
-                MessageBox.Show("Departure date cannot be in the past.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
             // For contact number validation
             string contactNumber = txtContact.Text;
@@ -340,15 +334,6 @@ namespace AirlineBookingSystem
             if (!IsValidFullName(firstName))
             {
                 MessageBox.Show("First name can only contain letters.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            DateTime selectedDate = dtDeparture.Value;
-
-            // Check if the selected date is in the past
-            if (selectedDate < DateTime.Today)
-            {
-                MessageBox.Show("Departure date cannot be in the past.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

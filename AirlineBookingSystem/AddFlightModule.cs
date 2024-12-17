@@ -24,6 +24,7 @@ namespace AirlineBookingSystem
                 return;
             }
             PopulateFlightCodes();
+            SetUpDate();
 
             _adminFlightView = adminFlightView; // Store the reference
             cbFlightCode.SelectedIndexChanged += cbFlightCode_SelectedIndexChanged;
@@ -34,6 +35,11 @@ namespace AirlineBookingSystem
             cbFlightCode.Items.Clear(); // Clear existing items
             List<string> flightCodes = GenerateFlightCodes(); // Generate flight codes
             cbFlightCode.Items.AddRange(flightCodes.ToArray()); // Populate the ComboBox
+        }
+
+        public void SetUpDate()
+        {
+            dtDepartureDate.MinDate = DateTime.Now;
         }
 
         private List<string> GenerateFlightCodes()
@@ -72,6 +78,9 @@ namespace AirlineBookingSystem
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            //Validation for add flight
+            #region
+
             if (cbFlightCode.SelectedItem == null ||
                 cbTravel.SelectedItem == null ||
                 cbDepartureFrom.SelectedItem == null ||
@@ -85,12 +94,44 @@ namespace AirlineBookingSystem
             string depart = cbDepartureFrom.SelectedItem.ToString();
             string arrival = cbArrivalTo.SelectedItem.ToString();
 
+            //For flight code validation
+            if (cbFlightCode.SelectedItem == null || cbFlightCode.SelectedItem.ToString() == "Please Select FlightCode")
+            {
+                MessageBox.Show("Please select a valid flight code.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            //For travel class validation
+            if (cbTravel.SelectedItem == null || cbTravel.SelectedItem.ToString() == "Please Select Travel Class")
+            {
+                MessageBox.Show("Please select a valid travel class.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            //For departure from validation
+            if (cbDepartureFrom.SelectedItem == null || cbDepartureFrom.SelectedItem.ToString() == "Please Select Departure From")
+            {
+                MessageBox.Show("Please select a valid departure from.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            //For arrival to validation
+            if (cbArrivalTo.SelectedItem == null || cbArrivalTo.SelectedItem.ToString() == "Please Select Arrival To")
+            {
+                MessageBox.Show("Please select a valid arrival to.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             // Validate that Departure and Arrival locations are not the same
             if (depart == arrival)
             {
                 MessageBox.Show("Departure and Arrival locations cannot be the same!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+         
+
+            #endregion
 
 
             string flightCode = cbFlightCode.SelectedItem.ToString();
