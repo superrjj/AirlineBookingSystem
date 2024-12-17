@@ -28,24 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminFlightView));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminFlightView));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearchBar = new System.Windows.Forms.TextBox();
-            this.dgFlights = new System.Windows.Forms.DataGridView();
             this.addIcon = new System.Windows.Forms.PictureBox();
+            this.dgFlights = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgFlights)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgFlights)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -81,6 +80,17 @@
             this.txtSearchBar.TabIndex = 2;
             this.txtSearchBar.TextChanged += new System.EventHandler(this.txtSearchBar_TextChanged);
             // 
+            // addIcon
+            // 
+            this.addIcon.Image = ((System.Drawing.Image)(resources.GetObject("addIcon.Image")));
+            this.addIcon.Location = new System.Drawing.Point(1172, 12);
+            this.addIcon.Name = "addIcon";
+            this.addIcon.Size = new System.Drawing.Size(79, 50);
+            this.addIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.addIcon.TabIndex = 0;
+            this.addIcon.TabStop = false;
+            this.addIcon.Click += new System.EventHandler(this.addIcon_Click);
+            // 
             // dgFlights
             // 
             this.dgFlights.AllowUserToAddRows = false;
@@ -102,7 +112,6 @@
             this.Column4,
             this.Column2,
             this.Column5,
-            this.Edit,
             this.Delete});
             this.dgFlights.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgFlights.Location = new System.Drawing.Point(0, 0);
@@ -115,17 +124,6 @@
             this.dgFlights.Size = new System.Drawing.Size(1263, 642);
             this.dgFlights.TabIndex = 5;
             this.dgFlights.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgFlights_CellContentClick);
-            // 
-            // addIcon
-            // 
-            this.addIcon.Image = ((System.Drawing.Image)(resources.GetObject("addIcon.Image")));
-            this.addIcon.Location = new System.Drawing.Point(1172, 12);
-            this.addIcon.Name = "addIcon";
-            this.addIcon.Size = new System.Drawing.Size(79, 50);
-            this.addIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.addIcon.TabIndex = 0;
-            this.addIcon.TabStop = false;
-            this.addIcon.Click += new System.EventHandler(this.addIcon_Click);
             // 
             // Column1
             // 
@@ -167,15 +165,6 @@
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
-            // Edit
-            // 
-            this.Edit.HeaderText = "";
-            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
-            this.Edit.Width = 6;
-            // 
             // Delete
             // 
             this.Delete.HeaderText = "";
@@ -197,8 +186,8 @@
             this.Text = "AdminFlightView";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgFlights)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgFlights)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -214,7 +203,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
     }
 }

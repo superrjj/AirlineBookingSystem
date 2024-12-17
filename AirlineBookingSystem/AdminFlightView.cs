@@ -1,19 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AirlineBookingSystem
 {
     public partial class AdminFlightView : Form
     {
-
         public AdminFlightView()
         {
             InitializeComponent();
@@ -132,29 +124,7 @@ namespace AirlineBookingSystem
 
         private void dgFlights_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dgFlights.Columns["Edit"].Index)  // Assuming there's an Edit column
-            {
-                // Get the selected flight details and populate the form fields
-                AddFlightModule afm = new AddFlightModule(this);
-
-                // Set the form fields with the selected flight data
-                afm.cbFlightCode.SelectedItem = dgFlights.Rows[e.RowIndex].Cells[0].Value.ToString();
-                afm.cbDepartureFrom.SelectedItem = dgFlights.Rows[e.RowIndex].Cells[1].Value.ToString();
-                afm.cbArrivalTo.SelectedItem = dgFlights.Rows[e.RowIndex].Cells[2].Value.ToString();
-                afm.cbTravel.SelectedItem = dgFlights.Rows[e.RowIndex].Cells[3].Value.ToString();
-
-                DateTime departureDate;
-                if (DateTime.TryParse(dgFlights.Rows[e.RowIndex].Cells[4].Value.ToString(), out departureDate))
-                {
-                    afm.dtDepartureDate.Value = departureDate;
-                }
-
-                // Switch to Edit mode
-                afm.SwitchToEditMode();  // Now the Update button will be visible
-
-                // Show the form
-                afm.ShowDialog();
-            }
+           
 
         }
     }

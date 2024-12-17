@@ -42,7 +42,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnCancelBook = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -252,7 +251,6 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnUpdate);
             this.panel2.Controls.Add(this.btnAdd);
             this.panel2.Controls.Add(this.btnCancelBook);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -281,7 +279,7 @@
             this.btnCancelBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelBook.ForeColor = System.Drawing.Color.LightSlateGray;
-            this.btnCancelBook.Location = new System.Drawing.Point(425, 19);
+            this.btnCancelBook.Location = new System.Drawing.Point(580, 19);
             this.btnCancelBook.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelBook.Name = "btnCancelBook";
             this.btnCancelBook.Size = new System.Drawing.Size(140, 41);
@@ -289,21 +287,6 @@
             this.btnCancelBook.Text = "Cancel";
             this.btnCancelBook.UseVisualStyleBackColor = true;
             this.btnCancelBook.Click += new System.EventHandler(this.btnCancelBook_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.Color.Green;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(580, 19);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(140, 41);
-            this.btnUpdate.TabIndex = 39;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // AddFlightModule
             // 
@@ -348,6 +331,5 @@
         public System.Windows.Forms.ComboBox cbDepartureFrom;
         public System.Windows.Forms.ComboBox cbArrivalTo;
         public System.Windows.Forms.DateTimePicker dtDepartureDate;
-        private System.Windows.Forms.Button btnUpdate;
     }
 }

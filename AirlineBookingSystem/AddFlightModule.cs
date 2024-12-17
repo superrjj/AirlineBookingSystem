@@ -8,7 +8,7 @@ namespace AirlineBookingSystem
     public partial class AddFlightModule : Form
     {
         private readonly AdminFlightView _adminFlightView;
-        public bool IsEditMode { get; private set; } = false;
+       
      
 
 
@@ -23,40 +23,12 @@ namespace AirlineBookingSystem
                 Close();
                 return;
             }
+            PopulateFlightCodes();
 
             _adminFlightView = adminFlightView; // Store the reference
-            PopulateFlightCodes();
             cbFlightCode.SelectedIndexChanged += cbFlightCode_SelectedIndexChanged;
-            UpdateButtonState();
-            
-          
-        }
-
-        private void UpdateButtonState()
-        {
-            if (IsEditMode)
-            {
-                btnAdd.Visible = false;  // Disable Next button in edit mode
-                btnUpdate.Visible = true; // Enable Update button in edit mode
-            }
-            else
-            {
-                btnAdd.Visible = true;  // Enable Next button for new bookings
-                btnUpdate.Visible = false; // Disable Update button for new bookings
-            }
-        }
-
-        // Method to switch to Edit mode when editing a flight
-        public void SwitchToEditMode()
-        {
-            IsEditMode = true; // Set mode to Edit
-            UpdateButtonState(); // Update button visibility
-          //  LoadFlightDetails();
-
 
         }
-      
-
         private void PopulateFlightCodes()
         {
             cbFlightCode.Items.Clear(); // Clear existing items
@@ -69,15 +41,25 @@ namespace AirlineBookingSystem
             var flightCodes = new List<string>();
             Random random = new Random();
 
+            // Define airline prefixes
+            List<string> prefixes = new List<string> { "PAL", "CEB", "AIR" };
+
             for (int i = 0; i < 50; i++)
             {
-                string prefix = $"{(char)random.Next('A', 'Z' + 1)}{(char)random.Next('A', 'Z' + 1)}{(char)random.Next('A', 'Z' + 1)}";
-                string suffix = random.Next(0, 10000).ToString("D4");
+                // Choose a random prefix from the list
+                string prefix = prefixes[random.Next(prefixes.Count)];
+
+                // Generate a random 6-digit number
+                string suffix = random.Next(100000, 999999).ToString();
+
+                // Add the flight code in the format "PREFIX-XXXXXX"
                 flightCodes.Add($"{prefix}-{suffix}");
             }
 
             return flightCodes;
         }
+
+
 
         private void cbFlightCode_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -149,60 +131,6 @@ namespace AirlineBookingSystem
             this.Close();
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            if (cbFlightCode.SelectedItem == null ||
-       cbTravel.SelectedItem == null ||
-       cbDepartureFrom.SelectedItem == null ||
-       cbArrivalTo.SelectedItem == null)
-            {
-                MessageBox.Show("Please fill in all required fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            string flightCode = cbFlightCode.SelectedItem.ToString();
-            string departFrom = cbDepartureFrom.SelectedItem.ToString();
-            string arrivalTo = cbArrivalTo.SelectedItem.ToString();
-            string travel = cbTravel.SelectedItem.ToString();
-            string departDate = dtDepartureDate.Value.ToShortDateString();
-
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(@"Data Source=MSI\SQLEXPRESS;Initial Catalog=AirlineBookingDB;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"))
-                {
-                    conn.Open();
-
-                    string updateBookingQuery = @"
-                UPDATE FlightDetails
-                SET Travel = @travel, Depart_Date = @depart_date, Depart_From = @depart_from, Arriv_To = @arriv_to
-                WHERE Flight_Code = @flight_code";
-
-                    using (SqlCommand cmd = new SqlCommand(updateBookingQuery, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@flight_code", flightCode);
-                        cmd.Parameters.AddWithValue("@travel", travel);
-                        cmd.Parameters.AddWithValue("@depart_date", dtDepartureDate.Value);
-                        cmd.Parameters.AddWithValue("@depart_from", departFrom);
-                        cmd.Parameters.AddWithValue("@arriv_to", arrivalTo);
-
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        if (rowsAffected > 0)
-                        {
-                            _adminFlightView.AddFlight(departFrom, arrivalTo, departDate, flightCode, travel); // Update the flight list
-                            MessageBox.Show("Flight updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Flight update failed. Please check the flight code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         public void LoadFlightDetails(string flightCode)
         {
