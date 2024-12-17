@@ -44,7 +44,7 @@ namespace AirlineBookingSystem
             // Define airline prefixes
             List<string> prefixes = new List<string> { "PAL", "CEB", "AIR" };
 
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 30; i++)
             {
                 // Choose a random prefix from the list
                 string prefix = prefixes[random.Next(prefixes.Count)];
@@ -81,6 +81,18 @@ namespace AirlineBookingSystem
                 return;
             }
 
+
+            string depart = cbDepartureFrom.SelectedItem.ToString();
+            string arrival = cbArrivalTo.SelectedItem.ToString();
+
+            // Validate that Departure and Arrival locations are not the same
+            if (depart == arrival)
+            {
+                MessageBox.Show("Departure and Arrival locations cannot be the same!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
             string flightCode = cbFlightCode.SelectedItem.ToString();
             string departFrom = cbDepartureFrom.SelectedItem.ToString();
             string arrivalTo = cbArrivalTo.SelectedItem.ToString();
@@ -111,6 +123,7 @@ namespace AirlineBookingSystem
                 _adminFlightView.AddFlight(departFrom, arrivalTo, departDate, flightCode, travel); // Update flight list
                 ClearFormFields(); // Reset fields
                 MessageBox.Show("Flight added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Hide();
             }
             catch (Exception ex)
             {
@@ -132,47 +145,6 @@ namespace AirlineBookingSystem
         }
 
 
-        public void LoadFlightDetails(string flightCode)
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(@"Data Source=MSI\SQLEXPRESS;Initial Catalog=AirlineBookingDB;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"))
-                {
-                    conn.Open();
-
-                    string selectQuery = @"
-                SELECT Travel, Depart_Date, Depart_From, Arriv_To
-                FROM FlightDetails
-                WHERE Flight_Code = @flight_code";
-
-                    using (SqlCommand cmd = new SqlCommand(selectQuery, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@flight_code", flightCode);
-
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                // Populate the form with the retrieved values
-                                cbFlightCode.SelectedItem = flightCode;
-                                cbTravel.SelectedItem = reader["Travel"].ToString();
-                                dtDepartureDate.Value = Convert.ToDateTime(reader["Depart_Date"]);
-                                cbDepartureFrom.SelectedItem = reader["Depart_From"].ToString();
-                                cbArrivalTo.SelectedItem = reader["Arriv_To"].ToString();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Flight not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
     }
 }

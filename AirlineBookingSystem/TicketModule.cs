@@ -236,6 +236,18 @@ namespace AirlineBookingSystem
                 MessageBox.Show("Please select a valid travel class.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            string departFrom = cbDeparture.SelectedItem.ToString();
+            string arrivalTo = cbArrival.SelectedItem.ToString();
+
+            // Validate that Departure and Arrival locations are not the same
+            if (departFrom == arrivalTo)
+            {
+                MessageBox.Show("Departure and Arrival locations cannot be the same!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
             #endregion
 
 
@@ -401,6 +413,24 @@ namespace AirlineBookingSystem
                 MessageBox.Show("Please select a valid travel class.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            // For travel class validation
+            if (cbTravelClass.SelectedItem == null || cbTravelClass.SelectedItem.ToString() == "Please Select Travel Class")
+            {
+                MessageBox.Show("Please select a valid travel class.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string departFrom = cbDeparture.SelectedItem.ToString();
+            string arrivalTo = cbArrival.SelectedItem.ToString();
+
+            // Validate that Departure and Arrival locations are not the same
+            if (departFrom == arrivalTo)
+            {
+                MessageBox.Show("Departure and Arrival locations cannot be the same!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             #endregion
 
 
