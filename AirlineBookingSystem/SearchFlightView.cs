@@ -27,9 +27,10 @@ namespace AirlineBookingSystem
             // SQL query with a WHERE clause to filter by flight details (flight code, departFrom, or arrivTo)
             string query = @"
                 SELECT * FROM FlightDetails
-                WHERE Flight_Code LIKE @searchQuery
-                OR Depart_From LIKE @searchQuery
-                OR Arriv_To LIKE @searchQuery
+                WHERE (Flight_Code LIKE @searchQuery
+                       OR Depart_From LIKE @searchQuery
+                       OR Arriv_To LIKE @searchQuery)
+                      AND IsArchived = 0  -- Only show non-archived flights
                 ORDER BY Depart_Date DESC";
 
             try

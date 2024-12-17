@@ -15,9 +15,7 @@ namespace AirlineBookingSystem
         private readonly BookView _parentForm;
         public bool IsEditMode { get; private set; } = true;
         private string OriginalBookingRef;
-       
 
-     
 
         public TicketModule(BookView parentForm)
         {
@@ -103,18 +101,7 @@ namespace AirlineBookingSystem
             cbPassengerSeat.SelectedItem = seatNo;
             cbTravelClass.SelectedItem = travelClass;
 
-            // Ensure cbPassengerSeat is populated before selecting
-            if (cbPassengerSeat.Items.Count == 0)
-            {
-                for (char row = 'A'; row <= 'D'; row++) // Rows A to D
-                {
-                    for (int number = 1; number <= 10; number++) // Numbers 1 to 10
-                    {
-                        string seat = $"{row}{number}";
-                        cbPassengerSeat.Items.Add(seat); // Add seat label (e.g., A1, B5, D10)
-                    }
-                }
-            }
+          
         }
 
 
@@ -138,6 +125,8 @@ namespace AirlineBookingSystem
             var regex = new System.Text.RegularExpressions.Regex(@"^09\d{9}$");
             return regex.IsMatch(contact);
         }
+
+
 
 
 
@@ -508,15 +497,7 @@ namespace AirlineBookingSystem
 
         private void TicketModule_Load(object sender, EventArgs e)
         {
-            // Populate cbPassengerSeat with seat labels (A1 to D10)
-            for (char row = 'A'; row <= 'D'; row++) // Rows A to D
-            {
-                for (int number = 1; number <= 10; number++) // Numbers 1 to 10
-                {
-                    string seat = $"{row}{number}";
-                    cbPassengerSeat.Items.Add(seat); // Add seat label (e.g., A1, B5, D10)
-                }
-            }
+            
         }
 
         #region

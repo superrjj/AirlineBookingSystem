@@ -36,7 +36,7 @@
             this.txtSearchBar = new System.Windows.Forms.TextBox();
             this.addIcon = new System.Windows.Forms.PictureBox();
             this.dgFlights = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Flight_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -107,7 +107,7 @@
             this.dgFlights.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgFlights.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgFlights.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
+            this.Flight_Code,
             this.Column3,
             this.Column4,
             this.Column2,
@@ -125,13 +125,13 @@
             this.dgFlights.TabIndex = 5;
             this.dgFlights.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgFlights_CellContentClick);
             // 
-            // Column1
+            // Flight_Code
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.HeaderText = "Flight Code";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.Flight_Code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Flight_Code.HeaderText = "Flight Code";
+            this.Flight_Code.MinimumWidth = 6;
+            this.Flight_Code.Name = "Flight_Code";
+            this.Flight_Code.ReadOnly = true;
             // 
             // Column3
             // 
@@ -198,7 +198,7 @@
         private System.Windows.Forms.DataGridView dgFlights;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSearchBar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Flight_Code;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
