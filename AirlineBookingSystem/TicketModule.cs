@@ -98,12 +98,34 @@ namespace AirlineBookingSystem
             cbNationality.SelectedItem = nationality;
             cbDeparture.SelectedItem = departureFrom;
             cbArrival.SelectedItem = arrivalTo;
-            dtDeparture.Value = departureDate;
+           
             cbPassengerSeat.SelectedItem = seatNo;
             cbTravelClass.SelectedItem = travelClass;
 
-          
-        }
+            // Set departure date, with error handling for invalid dates
+            if (departureDate >= dtDeparture.MinDate && departureDate <= dtDeparture.MaxDate)
+            {
+                dtDeparture.Value = departureDate;
+            }
+            else
+            {
+                
+            }
+
+
+            if (cbPassengerSeat.Items.Count == 0)
+            {
+                for (char row = 'A'; row <= 'D'; row++) // Rows A to D
+                {
+                    for (int number = 1; number <= 10; number++) // Numbers 1 to 10
+                    {
+                        string seat = $"{row}{number}";
+                        cbPassengerSeat.Items.Add(seat); // Add seat label (e.g., A1, B5, D10)
+                    }
+                }
+            }
+
+            }
 
 
         private string GenerateBookingReference()
@@ -129,7 +151,9 @@ namespace AirlineBookingSystem
 
         public void SetUpDate()
         {
-            dtDeparture.MinDate = DateTime.Now;
+            dtDeparture.MinDate = DateTime.Now; // or some valid minimum date
+            dtDeparture.MaxDate = DateTime.Now.AddYears(1); // or some valid maximum date
+
         }
 
         private void btnBook_Click(object sender, EventArgs e)
@@ -405,6 +429,15 @@ namespace AirlineBookingSystem
                 return;
             }
 
+            // Ensure the selected date is within the allowed range
+            if (dtDeparture.Value < dtDeparture.MinDate || dtDeparture.Value > dtDeparture.MaxDate)
+            {
+                MessageBox.Show($"The selected date must be between {dtDeparture.MinDate.ToShortDateString()} and {dtDeparture.MaxDate.ToShortDateString()}.",
+                                 "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
             #endregion
 
 
@@ -482,7 +515,15 @@ namespace AirlineBookingSystem
 
         private void TicketModule_Load(object sender, EventArgs e)
         {
-            
+            // Populate cbPassengerSeat with seat labels (A1 to D10)
+            for (char row = 'A'; row <= 'D'; row++) // Rows A to D
+            {
+                for (int number = 1; number <= 10; number++) // Numbers 1 to 10
+                {
+                    string seat = $"{row}{number}";
+                    cbPassengerSeat.Items.Add(seat); // Add seat label (e.g., A1, B5, D10)
+                }
+            }
         }
 
         #region
